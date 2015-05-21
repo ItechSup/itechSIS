@@ -35,6 +35,13 @@ class Student
      */
     private $surname;
 
+    /**
+     * @var Session
+     *
+     * @ORM\ManyToOne(targetEntity="Session",inversedBy="Student")
+     * @ORM\JoinColumn(name="session_id",referencedColumnName="id")
+     */
+    private $session;
 
     /**
      * Get id

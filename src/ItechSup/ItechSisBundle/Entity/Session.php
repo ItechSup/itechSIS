@@ -41,8 +41,15 @@ class Session
      * @ORM\ManyToOne(targetEntity="Formation", inversedBy="Session")
      * @ORM\JoinColumn(name="formation_id",referencedColumnName="id")
      */
-
     private $formation;
+
+    /**
+     * @var Student
+     *
+     * @ORM\OneToMany(targetEntity="Student", mappedBy="Session")
+     */
+    private $student;
+
     /**
      * Get id
      *
