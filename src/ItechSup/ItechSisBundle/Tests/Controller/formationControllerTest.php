@@ -4,7 +4,7 @@ namespace ItechSup\ItechSisBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class formationControllerTest extends WebTestCase
+class FormationControllerTest extends WebTestCase
 {
     /*
     public function testCompleteScenario()

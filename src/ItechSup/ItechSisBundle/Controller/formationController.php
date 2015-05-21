@@ -7,19 +7,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use ItechSup\ItechSisBundle\Entity\formation;
-use ItechSup\ItechSisBundle\Form\formationType;
+use ItechSup\ItechSisBundle\Entity\Formation;
+use ItechSup\ItechSisBundle\Form\FormationType;
 
 /**
- * formation controller.
+ * Formation controller.
  *
  * @Route("/formation")
  */
-class formationController extends Controller
+class FormationController extends Controller
 {
 
     /**
-     * Lists all formation entities.
+     * Lists all Formation entities.
      *
      * @Route("/", name="formation")
      * @Method("GET")
@@ -29,22 +29,22 @@ class formationController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('ItechSupItechSisBundle:formation')->findAll();
+        $entities = $em->getRepository('ItechSupItechSisBundle:Formation')->findAll();
 
         return array(
             'entities' => $entities,
         );
     }
     /**
-     * Creates a new formation entity.
+     * Creates a new Formation entity.
      *
      * @Route("/", name="formation_create")
      * @Method("POST")
-     * @Template("ItechSupItechSisBundle:formation:new.html.twig")
+     * @Template("ItechSupItechSisBundle:Formation:new.html.twig")
      */
     public function createAction(Request $request)
     {
-        $entity = new formation();
+        $entity = new Formation();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -63,15 +63,15 @@ class formationController extends Controller
     }
 
     /**
-     * Creates a form to create a formation entity.
+     * Creates a form to create a Formation entity.
      *
-     * @param formation $entity The entity
+     * @param Formation $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(formation $entity)
+    private function createCreateForm(Formation $entity)
     {
-        $form = $this->createForm(new formationType(), $entity, array(
+        $form = $this->createForm(new FormationType(), $entity, array(
             'action' => $this->generateUrl('formation_create'),
             'method' => 'POST',
         ));
@@ -82,7 +82,7 @@ class formationController extends Controller
     }
 
     /**
-     * Displays a form to create a new formation entity.
+     * Displays a form to create a new Formation entity.
      *
      * @Route("/new", name="formation_new")
      * @Method("GET")
@@ -90,7 +90,7 @@ class formationController extends Controller
      */
     public function newAction()
     {
-        $entity = new formation();
+        $entity = new Formation();
         $form   = $this->createCreateForm($entity);
 
         return array(
@@ -100,7 +100,7 @@ class formationController extends Controller
     }
 
     /**
-     * Finds and displays a formation entity.
+     * Finds and displays a Formation entity.
      *
      * @Route("/{id}", name="formation_show")
      * @Method("GET")
@@ -110,10 +110,10 @@ class formationController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ItechSupItechSisBundle:formation')->find($id);
+        $entity = $em->getRepository('ItechSupItechSisBundle:Formation')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find formation entity.');
+            throw $this->createNotFoundException('Unable to find Formation entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -125,7 +125,7 @@ class formationController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing formation entity.
+     * Displays a form to edit an existing Formation entity.
      *
      * @Route("/{id}/edit", name="formation_edit")
      * @Method("GET")
@@ -135,10 +135,10 @@ class formationController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ItechSupItechSisBundle:formation')->find($id);
+        $entity = $em->getRepository('ItechSupItechSisBundle:Formation')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find formation entity.');
+            throw $this->createNotFoundException('Unable to find Formation entity.');
         }
 
         $editForm = $this->createEditForm($entity);
@@ -152,15 +152,15 @@ class formationController extends Controller
     }
 
     /**
-    * Creates a form to edit a formation entity.
+    * Creates a form to edit a Formation entity.
     *
-    * @param formation $entity The entity
+    * @param Formation $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(formation $entity)
+    private function createEditForm(Formation $entity)
     {
-        $form = $this->createForm(new formationType(), $entity, array(
+        $form = $this->createForm(new FormationType(), $entity, array(
             'action' => $this->generateUrl('formation_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
@@ -170,20 +170,20 @@ class formationController extends Controller
         return $form;
     }
     /**
-     * Edits an existing formation entity.
+     * Edits an existing Formation entity.
      *
      * @Route("/{id}", name="formation_update")
      * @Method("PUT")
-     * @Template("ItechSupItechSisBundle:formation:edit.html.twig")
+     * @Template("ItechSupItechSisBundle:Formation:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ItechSupItechSisBundle:formation')->find($id);
+        $entity = $em->getRepository('ItechSupItechSisBundle:Formation')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find formation entity.');
+            throw $this->createNotFoundException('Unable to find Formation entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -203,7 +203,7 @@ class formationController extends Controller
         );
     }
     /**
-     * Deletes a formation entity.
+     * Deletes a Formation entity.
      *
      * @Route("/{id}", name="formation_delete")
      * @Method("DELETE")
@@ -215,10 +215,10 @@ class formationController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('ItechSupItechSisBundle:formation')->find($id);
+            $entity = $em->getRepository('ItechSupItechSisBundle:Formation')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find formation entity.');
+                throw $this->createNotFoundException('Unable to find Formation entity.');
             }
 
             $em->remove($entity);
@@ -229,7 +229,7 @@ class formationController extends Controller
     }
 
     /**
-     * Creates a form to delete a formation entity by id.
+     * Creates a form to delete a Formation entity by id.
      *
      * @param mixed $id The entity id
      *
