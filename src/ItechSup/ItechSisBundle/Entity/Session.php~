@@ -41,8 +41,15 @@ class Session
      * @ORM\ManyToOne(targetEntity="Formation", inversedBy="Session")
      * @ORM\JoinColumn(name="formation_id",referencedColumnName="id")
      */
-
     private $formation;
+
+    /**
+     * @var Student
+     *
+     * @ORM\OneToMany(targetEntity="Student", mappedBy="Session")
+     */
+    private $student;
+
     /**
      * Get id
      *
@@ -97,5 +104,28 @@ class Session
     public function getEndDate()
     {
         return $this->endDate;
+    }
+
+    /**
+     * Set formation
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\Formation $formation
+     * @return Session
+     */
+    public function setFormation(\ItechSup\ItechSisBundle\Entity\Formation $formation = null)
+    {
+        $this->formation = $formation;
+
+        return $this;
+    }
+
+    /**
+     * Get formation
+     *
+     * @return \ItechSup\ItechSisBundle\Entity\Formation 
+     */
+    public function getFormation()
+    {
+        return $this->formation;
     }
 }
