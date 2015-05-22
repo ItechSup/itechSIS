@@ -3,6 +3,8 @@
 namespace ItechSup\ItechSisBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ItechSup\ItechSisBundle\ItechSupItechSisBundle;
+use Proxies\__CG__\ItechSup\ItechSisBundle\Entity\Formation;
 
 /**
  * Session
@@ -106,9 +108,16 @@ class Session
         return $this->endDate;
     }
 
-    
+    public function getTitle()
+    {
+        return ;
+    }
 
- 
+    public function setTitle($title)
+    {
+    $this->title = $title;
+        return $this;
+    }
 
     /**
      * Set formation
