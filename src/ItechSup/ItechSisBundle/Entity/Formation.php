@@ -27,7 +27,7 @@ class Formation
      *
      * @ORM\Column(name="title", type="string", length=255)
      */
-    private $title;
+    public $title;
 
     /**
      * @var ArrayCollection

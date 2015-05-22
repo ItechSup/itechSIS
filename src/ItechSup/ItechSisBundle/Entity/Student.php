@@ -66,6 +66,16 @@ class Student
         return $this;
     }
 
+    /*
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->getSession()->getFormation()->getTitle();
+    }
+
     /**
      * Get name
      *
