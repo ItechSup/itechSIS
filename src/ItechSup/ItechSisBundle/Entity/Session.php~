@@ -106,10 +106,10 @@ class Session
         return $this->endDate;
     }
 
-    public function getTitle()
-    {
-        return $this->title();
-    }
+    
+
+ 
+
     /**
      * Set formation
      *

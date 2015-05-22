@@ -17,7 +17,7 @@ class StudentType extends AbstractType
         $builder
             ->add('name')
             ->add('surname')
-            ->add('session', null, array('property' => 'endDate'))
+            ->add('session', null, array('property' => 'title'))
         ;
     }
     

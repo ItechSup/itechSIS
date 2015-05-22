@@ -106,6 +106,9 @@ class Session
         return $this->endDate;
     }
 
+    
+
+ 
 
     /**
      * Set formation

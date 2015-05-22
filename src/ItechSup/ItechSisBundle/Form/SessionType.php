@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+
+
 class SessionType extends AbstractType
 {
     /**
@@ -17,7 +19,7 @@ class SessionType extends AbstractType
         $builder
             ->add('startDate')
             ->add('endDate')
-            ->add('formation', null, array('property' => 'title'))
+            ->add('formation', null, array('property' => getTitle))
         ;
     }
     
