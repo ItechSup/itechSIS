@@ -106,6 +106,10 @@ class Session
         return $this->endDate;
     }
 
+    public function getTitle()
+    {
+        return $this->title();
+    }
     /**
      * Set formation
      *
@@ -127,5 +131,45 @@ class Session
     public function getFormation()
     {
         return $this->formation;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->student = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add student
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\Student $student
+     * @return Session
+     */
+    public function addStudent(\ItechSup\ItechSisBundle\Entity\Student $student)
+    {
+        $this->student[] = $student;
+
+        return $this;
+    }
+
+    /**
+     * Remove student
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\Student $student
+     */
+    public function removeStudent(\ItechSup\ItechSisBundle\Entity\Student $student)
+    {
+        $this->student->removeElement($student);
+    }
+
+    /**
+     * Get student
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStudent()
+    {
+        return $this->student;
     }
 }

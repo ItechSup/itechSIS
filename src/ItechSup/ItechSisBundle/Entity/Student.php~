@@ -98,4 +98,27 @@ class Student
     {
         return $this->surname;
     }
+
+    /**
+     * Set session
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\Session $session
+     * @return Student
+     */
+    public function setSession(\ItechSup\ItechSisBundle\Entity\Session $session = null)
+    {
+        $this->session = $session;
+
+        return $this;
+    }
+
+    /**
+     * Get session
+     *
+     * @return \ItechSup\ItechSisBundle\Entity\Session 
+     */
+    public function getSession()
+    {
+        return $this->session;
+    }
 }
