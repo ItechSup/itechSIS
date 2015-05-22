@@ -73,7 +73,7 @@ class Student
      */
     public function getTitle()
     {
-        return $this->getSession()->getFormation()->getTitle();
+        return $this->session;
     }
 
     /**

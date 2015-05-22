@@ -17,10 +17,9 @@ class StudentType extends AbstractType
         $builder
             ->add('name')
             ->add('surname')
-            ->add('session', null, array('property' => 'title'))
-        ;
+            ->add('session', null, array('property' => 'title'));
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
@@ -38,4 +37,6 @@ class StudentType extends AbstractType
     {
         return 'itechsup_itechsisbundle_student';
     }
+
+
 }

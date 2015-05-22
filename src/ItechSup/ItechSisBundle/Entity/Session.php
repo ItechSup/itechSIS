@@ -4,7 +4,6 @@ namespace ItechSup\ItechSisBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ItechSup\ItechSisBundle\ItechSupItechSisBundle;
-use Proxies\__CG__\ItechSup\ItechSisBundle\Entity\Formation;
 
 /**
  * Session
@@ -110,7 +109,7 @@ class Session
 
     public function getTitle()
     {
-        return ;
+        return $this ->formation -> title;
     }
 
     public function setTitle($title)
@@ -125,7 +124,7 @@ class Session
      * @param \ItechSup\ItechSisBundle\Entity\Formation $formation
      * @return Session
      */
-    public function setFormation(\ItechSup\ItechSisBundle\Entity\Formation $formation = null)
+     public function setFormation(\ItechSup\ItechSisBundle\Entity\Formation $formation = null)
     {
         $this->formation = $formation;
 
