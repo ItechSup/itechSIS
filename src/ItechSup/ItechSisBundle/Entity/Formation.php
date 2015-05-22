@@ -40,7 +40,7 @@ class Formation
     {
         $this->sessions = new ArrayCollection();
     }
-    
+
     /**
      * Get id
      *
