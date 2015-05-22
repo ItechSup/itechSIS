@@ -17,7 +17,7 @@ class SessionType extends AbstractType
         $builder
             ->add('startDate')
             ->add('endDate')
-            ->add('formation')
+            ->add('formation', null, array('property' => 'title'))
         ;
     }
     

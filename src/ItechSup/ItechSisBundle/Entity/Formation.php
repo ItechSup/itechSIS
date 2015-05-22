@@ -40,13 +40,7 @@ class Formation
     {
         $this->sessions = new ArrayCollection();
     }
-
-
-    public function __toString()
-    {
-        return $this->title;
-    }
-
+    
     /**
      * Get id
      *
