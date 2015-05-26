@@ -31,3 +31,13 @@ td, th
 #content{
     margin-left: 35%;
 }
+/*
+* Form new student
+*/
+
+.record_actions{
+    padding: 30px;
+}
+.form{
+    padding: 15px;
+}

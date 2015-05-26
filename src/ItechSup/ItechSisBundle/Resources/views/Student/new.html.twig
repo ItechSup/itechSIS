@@ -5,11 +5,12 @@
     {{ parent() }}
 {% endblock %}
 
-{% block body -%}
+
+{% block content %}
     <h1>Student creation</h1>
-
-    {{ form(form) }}
-
+    <div class="form">
+        {{ form(form) }}
+    </div>
         <ul class="record_actions">
     <li>
         <a href="{{ path('student') }}">
