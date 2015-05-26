@@ -3,6 +3,3 @@ itech_sup_itech_sis:
     type:     annotation
     prefix:   /
 
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
