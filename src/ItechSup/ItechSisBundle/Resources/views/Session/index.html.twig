@@ -1,32 +1,29 @@
-{% extends '::base.html.twig' %}
+{% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>Session list</h1>
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
 
+{% block content%}
+    <div class="block-title">
+        <h1>Liste de session</h1>
+    </div>
     <table class="records_list">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Startdate</th>
-                <th>Enddate</th>
+                <th>Début</th>
+                <th>Fin</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('session_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{% if entity.startDate %}{{ entity.startDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if entity.endDate %}{{ entity.endDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.startDate %}{{ entity.startDate|date('d-m-Y ') }}{% endif %}</td>
+                <td>{% if entity.endDate %}{{ entity.endDate|date('d-m-Y') }}{% endif %}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('session_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('session_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+
+                        <a href="{{ path('session_edit', { 'id': entity.id }) }}"class="button">Editer</a>
                 </td>
             </tr>
         {% endfor %}
@@ -36,7 +33,7 @@
         <ul>
         <li>
             <a href="{{ path('session_new') }}">
-                Create a new entry
+                Créer une nouvelle entrée
             </a>
         </li>
     </ul>
