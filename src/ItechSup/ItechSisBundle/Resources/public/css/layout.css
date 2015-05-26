@@ -1,11 +1,13 @@
 #layout{
     font-family: 'Roboto', sans-serif;
+    background-color: #eff3f8;
 }
 header{
     height: 50px;
     border-bottom: 1px solid grey;
     line-height: 50px;
     padding-left: 10%;
+    background-color: white;
 }
 
 /*
@@ -23,8 +25,7 @@ header{
 #menu ul li{
     border-bottom: 1px solid white;
     padding: 25px 0;
-    cursor: hand;
-
+    cursor: pointer;
 }
 #menu ul li:hover{
     backgroud-color: #465460;
@@ -37,6 +38,9 @@ header{
     padding-bottom: 10px;
 }
 
+/*
+* Content Style
+*/
 #content{
     padding-top: 20px;
 }
