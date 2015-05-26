@@ -37,6 +37,9 @@
 
         <div id="content">
             {% block content %}
+                <div class="block-title">
+                    {% block blockTitleContent %}{% endblock %}
+                </div>
             {% endblock %}
         </div>
     </div>
