@@ -1,7 +1,12 @@
-{% extends '::base.html.twig' %}
+{% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>Formation edit</h1>
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/itechsupitechsis/css/Student/student.css') }}" />
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <h1 class="block-title">Formation edit</h1>
 
     {{ form(edit_form) }}
 
