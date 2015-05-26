@@ -47,7 +47,7 @@ class Session
     /**
      * @var Student
      *
-     * @ORM\OneToMany(targetEntity="Student", mappedBy="sessions")
+     * @ORM\OneToMany(targetEntity="Student", mappedBy="session")
      */
     private $student;
 
