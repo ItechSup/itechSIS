@@ -109,7 +109,7 @@ class Session
 
     public function getTitle()
     {
-        return $this->formation->title;
+        return $this->formation->getTitle();
     }
 
     public function setTitle($title)
