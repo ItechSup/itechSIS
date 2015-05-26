@@ -3,6 +3,8 @@
 namespace ItechSup\ItechSisBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ItechSup\ItechSisBundle\ItechSupItechSisBundle;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Session
@@ -38,22 +40,39 @@ class Session
     /**
      * @var Formation
      *
-     * @ORM\ManyToOne(targetEntity="Formation", inversedBy="Session")
+     * @ORM\ManyToOne(targetEntity="Formation", inversedBy="sessions")
      * @ORM\JoinColumn(name="formation_id",referencedColumnName="id")
      */
     private $formation;
 
     /**
-     * @var Student
+     * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Student", mappedBy="Session")
+     * @ORM\OneToMany(targetEntity="Student", mappedBy="session")
      */
-    private $student;
+    private $students;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Event", mappedBy="session")
+     */
+    private $events;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->students = new ArrayCollection();
+        $this->events = new ArrayCollection();
+    }
+
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -76,7 +95,7 @@ class Session
     /**
      * Get startDate
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getStartDate()
     {
@@ -99,16 +118,23 @@ class Session
     /**
      * Get endDate
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getEndDate()
     {
         return $this->endDate;
     }
 
-    
+    public function getTitle()
+    {
+        return $this->formation->getTitle();
+    }
 
- 
+    public function setTitle($title)
+    {
+        $this->title = $title;
+        return $this;
+    }
 
     /**
      * Set formation
@@ -116,7 +142,7 @@ class Session
      * @param \ItechSup\ItechSisBundle\Entity\Formation $formation
      * @return Session
      */
-    public function setFormation(\ItechSup\ItechSisBundle\Entity\Formation $formation = null)
+     public function setFormation(\ItechSup\ItechSisBundle\Entity\Formation $formation = null)
     {
         $this->formation = $formation;
 
@@ -126,18 +152,11 @@ class Session
     /**
      * Get formation
      *
-     * @return \ItechSup\ItechSisBundle\Entity\Formation 
+     * @return \ItechSup\ItechSisBundle\Entity\Formation
      */
     public function getFormation()
     {
         return $this->formation;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->student = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -148,7 +167,7 @@ class Session
      */
     public function addStudent(\ItechSup\ItechSisBundle\Entity\Student $student)
     {
-        $this->student[] = $student;
+        $this->students[] = $student;
 
         return $this;
     }
@@ -160,16 +179,16 @@ class Session
      */
     public function removeStudent(\ItechSup\ItechSisBundle\Entity\Student $student)
     {
-        $this->student->removeElement($student);
+        $this->students->removeElement($student);
     }
 
     /**
      * Get student
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getStudent()
     {
-        return $this->student;
+        return $this->students;
     }
 }

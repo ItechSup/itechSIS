@@ -1,4 +1,4 @@
-{% extends '::base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Administration - GSI Formation{% endblock %}
 {% block stylesheets %}
@@ -10,26 +10,44 @@
 
 {% block body %}
     <div id="layout">
-        <header>LOGO</header>
+        <header>
+            <a href="{{ path('default') }}">
+                <p><i class="fa fa-home fa-2x"></i>Page d'accueil</p>
+            </a>
+        </header>
 
         <div id="menu">
             {% block menu %}
                 <ul>
-                    <li onclick="location.href='javascript:default_link()'">
-                        <p><i class="fa fa-home fa-3x"></i></p>
-                        <p>Page d'accueil</p>
+                    <li>
+                        <a href="{{ path('formation') }}">
+                            <p><i class="fa fa-pencil fa-2x"></i></p>
+                            <p>Formations</p>
+                        </a>
                     </li>
-                    <li onclick="location.href='javascript:formation_link()'">
-                        <p><i class="fa fa-pencil fa-3x"></i></p>
-                        <p>Formations</p>
+                    <li>
+                        <a href="{{ path('session') }}">
+                            <p><i class="fa fa-calendar fa-2x"></i></p>
+                            <p>Sessions</p>
+                        </a>
                     </li>
-                    <li onclick="location.href='javascript:session_link()'">
-                        <p><i class="fa fa-calendar fa-3x"></i></p>
-                        <p>Sessions</p>
+                    <li>
+                        <a href="{{ path('student') }}">
+                            <p><i class="fa fa-user fa-2x"></i></p>
+                            <p>Etudiants</p>
+                        </a>
                     </li>
-                    <li onclick="location.href='javascript:student_link()'">
-                        <p><i class="fa fa-user fa-3x"></i></p>
-                        <p>Etudiants</p>
+                    <li>
+                        <a href="{{ path('room') }}">
+                            <p><i class="fa fa-bed fa-2x"></i></p>
+                            <p>Salles</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('teacher') }}">
+                            <p><i class="fa fa-bed fa-2x"></i></p>
+                            <p>Profs</p>
+                        </a>
                     </li>
                 </ul>
             {% endblock %}
@@ -43,20 +61,4 @@
             {% endblock %}
         </div>
     </div>
-{% endblock %}
-{% block javascripts %}
-    <script>
-        function default_link(){
-            location.href="{{ path('default')}}";
-        }
-        function student_link(){
-            location.href="{{ path('student')}}";
-        }
-        function session_link(){
-            location.href="{{ path('session')}}";
-        }
-        function formation_link(){
-            location.href="{{ path('formation')}}";
-        }
-    </script>
 {% endblock %}

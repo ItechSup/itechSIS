@@ -1,7 +1,7 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1>Session</h1>
+    <h1>Room</h1>
 
     <table class="record_properties">
         <tbody>
@@ -10,24 +10,28 @@
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Startdate</th>
-                <td>{{ entity.startDate|date('Y-m-d H:i:s') }}</td>
+                <th>Number</th>
+                <td>{{ entity.number }}</td>
             </tr>
             <tr>
-                <th>Enddate</th>
-                <td>{{ entity.endDate|date('Y-m-d H:i:s') }}</td>
+                <th>Seatscount</th>
+                <td>{{ entity.seatsCount }}</td>
+            </tr>
+            <tr>
+                <th>Computerscount</th>
+                <td>{{ entity.computersCount }}</td>
             </tr>
         </tbody>
     </table>
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('session') }}">
+        <a href="{{ path('room') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('session_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('room_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>

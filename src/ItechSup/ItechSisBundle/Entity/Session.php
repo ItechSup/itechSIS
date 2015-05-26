@@ -4,6 +4,7 @@ namespace ItechSup\ItechSisBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ItechSup\ItechSisBundle\ItechSupItechSisBundle;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Session
@@ -45,16 +46,33 @@ class Session
     private $formation;
 
     /**
-     * @var Student
+     * @var ArrayCollection
      *
      * @ORM\OneToMany(targetEntity="Student", mappedBy="session")
      */
-    private $student;
+    private $students;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Event", mappedBy="session")
+     */
+    private $events;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->students = new ArrayCollection();
+        $this->events = new ArrayCollection();
+    }
+
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -77,7 +95,7 @@ class Session
     /**
      * Get startDate
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getStartDate()
     {
@@ -100,7 +118,7 @@ class Session
     /**
      * Get endDate
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getEndDate()
     {
@@ -134,18 +152,11 @@ class Session
     /**
      * Get formation
      *
-     * @return \ItechSup\ItechSisBundle\Entity\Formation 
+     * @return \ItechSup\ItechSisBundle\Entity\Formation
      */
     public function getFormation()
     {
         return $this->formation;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->student = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -156,7 +167,7 @@ class Session
      */
     public function addStudent(\ItechSup\ItechSisBundle\Entity\Student $student)
     {
-        $this->student[] = $student;
+        $this->students[] = $student;
 
         return $this;
     }
@@ -168,16 +179,59 @@ class Session
      */
     public function removeStudent(\ItechSup\ItechSisBundle\Entity\Student $student)
     {
-        $this->student->removeElement($student);
+        $this->students->removeElement($student);
     }
 
     /**
      * Get student
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getStudent()
     {
-        return $this->student;
+        return $this->students;
+    }
+
+    /**
+     * Get students
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStudents()
+    {
+        return $this->students;
+    }
+
+    /**
+     * Add events
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\Event $events
+     * @return Session
+     */
+    public function addEvent(\ItechSup\ItechSisBundle\Entity\Event $events)
+    {
+        $this->events[] = $events;
+
+        return $this;
+    }
+
+    /**
+     * Remove events
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\Event $events
+     */
+    public function removeEvent(\ItechSup\ItechSisBundle\Entity\Event $events)
+    {
+        $this->events->removeElement($events);
+    }
+
+    /**
+     * Get events
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEvents()
+    {
+        return $this->events;
     }
 }

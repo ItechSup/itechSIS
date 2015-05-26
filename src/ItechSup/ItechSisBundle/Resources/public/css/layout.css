@@ -28,7 +28,7 @@ header{
 }
 #menu ul li{
     border-bottom: 1px solid white;
-    padding: 25px 0;
+    /*padding: 25px 0;*/
     cursor: pointer;
 }
 #menu ul li:hover{
