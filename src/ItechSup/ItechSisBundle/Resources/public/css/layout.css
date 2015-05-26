@@ -16,17 +16,18 @@ header{
     width: 15%;
     height: 500px;
     padding-top: 20px;
-    background-color: #465460;
+    background-color: #536372;
     color: white;
     text-align: center;
 }
 #menu ul li{
-    border-bottom: 1px solid #536372;
+    border-bottom: 1px solid white;
     padding: 25px 0;
+    cursor: hand;
 
 }
 #menu ul li:hover{
-    backgroud-color: #536372;
+    backgroud-color: #465460;
 }
 #menu ul li a{
     color: white;
