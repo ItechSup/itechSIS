@@ -1,11 +1,5 @@
 /*
 * Reset CSS
 */
-* {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-body{
-    background-color: #eff3f8;
-}
+* { padding: 0;  margin: 0;  list-style: none; }
+body, html{ background-color: #eff3f8;  height: 100%; width: 100%; }
