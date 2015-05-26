@@ -1,0 +1,33 @@
+/*
+* Table Style CSS
+*/
+table
+{
+    border-collapse: collapse;
+}
+thead{
+    border-bottom: 2px solid grey;
+}
+td, th
+{
+    padding: 30px 50px;
+    background-color: white;
+    color: black;
+    border-bottom: 2px solid #ddd;
+}
+
+.button{
+    display: block;
+    background-color: #2980b9;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    display: inline;
+    text-decoration: none;
+}
+.button:hover{
+    background-color: #3498db;
+}
+#content{
+    margin-left: 35%;
+}

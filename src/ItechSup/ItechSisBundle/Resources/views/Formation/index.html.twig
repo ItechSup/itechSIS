@@ -1,30 +1,29 @@
-{% extends '::base.html.twig' %}
+{% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
-{% block body -%}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/itechsupitechsis/css/Student/student.css') }}" />
+    {{ parent() }}
+{% endblock %}
+
+{% block content%}
     <h1>Formation list</h1>
 
     <table class="records_list">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Title</th>
+                <th>Session</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('formation_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('formation_show', { 'id': entity.id }) }}">{{ entity.title  }}</a></td>
                 <td>{{ entity.title }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('formation_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('formation_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                        <a href="{{ path('formation_show', { 'id': entity.id }) }}"class="button">show </a>
+                        <a href="{{ path('formation_edit', { 'id': entity.id }) }}"class="button">edit</a>
                 </td>
             </tr>
         {% endfor %}
