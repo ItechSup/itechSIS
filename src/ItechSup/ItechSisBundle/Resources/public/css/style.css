@@ -41,3 +41,8 @@ td, th
 .form{
     padding: 15px;
 }
+
+.new-entry{
+    position: absolute;
+    margin-top: 2%;
+}

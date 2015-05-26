@@ -1,36 +1,33 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
-{% block content %}
-    <h1>Session</h1>
+{% block content%}
+    <div class="block-title">
+        <h1>Session</h1>
+    </div>
 
     <table class="record_properties">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
+                <th>Début</th>
+                <td>{{ entity.startDate|date('d-m-Y') }}</td>
             </tr>
             <tr>
-                <th>Startdate</th>
-                <td>{{ entity.startDate|date('Y-m-d H:i:s') }}</td>
+                <th>Fin</th>
+                <td>{{ entity.endDate|date('d-m-Y') }}</td>
             </tr>
             <tr>
-                <th>Enddate</th>
-                <td>{{ entity.endDate|date('Y-m-d H:i:s') }}</td>
+                <th>Actions</th>
+                <td>
+                    <a href="{{ path('session_edit', { 'id': entity.id }) }}"class="button">
+                        Editer
+                    </a>
+                    {{ form(delete_form) }}
+                </td>
             </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('session') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('session_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <a href="{{ path('session') }}" class="new-entry button">
+        Retour à la liste
+    </a>
 {% endblock %}

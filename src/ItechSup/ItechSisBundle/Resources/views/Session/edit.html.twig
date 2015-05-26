@@ -1,14 +1,15 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
-{% block content %}
-    <h1>Session edit</h1>
+    <div class="block-title">
+        <h1>Session edit</h1>
+    </div>
 
     {{ form(edit_form) }}
 
         <ul class="record_actions">
     <li>
         <a href="{{ path('session') }}">
-            Back to the list
+            Retour à la liste
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>

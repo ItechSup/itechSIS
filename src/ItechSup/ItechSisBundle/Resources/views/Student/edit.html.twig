@@ -1,19 +1,16 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('bundles/itechsupitechsis/css/style.css') }}" />
-    {{ parent() }}
-{% endblock %}
 
 {% block content %}
+    <div class="block-title">
         <h1>Student edit</h1>
-
+    </div>
         {{ form(edit_form) }}
 
             <ul class="record_actions">
         <li>
             <a href="{{ path('student') }}">
-                Back to the list
+                Retour à la liste
             </a>
         </li>
         <li>{{ form(delete_form) }}</li>

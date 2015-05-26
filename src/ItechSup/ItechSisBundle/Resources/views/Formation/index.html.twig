@@ -1,13 +1,8 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('bundles/itechsupitechsis/css/style.css') }}" />
-    {{ parent() }}
-{% endblock %}
-
-{% block content%}
+{% block content %}
     <div class="block-title">
-        <h1>Formation List</h1>
+        <h1>Liste des formations</h1>
     </div>
 
     <table class="records_list">
@@ -24,15 +19,15 @@
                 <td><a href="{{ path('formation_show', { 'id': entity.id }) }}">{{ entity.title  }}</a></td>
                 <td>{{ entity.title }}</td>
                 <td>
-                    <a href="{{ path('formation_show', { 'id': entity.id }) }}"class="button">show </a>
-                    <a href="{{ path('formation_edit', { 'id': entity.id }) }}"class="button">edit</a>
+                    <a href="{{ path('formation_show', { 'id': entity.id }) }}" class="button">Afficher</a>
+                    <a href="{{ path('formation_edit', { 'id': entity.id }) }}" class="button">Editer</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('formation_new') }}">
-        Create a new entry
+    <a href="{{ path('formation_new') }}" class="new-entry button">
+        Créer une nouvelle formation
     </a>
     {% endblock %}

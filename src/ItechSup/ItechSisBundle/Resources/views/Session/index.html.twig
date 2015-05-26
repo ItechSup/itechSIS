@@ -1,9 +1,5 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
-{% block stylesheets %}
-    {{ parent() }}
-{% endblock %}
-
 {% block content%}
     <div class="block-title">
         <h1>Liste de session</h1>
@@ -22,6 +18,7 @@
                 <td>{% if entity.startDate %}{{ entity.startDate|date('d-m-Y ') }}{% endif %}</td>
                 <td>{% if entity.endDate %}{{ entity.endDate|date('d-m-Y') }}{% endif %}</td>
                 <td>
+                        <a href="{{ path('session_show', { 'id': entity.id }) }}"class="button">Voir</a>
 
                         <a href="{{ path('session_edit', { 'id': entity.id }) }}"class="button">Editer</a>
                 </td>
@@ -30,11 +27,7 @@
         </tbody>
     </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('session_new') }}">
-                Créer une nouvelle entrée
-            </a>
-        </li>
-    </ul>
+    <a href="{{ path('session_new') }}" class="new-entry button">
+        Créer une nouvelle entrée
+    </a>
     {% endblock %}
