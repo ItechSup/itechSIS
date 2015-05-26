@@ -1,5 +1,6 @@
 {
     "name": "itechsup/itechsis",
+    "description": "sis for itechsup",
     "license": "WTFPL",
     "type": "project",
     "autoload": {
