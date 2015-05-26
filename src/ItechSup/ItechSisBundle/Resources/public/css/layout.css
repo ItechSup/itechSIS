@@ -1,3 +1,6 @@
+#layout{
+    font-family: 'Roboto', sans-serif;
+}
 header{
     height: 50px;
     border-bottom: 1px solid grey;
@@ -5,14 +8,32 @@ header{
     padding-left: 10%;
 }
 
+/*
+* Menu Style
+*/
 #menu{
     float: left;
     width: 15%;
     height: 500px;
     padding-top: 20px;
-    background-color: #0000BB;
-    padding-left: 2%;
+    background-color: #465460;
     color: white;
+    text-align: center;
+}
+#menu ul li{
+    border-bottom: 1px solid #536372;
+    padding: 25px 0;
+
+}
+#menu ul li:hover{
+    backgroud-color: #465460;
+}
+#menu ul li a{
+    color: white;
+    text-decoration: none;
+}
+#menu ul li i{
+    padding-bottom: 10px;
 }
 
 #content{
