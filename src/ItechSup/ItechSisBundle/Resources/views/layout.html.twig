@@ -15,21 +15,21 @@
         <div id="menu">
             {% block menu %}
                 <ul>
-                    <li>
+                    <li onclick="location.href='javascript:default_link()'">
                         <p><i class="fa fa-home fa-3x"></i></p>
-                        <p><a href="{{ path('default')}}">Homepage</a></p>
+                        <p>Homepage</p>
                     </li>
-                    <li>
+                    <li onclick="location.href='javascript:formation_link()'">
                         <p><i class="fa fa-pencil fa-3x"></i></p>
-                        <p><a href="{{ path('formation')}}">Formation</a></p>
+                        <p>Formation</p>
                     </li>
-                    <li>
+                    <li onclick="location.href='javascript:session_link()'">
                         <p><i class="fa fa-calendar fa-3x"></i></p>
-                        <p><a href="{{ path('session')}}">Session</a></p>
+                        <p>Session</p>
                     </li>
-                    <li>
+                    <li onclick="location.href='javascript:student_link()'">
                         <p><i class="fa fa-user fa-3x"></i></p>
-                        <p><a href="{{ path('student')}}">Student</a></p>
+                        <p>Student</p>
                     </li>
                 </ul>
             {% endblock %}
@@ -41,4 +41,19 @@
         </div>
     </div>
 {% endblock %}
-{% block javascripts %}{% endblock %}
+{% block javascripts %}
+    <script>
+        function default_link(){
+            location.href="{{ path('default')}}";
+        }
+        function student_link(){
+            location.href="{{ path('student')}}";
+        }
+        function session_link(){
+            location.href="{{ path('session')}}";
+        }
+        function formation_link(){
+            location.href="{{ path('formation')}}";
+        }
+    </script>
+{% endblock %}
