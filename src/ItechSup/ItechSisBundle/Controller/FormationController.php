@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use ItechSup\ItechSisBundle\Entity\Formation;
-use ItechSup\ItechSisBundle\Form\formationType;
+use ItechSup\ItechSisBundle\Form\Type\FormationType;
 
 /**
  * Formation controller.

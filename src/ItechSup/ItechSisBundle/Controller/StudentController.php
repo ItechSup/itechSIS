@@ -8,8 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use ItechSup\ItechSisBundle\Entity\Student;
-use ItechSup\ItechSisBundle\Entity\SessionType;
-use ItechSup\ItechSisBundle\Form\StudentType;
+use ItechSup\ItechSisBundle\Form\Type\StudentType;
 
 /**
  * Student controller.

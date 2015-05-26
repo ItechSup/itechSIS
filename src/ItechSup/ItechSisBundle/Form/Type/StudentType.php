@@ -37,6 +37,4 @@ class StudentType extends AbstractType
     {
         return 'itechsup_itechsisbundle_student';
     }
-
-
 }

@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use ItechSup\ItechSisBundle\Entity\Session;
-use ItechSup\ItechSisBundle\Form\SessionType;
+use ItechSup\ItechSisBundle\Form\Type\SessionType;
 
 
 /**

@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use ItechSup\ItechSisBundle\Entity\Room;
-use ItechSup\ItechSisBundle\Form\RoomType;
+use ItechSup\ItechSisBundle\Form\Type\RoomType;
 
 /**
  * Room controller.

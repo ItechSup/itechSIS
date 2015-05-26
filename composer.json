@@ -1,6 +1,6 @@
 {
-    "name": "Dinam/itechsis",
-    "license": "proprietary",
+    "name": "itechsup/itechsis",
+    "license": "WTFPL",
     "type": "project",
     "autoload": {
         "psr-0": {

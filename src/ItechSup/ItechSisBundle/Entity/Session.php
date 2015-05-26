@@ -3,7 +3,6 @@
 namespace ItechSup\ItechSisBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use ItechSup\ItechSisBundle\ItechSupItechSisBundle;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
