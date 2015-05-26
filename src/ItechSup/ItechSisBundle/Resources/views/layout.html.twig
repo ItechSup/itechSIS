@@ -1,25 +1,20 @@
 {% extends '::base.html.twig' %}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <title>{% block title %}Administration - GSI Formation{% endblock %}</title>
-    {% block stylesheets %}{% endblock %}
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-</head>
-<body>
-        <div id="layout">
-            <div class="menu">
-                {% block menu %}
-                {% endblock %}
-            </div>
+{% block title %}Administration - GSI Formation{% endblock %}
+{% block stylesheets %}{% endblock %}
 
-            <div class="content">
-                {% block content %}
-                {% endblock %}
-            </div>
+{% block body %}
+    <div id="layout">
+        <div class="menu">
+            {% block menu %}
+            {% endblock %}
         </div>
-    {% block javascripts %}{% endblock %}
-</body>
-</html>
+
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}{% endblock %}
+
