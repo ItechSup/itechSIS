@@ -38,8 +38,8 @@ class Student
     /**
      * @var Session
      *
-     * @ORM\ManyToOne(targetEntity="Session",inversedBy="Student")
-     * @ORM\JoinColumn(name="session_id",referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Session", inversedBy="student")
+     * @ORM\JoinColumn(name="session_id", referencedColumnName="id")
      */
     private $session;
 

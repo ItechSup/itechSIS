@@ -39,7 +39,7 @@ class Session
     /**
      * @var Formation
      *
-     * @ORM\ManyToOne(targetEntity="Formation", inversedBy="Session")
+     * @ORM\ManyToOne(targetEntity="Formation", inversedBy="sessions")
      * @ORM\JoinColumn(name="formation_id",referencedColumnName="id")
      */
     private $formation;
@@ -47,7 +47,7 @@ class Session
     /**
      * @var Student
      *
-     * @ORM\OneToMany(targetEntity="Student", mappedBy="Session")
+     * @ORM\OneToMany(targetEntity="Student", mappedBy="sessions")
      */
     private $student;
 

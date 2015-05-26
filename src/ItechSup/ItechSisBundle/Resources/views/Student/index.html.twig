@@ -16,26 +16,21 @@
             <tr>
                 <th>Name</th>
                 <th>Surname</th>
-                
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('student_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.name }}</td>
-                <td>{{ entity.surname }}</td>
+                <td>{{ entity.surname }}
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('student_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <br>
-                    <li>
-                        <a href="{{ path('student_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+
+                        <a href="{{ path('student_show', { 'id': entity.id }) }}"class="button">show</a>
+
+                        <a href="{{ path('student_edit', { 'id': entity.id }) }}"class="button">edit</a>
                 </td>
+
             </tr>
         {% endfor %}
         </tbody>

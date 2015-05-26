@@ -1,17 +1,23 @@
-ul{
-    list-style-type:none;
-
+table
+{
+    border-collapse: collapse;
 }
-ul li a {
-    display: block;
-    float: left;
-    width: 100px;
-    background-color:#2980b9;
+td, th /* Mettre une bordure sur les td ET les th */
+{
+    border: 1px solid black;
+    padding: 10px;
+    background-color: #2980b9;
     color: white;
-    text-decoration: none;
-    text-align: center;
-    padding: 5px;
 }
-ul li a:hover {
+
+.button{
+    display: block;
+    background-color: #2980b9;
+    color: white;
+    text-align: center;
+    display: inline;
+}
+.button:hover{
     background-color: #3498db;
+
 }
