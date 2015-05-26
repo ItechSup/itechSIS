@@ -46,5 +46,18 @@ header{
 * Content Style
 */
 #content{
-    margin-left: 20%;
+    margin-left: 17%;
+    padding-top: 6%;
+    margin-right: 2%;
+}
+
+.block-title{
+    background-color: white;
+    width: auto;
+    padding: 20px 0;
+}
+.block-title h1{
+    padding-left: 2%;
+    font-size: 20px;
+    color: grey;
 }
