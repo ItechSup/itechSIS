@@ -27,5 +27,7 @@ td, th
 }
 .button:hover{
     background-color: #3498db;
-
+}
+#content{
+    margin-left: 35%;
 }
