@@ -3,13 +3,21 @@
 {% block title %}Administration - GSI Formation{% endblock %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('bundles/itechsupitechsis/css/layout.css') }}" />
+    {{ parent() }}
 {% endblock %}
 
 {% block body %}
     <div id="layout">
+        <header>LOGO</header>
+
         <div id="menu">
             {% block menu %}
-                <p>Test Test Test Test</p>
+                <ul>
+                    <li><a href="{{ path('default')}}">Homepage</a></li>
+                    <li><a href="{{ path('formation')}}">Formation</a></li>
+                    <li><a href="{{ path('session')}}">Session</a></li>
+                    <li><a href="{{ path('student')}}">Student</a></li>
+                </ul>
             {% endblock %}
         </div>
 
