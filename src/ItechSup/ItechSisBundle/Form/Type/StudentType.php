@@ -1,6 +1,6 @@
 <?php
 
-namespace ItechSup\ItechSisBundle\Form;
+namespace ItechSup\ItechSisBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
