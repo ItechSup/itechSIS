@@ -17,7 +17,7 @@
                 <td>{% if entity.startDate %}{{ entity.startDate|date('d-m-Y ') }}{% endif %}</td>
                 <td>{% if entity.endDate %}{{ entity.endDate|date('d-m-Y') }}{% endif %}</td>
                 <td>
-                        <a href="{{ path('session_show', { 'id': entity.id }) }}"class="button">Voir</a>
+                        <a href="{{ path('session_show', { 'id': entity.id }) }}"class="button">Afficher</a>
 
                         <a href="{{ path('session_edit', { 'id': entity.id }) }}"class="button">Editer</a>
                 </td>
