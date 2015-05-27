@@ -9,6 +9,13 @@
                 <th>Nom complet</th>
                 <td>{{ entity.fullName }}</td>
             </tr>
+            {% for event in entity.events %}
+            <tr>
+
+                <th>Event</th>
+                <td>{{ event.title }}</td>
+                <td>{{ entity.startDate|date('d-m-Y ') }}</td>
+            </tr>{% endfor %}
         </tbody>
     </table>
 
