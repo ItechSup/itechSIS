@@ -18,6 +18,12 @@
                 <td>{{ entity.endDate|date('d-m-Y') }}</td>
             </tr>
             <tr>
+                {% for student in entity.students %}
+                <th>Etudiant(s) inscrit(s)</th>
+                <td> {{ student.name }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
                 <th>Actions</th>
                 <td>
                     <a href="{{ path('session_edit', { 'id': entity.id }) }}"class="button">
