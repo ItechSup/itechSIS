@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use ItechSup\ItechSisBundle\Entity\Event;
-use ItechSup\ItechSisBundle\Form\EventType;
+use ItechSup\ItechSisBundle\Form\type\EventType;
 
 /**
  * Event controller.
