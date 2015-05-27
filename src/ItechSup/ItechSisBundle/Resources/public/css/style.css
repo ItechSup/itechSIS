@@ -4,6 +4,7 @@
 table
 {
     border-collapse: collapse;
+    width: 650px;
 }
 thead{
     border-bottom: 2px solid grey;
