@@ -14,7 +14,8 @@
 
                 <th>Event</th>
                 <td>{{ event.title }}</td>
-                <td>{{ entity.startDate|date('d-m-Y ') }}</td>
+                <td>{{ event.startTime|date('d-m-Y ') }}</td>
+                <td>{{ event.endTime|date('d-m-Y ') }}</td>
             </tr>{% endfor %}
         </tbody>
     </table>
