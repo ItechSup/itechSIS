@@ -1,7 +1,7 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content%}
-    <h1 class="block-title">Etudiants</h1>
+    <h1>Etudiants</h1>
 
     <table class="record_properties">
         <tbody>
@@ -10,9 +10,10 @@
                 <td>{{ entity.name }}</td>
             </tr>
             <tr>
-                <th>Surname</th>
+                <th>Prenoms</th>
                 <td>{{ entity.surname }}</td>
             </tr>
+
             <tr>
                 <th>Actions</th>
                 <td>
@@ -25,15 +26,11 @@
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('student') }}">
-            Retour à la liste des étudiants
-        </a>
-    </li>
-    <li>
-
-    </li>
-    <li></li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('student') }}">
+                Retour à la liste des étudiants
+            </a>
+        </li>
+    </ul>
 {% endblock %}
