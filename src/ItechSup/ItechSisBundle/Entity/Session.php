@@ -3,6 +3,7 @@
 namespace ItechSup\ItechSisBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -39,6 +40,7 @@ class Session
     /**
      * @var Formation
      *
+     * @Assert\NotNull()
      * @ORM\ManyToOne(targetEntity="Formation", inversedBy="sessions")
      * @ORM\JoinColumn(name="formation_id",referencedColumnName="id")
      */
