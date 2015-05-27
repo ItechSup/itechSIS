@@ -1,13 +1,14 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1>Teacher list</h1>
+    <div class="block-title">
+    <h1>Liste de prof</h1>
+    </div>
 
     <table class="records_list">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Fullname</th>
+                <th>Nom</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -17,14 +18,9 @@
                 <td><a href="{{ path('teacher_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.fullName }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('teacher_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('teacher_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                        <a href="{{ path('teacher_show', { 'id': entity.id }) }}"class="button">show</a>
+
+                        <a href="{{ path('teacher_edit', { 'id': entity.id }) }}"class="button">edit</a>
                 </td>
             </tr>
         {% endfor %}
@@ -33,7 +29,7 @@
 
         <ul>
         <li>
-            <a href="{{ path('teacher_new') }}">
+            <a href="{{ path('teacher_new') }}"class="new-entry button">
                 Create a new entry
             </a>
         </li>

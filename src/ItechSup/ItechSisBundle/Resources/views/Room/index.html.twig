@@ -1,15 +1,16 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1>Room list</h1>
+    <div class="block-title">
+    <h1>Liste de salles</h1>
+    </div>
 
     <table class="records_list">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Number</th>
-                <th>Seatscount</th>
-                <th>Computerscount</th>
+                <th>Numéro</th>
+                <th>Nombre de sièges</th>
+                <th>Nombre d'ordinateurs</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -21,14 +22,9 @@
                 <td>{{ entity.seatsCount }}</td>
                 <td>{{ entity.computersCount }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('room_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('room_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                        <a href="{{ path('room_show', { 'id': entity.id }) }}"class="button">show</a>
+
+                        <a href="{{ path('room_edit', { 'id': entity.id }) }}"class="button">edit</a>
                 </td>
             </tr>
         {% endfor %}
@@ -37,7 +33,7 @@
 
         <ul>
         <li>
-            <a href="{{ path('room_new') }}">
+            <a href="{{ path('room_new') }}"class="new-entry button">
                 Create a new entry
             </a>
         </li>
