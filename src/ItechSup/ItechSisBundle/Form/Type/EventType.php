@@ -18,12 +18,12 @@ class EventType extends AbstractType
             ->add('startTime')
             ->add('endTime')
             ->add('title')
-            ->add('session')
-            ->add('room')
-            ->add('teacher')
+            ->add('session', null, array('property' => 'startTime'))
+            ->add('room', null, array('property' => 'number'))
+            ->add('teacher', null, array('property' => 'fullName'))
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
