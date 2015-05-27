@@ -1,3 +1,12 @@
+h1{
+    font-size: 20px;
+    color: grey;
+    background-color: white;
+    width: 650px;
+    padding: 20px 2%;
+    margin-bottom: 3%;
+}
+
 #layout{
     font-family: 'Roboto', sans-serif;
     background-color: #eff3f8;
@@ -49,17 +58,4 @@ header{
     margin-left: 17%;
     padding-top: 6%;
     margin-right: 2%;
-}
-
-.block-title{
-    background-color: white;
-    width: 650px;
-    padding: 20px 0;
-    margin-bottom: 3%;
-}
-.block-title h1{
-    padding-left: 2%;
-    font-size: 20px;
-    color: grey;
-
 }
