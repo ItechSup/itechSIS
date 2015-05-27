@@ -1,0 +1,43 @@
+{% extends 'ItechSupItechSisBundle::layout.html.twig' %}
+
+{% block content%}
+    <h1 class="block-title">Session</h1>
+
+    <table class="record_properties">
+        <tbody>
+        {% for entity in entities %}
+        <tr>
+            <th>Nom</th>
+            <td>{{ entity.title }}</td>
+        </tr>
+        <tr>
+            <th>Début</th>
+            <td>{{ entity.startDate|date('d-m-Y') }}</td>
+        </tr>
+        <tr>
+            <th>Fin</th>
+            <td>{{ entity.endDate|date('d-m-Y') }}</td>
+        </tr>
+        <tr>
+            <th>Etudiant(s) inscrit(s)</th>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <th>Actions</th>
+            <td>
+                <a href="{{ path('session_edit', { 'id': entity.id }) }}"class="button">
+                    Editer
+                </a>
+                {{ form(delete_form) }}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('session') }}" class="new-entry button">
+        Retour à la liste
+    </a>
+{% endblock %}

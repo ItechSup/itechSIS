@@ -36,6 +36,31 @@ class SessionController extends Controller
             'entities' => $entities,
         );
     }
+
+    /**
+     * Lists all Students of session
+     *
+     * @Route("/register/{id}", name="session_register")
+     * @Method("GET")
+     * @Template
+     */
+    public function registerAction($id){
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('ItechSupItechSisBundle:Session')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Session entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+
+        return array(
+            'entity'      => $entity,
+            'delete_form' => $deleteForm->createView(),
+        );
+    }
+
     /**
      * Creates a new Session entity.
      *
