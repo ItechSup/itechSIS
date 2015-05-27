@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class FormationControllerTest extends WebTestCase
 {
-    /*
     public function testCompleteScenario()
     {
         // Create a new client to browse the application
@@ -15,12 +14,11 @@ class FormationControllerTest extends WebTestCase
         // Create a new entry in the database
         $crawler = $client->request('GET', '/formation/');
         $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /formation/");
-        $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
+        $crawler = $client->click($crawler->selectLink('Créer une nouvelle formation')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'itechsup_itechsisbundle_formation[field_name]'  => 'Test',
-            // ... other fields to fill
+            'itechsup_itechsisbundle_formation[title]'  => 'Test',
         ));
 
         $client->submit($form);
@@ -30,11 +28,10 @@ class FormationControllerTest extends WebTestCase
         $this->assertGreaterThan(0, $crawler->filter('td:contains("Test")')->count(), 'Missing element td:contains("Test")');
 
         // Edit the entity
-        $crawler = $client->click($crawler->selectLink('Edit')->link());
+        $crawler = $client->click($crawler->selectLink('Editer')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'itechsup_itechsisbundle_formation[field_name]'  => 'Foo',
-            // ... other fields to fill
+            'itechsup_itechsisbundle_formation[title]'  => 'Foo',
         ));
 
         $client->submit($form);
@@ -50,6 +47,4 @@ class FormationControllerTest extends WebTestCase
         // Check the entity has been delete on the list
         $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
     }
-
-    */
 }
