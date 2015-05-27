@@ -42,7 +42,7 @@ class Session
      *
      * @Assert\NotNull()
      * @ORM\ManyToOne(targetEntity="Formation", inversedBy="sessions")
-     * @ORM\JoinColumn(name="formation_id",referencedColumnName="id")
+     * @ORM\JoinColumn(name="formation_id", referencedColumnName="id", nullable=false)
      */
     private $formation;
 
@@ -126,17 +126,6 @@ class Session
         return $this->endDate;
     }
 
-    public function getTitle()
-    {
-        return $this->formation->getTitle();
-    }
-
-    public function setTitle($title)
-    {
-        $this->title = $title;
-        return $this;
-    }
-
     /**
      * Set formation
      *
@@ -196,7 +185,7 @@ class Session
     /**
      * Get students
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getStudents()
     {
@@ -229,7 +218,7 @@ class Session
     /**
      * Get events
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getEvents()
     {

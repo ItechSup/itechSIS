@@ -46,7 +46,7 @@ class Event
      * @var Session
      *
      * @ORM\ManyToOne(targetEntity="Session", inversedBy="events")
-     * @ORM\JoinColumn(name="session_id",referencedColumnName="id")
+     * @ORM\JoinColumn(name="session_id", referencedColumnName="id", nullable=false)
      */
     private $session;
 
@@ -54,7 +54,7 @@ class Event
      * @var Room
      *
      * @ORM\ManyToOne(targetEntity="Room", inversedBy="events")
-     * @ORM\JoinColumn(name="room_id",referencedColumnName="id")
+     * @ORM\JoinColumn(name="room_id", referencedColumnName="id", nullable=false)
      */
     private $room;
 
@@ -62,7 +62,7 @@ class Event
      * @var Teacher
      *
      * @ORM\ManyToOne(targetEntity="Teacher", inversedBy="events")
-     * @ORM\JoinColumn(name="teacher_id",referencedColumnName="id")
+     * @ORM\JoinColumn(name="teacher_id", referencedColumnName="id", nullable=false)
      */
     private $teacher;
 
@@ -162,7 +162,7 @@ class Event
     /**
      * Get session
      *
-     * @return \ItechSup\ItechSisBundle\Entity\Session 
+     * @return \ItechSup\ItechSisBundle\Entity\Session
      */
     public function getSession()
     {
@@ -185,7 +185,7 @@ class Event
     /**
      * Get room
      *
-     * @return \ItechSup\ItechSisBundle\Entity\Room 
+     * @return \ItechSup\ItechSisBundle\Entity\Room
      */
     public function getRoom()
     {
@@ -208,7 +208,7 @@ class Event
     /**
      * Get teacher
      *
-     * @return \ItechSup\ItechSisBundle\Entity\Teacher 
+     * @return \ItechSup\ItechSisBundle\Entity\Teacher
      */
     public function getTeacher()
     {
