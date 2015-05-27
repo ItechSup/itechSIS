@@ -1,16 +1,12 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1>Teacher</h1>
+    <h1>Prof</h1>
 
     <table class="record_properties">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Fullname</th>
+                <th>Nom complet</th>
                 <td>{{ entity.fullName }}</td>
             </tr>
         </tbody>
@@ -19,12 +15,12 @@
         <ul class="record_actions">
     <li>
         <a href="{{ path('teacher') }}">
-            Back to the list
+            Retour à la liste
         </a>
     </li>
     <li>
         <a href="{{ path('teacher_edit', { 'id': entity.id }) }}">
-            Edit
+            Editer
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
