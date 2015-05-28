@@ -65,30 +65,6 @@ class Event
      * @ORM\JoinColumn(name="teacher_id", referencedColumnName="id", nullable=false)
      */
     private $teacher;
-    /**
-     * @var Student
-     *
-     * @ORM\ManyToOne(targetEntity="Student", inversedBy="events")
-     * @ORM\JoinColumn(name="student_id", referencedColumnName="id", nullable=false)
-     */
-    private $student;
-
-    /**
-     * @return Student
-     */
-    public function getStudent()
-    {
-        return $this->student;
-    }
-
-    /**
-     * @param Student $student
-     */
-    public function setStudent($student)
-    {
-        $this->student = $student;
-    }
-
 
     /**
      * Get id
