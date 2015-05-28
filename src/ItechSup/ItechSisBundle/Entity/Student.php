@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Student
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ItechSup\ItechSisBundle\Entity\StudentRepository")
  */
 class Student
 {

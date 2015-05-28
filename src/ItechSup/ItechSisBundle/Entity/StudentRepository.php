@@ -1,5 +1,6 @@
-// src/ItechSup/itechSis/Entity/StudentRepository.php
-    namespace ItechSup\ItechSis\Entity;
+<?php
+
+namespace ItechSup\ItechSisBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -9,7 +10,7 @@ class StudentRepository extends EntityRepository
     {
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT s FROM ItechSupItechSis:Student s WHERE session_id IS NULL'
+                'SELECT s FROM ItechSupItechSisBundle:Student s WHERE s.session IS NULL'
             )
             ->getResult();
     }

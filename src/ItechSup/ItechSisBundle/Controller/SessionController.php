@@ -247,4 +247,31 @@ class SessionController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm();
     }
+
+    /**
+    * Enlist students in a session.
+    *
+    * @Route("/enlist/{id}", name="session_enlist")
+    * @Method("GET")
+    * @Template()
+    */
+    public function enlistAction($id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('ItechSupItechSisBundle:Session')->find($id);
+
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Session entity.');
+        }
+
+        $students = $em->getRepository('ItechSupItechSisBundle:Student')->findUnlistedStudent();
+
+        return array(
+            'entity' => $entity,
+            'students' => $students,
+        );
+    }
 }
