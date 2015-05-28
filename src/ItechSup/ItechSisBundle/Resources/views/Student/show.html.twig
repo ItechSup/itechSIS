@@ -17,6 +17,7 @@
                 <th>Session</th>
                 <td>{{entity.session.formation.title }}</td>
             </tr>
+
             <tr>
                 <th>Actions</th>
                 <td>
@@ -29,6 +30,18 @@
         </tbody>
     </table>
 
+    <table class="record_properties">
+        <caption>Listes des events</caption>
+        <tr>
+            <th>titre</th>
+        </tr>
+        {% for event in entity.events %}
+        <tr>
+            <td>event.title</td>
+        </tr>
+        {% endfor %}
+
+    </table>
     <ul class="record_actions">
         <li>
             <a href="{{ path('student') }}">

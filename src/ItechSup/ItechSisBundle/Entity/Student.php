@@ -2,6 +2,7 @@
 
 namespace ItechSup\ItechSisBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -43,7 +44,12 @@ class Student
      * @ORM\JoinColumn(name="session_id",referencedColumnName="id")
      */
     private $session;
-
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Event", mappedBy="student")
+     */
+    private $events;
     /**
      * Get id
      *
@@ -108,6 +114,21 @@ class Student
     public function getSurname()
     {
         return $this->surname;
+    }
+    /**
+     * @return ArrayCollection
+     */
+    public function getEvents()
+    {
+        return $this->events;
+    }
+
+    /**
+     * @param ArrayCollection $events
+     */
+    public function setEvents($events)
+    {
+        $this->events = $events;
     }
 
     /**
