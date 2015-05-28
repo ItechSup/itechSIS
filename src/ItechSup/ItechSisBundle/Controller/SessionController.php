@@ -36,6 +36,7 @@ class SessionController extends Controller
             'entities' => $entities,
         );
     }
+
     /**
      * Creates a new Session entity.
      *
@@ -59,7 +60,7 @@ class SessionController extends Controller
 
         return array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         );
     }
 
@@ -92,11 +93,11 @@ class SessionController extends Controller
     public function newAction()
     {
         $entity = new Session();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         );
     }
 
@@ -120,7 +121,7 @@ class SessionController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         );
     }
@@ -146,19 +147,19 @@ class SessionController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
 
     /**
-    * Creates a form to edit a Session entity.
-    *
-    * @param Session $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a Session entity.
+     *
+     * @param Session $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(Session $entity)
     {
         $form = $this->createForm(new SessionType(), $entity, array(
@@ -170,6 +171,7 @@ class SessionController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing Session entity.
      *
@@ -198,11 +200,12 @@ class SessionController extends Controller
         }
 
         return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
+
     /**
      * Deletes a Session entity.
      *
@@ -242,16 +245,6 @@ class SessionController extends Controller
             ->setAction($this->generateUrl('session_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
-    }
-
-    public function showUnlisted(){
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery(
-            'SELECT name
-            FROM ItechSupItechSisBundle:Student name
-            WHERE student_id==NULL ');
-        $products = $query->getResult();
+            ->getForm();
     }
 }
