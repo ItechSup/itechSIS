@@ -31,15 +31,19 @@
     </table>
 
     <table class="record_properties">
-        <caption>Listes des events</caption>
+        <caption><h2>Listes des events</h2></caption>
         <tr>
-            <th>titre</th>
+            <th>Titre</th>
+            <th>Date et heure de début du cours</th>
+            <th>Date et heure de fin du cours</th>
         </tr>
         {% for event in entity.session.events %}
         <tr>
             <td>
                 {{ event.title }}
             </td>
+            <td>{{ event.startTime|date('d-M-Y H:i') }}</td>
+            <td>{{ event.endTime|date('d-M-Y H:i')}}</td>
         </tr>
         {% endfor %}
     </table>
