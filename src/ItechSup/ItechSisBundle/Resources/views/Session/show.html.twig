@@ -20,7 +20,7 @@
             <tr>
                 {% for student in entity.students %}
                 <th>Etudiant(s) inscrit(s)</th>
-                <td> {{ student.name }}</td>
+                <td> {{ student.name }} {{ student.surname }}</td>
                 {% endfor %}
             </tr>
             <tr>
