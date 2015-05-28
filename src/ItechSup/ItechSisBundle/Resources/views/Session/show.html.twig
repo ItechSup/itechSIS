@@ -28,7 +28,8 @@
             </tr>
         </tbody>
     </table>
-<table class="record_properties">
+
+    <table class="record_properties">
     <caption>Listes des étudiants inscrits</caption>
     <tr>
         <th>Nom</th>
@@ -36,11 +37,26 @@
     </tr>
     {% for student in entity.students %}
     <tr>
-
-            <td> {{ student.name }}</td>
-            <td>{{ student.surname }}</td>
+        <td> {{ student.name }}</td>
+        <td>{{ student.surname }}</td>
     </tr>
     {% endfor %}
+    </table>
+
+    <table class="record_properties">
+        <caption>Listes des étudiants non inscrits</caption>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+        </tr>
+        {% for student in entity.students %}
+            <tr>
+                <td> {{ student.name }}</td>
+                <td>{{ student.surname }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
     <a href="{{ path('session') }}" class="new-entry button">
         Retour à la liste
     </a>
