@@ -24,6 +24,8 @@
         {% for event in entity.events %}
         <tr>
             <td>{{ event.title }}</td>
+            <td>{{ event.session.formation.title }}</td>
+            <td>{{ event.room.number }}</td>
             <td>{{ event.startTime|date('d-m-Y ') }}</td>
             <td>{{ event.endTime|date('d-m-Y ') }}</td>
         </tr>
