@@ -245,4 +245,13 @@ class SessionController extends Controller
             ->getForm()
         ;
     }
+
+    public function showUnlisted(){
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT name
+            FROM ItechSupItechSisBundle:Student name
+            WHERE student_id==NULL ');
+        $products = $query->getResult();
+    }
 }

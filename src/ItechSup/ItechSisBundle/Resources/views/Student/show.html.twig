@@ -33,9 +33,11 @@
     <table class="record_properties">
         <caption><h2>Listes des events</h2></caption>
         <tr>
-            <th>Titre</th>
+            <th>Matière</th>
             <th>Date et heure de début du cours</th>
             <th>Date et heure de fin du cours</th>
+            <th>Salle</th>
+            <th>Professeur</th>
         </tr>
         {% for event in entity.session.events %}
         <tr>
@@ -44,6 +46,8 @@
             </td>
             <td>{{ event.startTime|date('d-M-Y H:i') }}</td>
             <td>{{ event.endTime|date('d-M-Y H:i')}}</td>
+            <td>{{ event.room.number }}</td>
+            <td>{{ event.teacher.fullName }}</td>
         </tr>
         {% endfor %}
     </table>
