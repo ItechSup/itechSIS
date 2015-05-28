@@ -18,12 +18,6 @@
                 <td>{{ entity.endDate|date('d-m-Y') }}</td>
             </tr>
             <tr>
-                {% for student in entity.students %}
-                <th>Etudiant(s) inscrit(s)</th>
-                <td> {{ student.name }} {{ student.surname }}</td>
-                {% endfor %}
-            </tr>
-            <tr>
                 <th>Actions</th>
                 <td>
                     <a href="{{ path('session_edit', { 'id': entity.id }) }}"class="button">
@@ -34,7 +28,19 @@
             </tr>
         </tbody>
     </table>
+<table class="record_properties">
+    <caption>Listes des étudiants inscrits</caption>
+    <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+    </tr>
+    {% for student in entity.students %}
+    <tr>
 
+            <td> {{ student.name }}</td>
+            <td>{{ student.surname }}</td>
+    </tr>
+    {% endfor %}
     <a href="{{ path('session') }}" class="new-entry button">
         Retour à la liste
     </a>

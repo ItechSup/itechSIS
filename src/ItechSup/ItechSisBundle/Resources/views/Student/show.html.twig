@@ -35,8 +35,13 @@
         <tr>
             <th>titre</th>
         </tr>
-        
-
+        {% for event in entity.session.events %}
+        <tr>
+            <td>
+                {{ event.title }}
+            </td>
+        </tr>
+        {% endfor %}
     </table>
     <ul class="record_actions">
         <li>
