@@ -66,7 +66,6 @@ class Event
      */
     private $teacher;
 
-
     /**
      * Get id
      *

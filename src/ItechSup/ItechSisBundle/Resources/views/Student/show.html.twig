@@ -17,6 +17,7 @@
                 <th>Session</th>
                 <td>{{entity.session.formation.title }}</td>
             </tr>
+
             <tr>
                 <th>Actions</th>
                 <td>
@@ -29,6 +30,23 @@
         </tbody>
     </table>
 
+    <table class="record_properties">
+        <caption><h2>Listes des events</h2></caption>
+        <tr>
+            <th>Titre</th>
+            <th>Date et heure de début du cours</th>
+            <th>Date et heure de fin du cours</th>
+        </tr>
+        {% for event in entity.session.events %}
+        <tr>
+            <td>
+                {{ event.title }}
+            </td>
+            <td>{{ event.startTime|date('d-M-Y H:i') }}</td>
+            <td>{{ event.endTime|date('d-M-Y H:i')}}</td>
+        </tr>
+        {% endfor %}
+    </table>
     <ul class="record_actions">
         <li>
             <a href="{{ path('student') }}">
