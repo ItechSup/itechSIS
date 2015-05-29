@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use ItechSup\ItechSisBundle\Entity\Session;
+use ItechSup\ItechSisBundle\Entity\Event;
 use ItechSup\ItechSisBundle\Form\Type\SessionType;
 
 
@@ -282,7 +283,7 @@ class SessionController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function eventAction($id)
+    public function eventEditAction($id)
     {
         $em= $this->getDoctrine()->getManager();
         $entity = $em->getRepository('ItechSupItechSisBundle:Session')->find($id);
@@ -290,10 +291,52 @@ class SessionController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Session entity.');
         }
-        $entity = new Event();
-        $form = $this->createCreateEventForm($entity);
+        $event = new Event();
+        $event->setSession($entity);
+        $form = $this->createForm(new EventType(), $event, array(
+            'action' => $this->generateUrl('session_event_update', array('id' => $entity->getId())),
+            'method' => 'PUT',
+        ));
 
-        return array();
+        $form->add('submit', 'submit', array('label' => 'Update'));
+
+        return array(
+            'entity' => $entity,
+            'form' => $form->createView(),
+        );
     }
+    /**
+     *
+     * @Route("/{id}/event",name="session_event_update")
+     * @Method("PUT")
+     * @Template("ItechSupItechSisBundle:Session:eventEdit.html.twig")
+     */
+    public function eventUpdateAction(Request $request, $id)
+    {
+        $em= $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('ItechSupItechSisBundle:Session')->find($id);
 
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Session entity.');
+        }
+        $event = new Event();
+        $event->setSession($entity);
+        $form = $this->createForm(new EventType(), $event, array(
+            'action' => $this->generateUrl('session_event_update', array('id' => $entity->getId())),
+            'method' => 'PUT',
+        ));
+        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('session_event', array('id' => $id)));
+        }
+
+        return array(
+            'entity' => $entity,
+            'form' => $form->createView(),
+        );
+    }
 }
