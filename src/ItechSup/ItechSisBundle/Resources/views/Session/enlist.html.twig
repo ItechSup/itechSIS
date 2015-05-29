@@ -1,47 +1,31 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
+
 {% block content%}
-    <h1 class="block-title">Session</h1>
+    <h1 class="block-title">Liste des étudiant de la session</h1>
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Nom</th>
-                <td>{{ entity.formation.title }}</td>
-            </tr>
-            <tr>
-                <th>Début</th>
-                <td>{{ entity.startDate|date('d-M-Y') }}</td>
-            </tr>
-            <tr>
-                <th>Fin</th>
-                <td>{{ entity.endDate|date('d-M-Y') }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <table class="record_properties">
+    <table class="record_properties dropper">
     <caption>Listes des étudiants inscrits</caption>
     <tr>
         <th>Nom</th>
         <th>Prénom</th>
     </tr>
     {% for student in entity.students %}
-    <tr>
+    <tr class="draggable">
         <td> {{ student.name }}</td>
         <td>{{ student.surname }}</td>
     </tr>
     {% endfor %}
     </table>
 
-    <table class="record_properties">
+    <table class="record_properties dropper">
         <caption>Listes des étudiants non inscrits</caption>
         <tr>
             <th>Nom</th>
             <th>Prénom</th>
         </tr>
         {% for student in students %}
-            <tr>
+            <tr class="draggable">
                 <td> {{ student.name }}</td>
                 <td>{{ student.surname }}</td>
             </tr>
@@ -51,4 +35,9 @@
     <a href="{{ path('session') }}" class="new-entry button">
         Retour à la liste
     </a>
+
+    {% block javascripts %}
+        <script type="text/javascript" src="{{ asset('bundles/itechsupitechsis/js/dragndrop.js') }}"></script>
+    {% endblock %}
+
 {% endblock %}

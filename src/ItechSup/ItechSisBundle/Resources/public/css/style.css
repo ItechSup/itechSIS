@@ -38,6 +38,30 @@ td, th
 .record_actions{
     padding: 30px;
 }
+.list{
+    float: left;
+    width: 300px;
+    margin-left: 5%;
+}
+
+/*
+* DRAG N DROP
+*/
+.dropper {
+    height: 250px;
+    float: left;
+    background-color: #2980b9;
+}
+
+.draggable {
+    margin: 20px 10px 10px 20px;
+    padding-top: 20px;
+    width: 80px;
+    height: 60px;
+    color: white;
+    cursor: move;
+}
+
 .form{
     padding: 15px;
 }
@@ -45,4 +69,10 @@ td, th
 .new-entry{
     position: absolute;
     margin-top: 2%;
+}
+
+.rendered{
+    width: 200px;
+    height: 200px;
+    border: 2px solid grey;
 }
