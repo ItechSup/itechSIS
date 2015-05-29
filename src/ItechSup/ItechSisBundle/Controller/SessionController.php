@@ -2,6 +2,7 @@
 
 namespace ItechSup\ItechSisBundle\Controller;
 
+use ItechSup\ItechSisBundle\Form\Type\EventType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -274,4 +275,25 @@ class SessionController extends Controller
             'students' => $students,
         );
     }
+
+    /**
+     *
+     * @Route("/{id}/event",name="session_event")
+     * @Method("GET")
+     * @Template()
+     */
+    public function eventAction($id)
+    {
+        $em= $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('ItechSupItechSisBundle:Session')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Session entity.');
+        }
+        $entity = new Event();
+        $form = $this->createCreateEventForm($entity);
+
+        return array();
+    }
+
 }
