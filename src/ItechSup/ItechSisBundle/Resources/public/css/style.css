@@ -38,19 +38,15 @@ td, th
 .record_actions{
     padding: 30px;
 }
-.list{
-    float: left;
-    width: 300px;
-    margin-left: 5%;
-}
 
 /*
 * DRAG N DROP
 */
 .dropper {
-    height: 250px;
     float: left;
+    width: 300px;
     background-color: #2980b9;
+    margin-left: 2%;
 }
 
 .draggable {
