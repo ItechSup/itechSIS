@@ -46,7 +46,6 @@ class RoomControllerTest extends WebTestCase
         $client->submit($form);
         $crawler = $client->followRedirect();
 
-        // Check the element contains an attribute with value equals "Foo"
         $this->assertGreaterThan(0, $crawler->filter('[value="6"]')->count(), 'Missing element [value="6"]');
         $this->assertGreaterThan(0, $crawler->filter('[value="22"]')->count(), 'Missing element [value="22"]');
         $this->assertGreaterThan(0, $crawler->filter('[value="14"]')->count(), 'Missing element [value="14"]');
