@@ -1,3 +1,18 @@
+#box{
+    float: left;
+}
+select{
+    height: 200px;
+    width: 217px;
+}
+option{
+    padding: 5px 5px;
+    font-size: 15px;
+}
+button{
+    margin: 80px 2px;
+    border: none;
+}
 /*
 * Table Style CSS
 */

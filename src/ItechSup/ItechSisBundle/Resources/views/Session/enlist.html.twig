@@ -4,40 +4,43 @@
 {% block content%}
     <h1 class="block-title">Liste des étudiant de la session</h1>
 
-    <table class="record_properties dropper">
-    <caption>Listes des étudiants inscrits</caption>
-    <tr>
-        <th>Nom</th>
-        <th>Prénom</th>
-    </tr>
-    {% for student in entity.students %}
-    <tr class="draggable">
-        <td> {{ student.name }}</td>
-        <td>{{ student.surname }}</td>
-    </tr>
-    {% endfor %}
-    </table>
+    <div id="box">
+        <h3>Etudiants inscrits</h3>
+        <select id="swapSelect" multiple="multiple">
+            <option value="1">Item 1</option>
+            <option value="2">Item 5</option>
+            <option value="2">Item 2</option>
+            <option value="2">Item 4</option>
+            <option value="3">Item 3</option>
+        </select>
+    </div>
 
-    <table class="record_properties dropper">
-        <caption>Listes des étudiants non inscrits</caption>
-        <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-        </tr>
-        {% for student in students %}
-            <tr class="draggable">
-                <td> {{ student.name }}</td>
-                <td>{{ student.surname }}</td>
-            </tr>
-        {% endfor %}
-    </table>
+    <div id="box">
+        <button id="swapSelect_rightAll" class="button">>></button>
+        <button id="swapSelect_rightSelected" class="button">></button>
+        <button id="swapSelect_leftSelected" class="button"><</button>
+        <button id="swapSelect_leftAll" class="button"><<</button>
+    </div>
 
-    <a href="{{ path('session') }}" class="new-entry button">
+    <div id="box">
+        <h3>Etudiants non inscrits</h3>
+        <select id="swapSelect_unlist" multiple="multiple"></select>
+    </div>
+
+   <a href="{{ path('session') }}" class="new-entry button">
         Retour à la liste
     </a>
 
     {% block javascripts %}
-        <script type="text/javascript" src="{{ asset('bundles/itechsupitechsis/js/dragndrop.js') }}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="{{ asset('bundles/itechsupitechsis/js/swapselect.js') }}"></script>
+
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $('#swapSelect').swapselect();
+            });
+        </script>
+
     {% endblock %}
 
 {% endblock %}
