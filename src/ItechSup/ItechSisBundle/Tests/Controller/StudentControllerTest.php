@@ -15,7 +15,7 @@ class StudentControllerTest extends WebTestCase
         // Create a new entry in the database
         $crawler = $client->request('GET', '/student/');
         $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /student/");
-        $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
+        $crawler = $client->click($crawler->selectLink('Créer une nouvelle entrée')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
@@ -31,7 +31,7 @@ class StudentControllerTest extends WebTestCase
         $this->assertGreaterThan(0, $crawler->filter('td:contains("Test")')->count(), 'Missing element td:contains("Test")');
 
         // Edit the entity
-        $crawler = $client->click($crawler->selectLink('Edit')->link());
+        $crawler = $client->click($crawler->selectLink('Editer')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
             'itechsup_itechsisbundle_student[name]'  => 'Foo',
