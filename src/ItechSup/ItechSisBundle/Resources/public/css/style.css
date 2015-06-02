@@ -78,8 +78,8 @@ td, th
 }
 
 .new-entry{
-    position: absolute;
-    margin-top: 2%;
+    float: none;
+    margin-top: 20%;
 }
 
 .rendered{

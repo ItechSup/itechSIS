@@ -4,32 +4,36 @@
 {% block content%}
     <h1 class="block-title">Liste des étudiant de la session</h1>
 
-    <div id="box">
-        <h3>Etudiants inscrits</h3>
-        <select id="swapSelect" multiple="multiple">
-            <option value="1">Item 1</option>
-            <option value="2">Item 5</option>
-            <option value="2">Item 2</option>
-            <option value="2">Item 4</option>
-            <option value="3">Item 3</option>
-        </select>
-    </div>
+    <form method="POST" action="">
+        <div id="box">
+            <h3>Etudiants inscrits</h3>
+            <select id="swapSelect" multiple="multiple">
+                {% for student in entity.students %}
+                    <option>{{ student.name }} {{ student.surname }}</option>
+                {% endfor %}
+            </select>
+        </div>
 
-    <div id="box">
-        <button id="swapSelect_rightAll" class="button">>></button>
-        <button id="swapSelect_rightSelected" class="button">></button>
-        <button id="swapSelect_leftSelected" class="button"><</button>
-        <button id="swapSelect_leftAll" class="button"><<</button>
-    </div>
+        <div id="box">
+            <button id="swapSelect_rightAll" class="button">>></button>
+            <button id="swapSelect_rightSelected" class="button">></button>
+            <button id="swapSelect_leftSelected" class="button"><</button>
+            <button id="swapSelect_leftAll" class="button"><<</button>
+        </div>
 
-    <div id="box">
-        <h3>Etudiants non inscrits</h3>
-        <select id="swapSelect_unlist" multiple="multiple"></select>
-    </div>
+        <div id="box">
+            <h3>Etudiants non inscrits</h3>
+            <select id="swapSelect_unlist" multiple="multiple">
+                {% for student in students %}
+                    <option>{{ student.name }} {{ student.surname }}</option>
+                {% endfor %}
+            </select>
+        </div>
 
-   <a href="{{ path('session') }}" class="new-entry button">
-        Retour à la liste
-    </a>
+        <input type="submit" class="new-entry button">
+    </form>
+
+
 
     {% block javascripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

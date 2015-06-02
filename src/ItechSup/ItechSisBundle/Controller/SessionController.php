@@ -274,4 +274,38 @@ class SessionController extends Controller
             'students' => $students,
         );
     }
+
+    /**
+     * Edits an existing students in sessions.
+     *
+     * @Route("/enlist/{id}", name="session_enlist")
+     * @Method("PUT")
+     * @Template("ItechSupItechSisBundle:Session:enlist.html.twig")
+    */
+    public function enlistUpdateAction(Request $request,$id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('ItechSupItechSisBundle:Session')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Session entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createEditForm($entity);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isValid()) {
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('session_edit', array('id' => $id)));
+        }
+
+        return array(
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        );
+    }
 }
