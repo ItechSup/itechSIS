@@ -55,6 +55,6 @@ class RoomControllerTest extends WebTestCase
         $crawler = $client->followRedirect();
 
         // Check the entity has been delete on the list
-        $this->assertNotRegExp('/foo/', $client->getResponse()->getContent());
+        $this->assertNotRegExp('/test/', $client->getResponse()->getContent());
     }
 }
