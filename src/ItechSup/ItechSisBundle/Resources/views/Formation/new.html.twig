@@ -7,7 +7,7 @@
 
         {{ form_start(form)}}
         {{ form_errors(form) }}
-        {{ form_widget(form.title, {'attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.title,{ 'attr': {'placeholder': 'Nom de la formation', 'class':'form-label' }}) }}
         {{ form_widget(form.submit, {'attr': {'class': 'new-entry button'}}) }}
         {{ form_end(form)}}
 
