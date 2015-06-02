@@ -198,7 +198,7 @@ class SessionController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('session_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('session'));
         }
 
         return array(

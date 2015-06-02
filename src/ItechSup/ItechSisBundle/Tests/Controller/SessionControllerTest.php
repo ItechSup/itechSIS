@@ -19,9 +19,13 @@ class SessionControllerTest extends WebTestCase
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'itechsup_itechsisbundle_session[startDate]'  => '01-Jan-2010',
-            'itechsup_itechsisbundle_session[endDate]'  => '01-Jan-2010',
-            'itechsup_itechsisbundle_session[formation]'  => "SIO",
+            'itechsup_itechsisbundle_session[startDate][month]'  => '1',
+            'itechsup_itechsisbundle_session[startDate][day]'  => '1',
+            'itechsup_itechsisbundle_session[startDate][year]'  => '2010',
+            'itechsup_itechsisbundle_session[endDate][month]'  => '2',
+            'itechsup_itechsisbundle_session[endDate][day]'  => '2',
+            'itechsup_itechsisbundle_session[endDate][year]'  => '2016',
+            'itechsup_itechsisbundle_session[formation]'  => "2",
 
             // ... other fields to fill
         ));
@@ -31,16 +35,20 @@ class SessionControllerTest extends WebTestCase
 
         // Check data in the show view
         $this->assertGreaterThan(0, $crawler->filter('td:contains("01-Jan-2010")')->count(), 'Missing element td:contains("01-Jan-2010")');
-        $this->assertGreaterThan(0, $crawler->filter('td:contains("01-Jan-2010")')->count(), 'Missing element td:contains("01-Jan-2010")');
-        $this->assertGreaterThan(0, $crawler->filter('td:contains("SIO")')->count(), 'Missing element td:contains("SIO")');
+        $this->assertGreaterThan(0, $crawler->filter('td:contains("02-Feb-2016")')->count(), 'Missing element td:contains("02-Feb-2016")');
+        $this->assertGreaterThan(0, $crawler->filter('td:contains("CGO")')->count(), 'Missing element td:contains("CGO")');
 
         // Edit the entity
         $crawler = $client->click($crawler->selectLink('Editer')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'itechsup_itechsisbundle_session[startDate]'  => '02-Jan-2012',
-            'itechsup_itechsisbundle_session[endDate]'  => '01-Jan-2013',
-            'itechsup_itechsisbundle_session[formation]'  => "CGO",
+            'itechsup_itechsisbundle_session[startDate][month]'  => '1',
+            'itechsup_itechsisbundle_session[startDate][day]'  => '1',
+            'itechsup_itechsisbundle_session[startDate][year]'  => '2015',
+            'itechsup_itechsisbundle_session[endDate][month]'  => '3',
+            'itechsup_itechsisbundle_session[endDate][day]'  => '3',
+            'itechsup_itechsisbundle_session[endDate][year]'  => '2017',
+            'itechsup_itechsisbundle_session[formation]'  => "1",
             // ... other fields to fill
         ));
 
@@ -48,15 +56,16 @@ class SessionControllerTest extends WebTestCase
         $crawler = $client->followRedirect();
 
         // Check the element contains an attribute with value equals "Foo"
-        $this->assertGreaterThan(0, $crawler->filter('[value="02-Jan-2012"]')->count(), 'Missing element [value="02-Jan-2012"]');
-        $this->assertGreaterThan(0, $crawler->filter('[value="01-Jan-2013"]')->count(), 'Missing element [value="01-Jan-2013"]');
-        $this->assertGreaterThan(0, $crawler->filter('[value="CGO"]')->count(), 'Missing element [value="CGO"]');
+        $this->assertGreaterThan(0, $crawler->filter('td:contains("01-Jan-2015")')->count(), 'Missing element [value="01-Jan-2015"]');
+        $this->assertGreaterThan(0, $crawler->filter('td:contains("03-Mar-2017")')->count(), 'Missing element [value="03-Mar-2017"]');
+        $this->assertGreaterThan(0, $crawler->filter('td:contains("SIO")')->count(), 'Missing element [value="1"]');
 
         // Delete the entity
+        $crawler = $client->click($crawler->selectLink('Editer')->link());
         $client->submit($crawler->selectButton('Delete')->form());
         $crawler = $client->followRedirect();
 
         // Check the entity has been delete on the list
-        $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
+        $this->assertNotRegExp('/SIO/', $client->getResponse()->getContent());
     }
 }
