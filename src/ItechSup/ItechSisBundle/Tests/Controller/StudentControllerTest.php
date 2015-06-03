@@ -21,7 +21,7 @@ class StudentControllerTest extends WebTestCase
         $form = $crawler->selectButton('Create')->form(array(
             'itechsup_itechsisbundle_student[name]'  => 'Test',
             'itechsup_itechsisbundle_student[surname]'  => 'Retest',
-            'itechsup_itechsisbundle_student[session]'  => 'CGO',
+            'itechsup_itechsisbundle_student[session]'  => '3',
             // ... other fields to fill
         ));
 
@@ -32,12 +32,12 @@ class StudentControllerTest extends WebTestCase
         $this->assertGreaterThan(0, $crawler->filter('td:contains("Test")')->count(), 'Missing element td:contains("Test")');
 
         // Edit the entity
-        $crawler = $client->click($crawler->selectLink('Editer')->link());
+        $crawler = $client->click($crawler->selectLink('Edition')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
             'itechsup_itechsisbundle_student[name]'  => 'Foo',
             'itechsup_itechsisbundle_student[surname]'  => 'ReFoo',
-            'itechsup_itechsisbundle_student[session]'  => 'SIO',
+            'itechsup_itechsisbundle_student[session]'  => '1',
 
             // ... other fields to fill
         ));

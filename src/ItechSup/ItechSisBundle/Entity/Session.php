@@ -224,4 +224,13 @@ class Session
     {
         return $this->events;
     }
+
+    /**
+     *
+     *
+     */
+    public function getTitle()
+    {
+        return $this->getFormation()->getTitle();
+    }
 }
