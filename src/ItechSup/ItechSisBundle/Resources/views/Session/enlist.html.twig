@@ -4,7 +4,7 @@
 {% block content%}
     <h1 class="block-title">Liste des étudiant de la session</h1>
 
-    <form method="post" action="{{ path('session_enlist_update', {'id': entity.id }) }}">
+    <form method="post"  onsubmit="selectAllOptions(enlisted_student)" action="{{ path('session_enlist_update', {'id': entity.id }) }}">
         <input type="hidden" name="_method" value="put">
         <div id="box">
             <h3>Etudiants inscrits</h3>
@@ -45,6 +45,16 @@
                 $('#swapSelect').swapselect();
             });
         </script>
+
+        <script>
+            function selectAllOptions(obj) {
+                if (!hasOptions(obj)) { return; }
+                for (var i=0; i<obj.options.length; i++) {
+                    obj.options[i].selected = true;
+                }
+            }
+        </script>
+
 
     {% endblock %}
 

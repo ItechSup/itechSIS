@@ -287,34 +287,14 @@ class SessionController extends Controller
     {
         $em= $this->getDoctrine()->getManager();
         $entity = $em->getRepository('ItechSupItechSisBundle:Session')->find($id);
-
-        $list = array();
-        foreach ($entity as $student) {
-            $list[$entity->getId()];
-        }
-
+        
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Session entity.');
         }
         dump($request);
-        $enlist = new Student();
-        //$enlist->setStudent($entity);
-        $form = $this->createForm(new StudentType(), $enlist, array(
-            'action' => $this->generateUrl('session_enlist_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
-        ));
-        $form->add('submit', 'submit', array('label' => 'Update'));
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('session_enlist', array('id' => $id)));
-        }
 
         return array(
             'entity' => $entity,
-            'form' => $form->createView(),
         );
     }
 }
