@@ -21,7 +21,7 @@ class StudentControllerTest extends WebTestCase
         $form = $crawler->selectButton('Create')->form(array(
             'itechsup_itechsisbundle_student[name]'  => 'Test',
             'itechsup_itechsisbundle_student[surname]'  => 'Retest',
-            'itechsup_itechsisbundle_student[session]'  => '3',
+            'itechsup_itechsisbundle_student[session]'  => '1',
             // ... other fields to fill
         ));
 

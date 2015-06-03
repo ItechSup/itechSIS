@@ -23,7 +23,7 @@ class EventControllerTest extends WebTestCase
             'itechsup_itechsisbundle_event[startTime][date][day]'  => '1',
             'itechsup_itechsisbundle_event[startTime][date][year]'  => '2016',
             'itechsup_itechsisbundle_event[startTime][time][hour]'  => '10',
-            'itechsup_itechsisbundle_event[startTime][time][minute]'  => '00',
+            'itechsup_itechsisbundle_event[startTime][time][minute]'  => '0',
             'itechsup_itechsisbundle_event[endTime][date][month]'  => '3',
             'itechsup_itechsisbundle_event[endTime][date][day]'  => '3',
             'itechsup_itechsisbundle_event[endTime][date][year]'  => '2017',
@@ -48,23 +48,23 @@ class EventControllerTest extends WebTestCase
 
 
         // Edit the entity
-        $crawler = $client->click($crawler->selectLink('Editer')->link());
+        $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
             'itechsup_itechsisbundle_event[startTime][date][month]'  => '2',
             'itechsup_itechsisbundle_event[startTime][date][day]'  => '2',
             'itechsup_itechsisbundle_event[startTime][date][year]'  => '2018',
             'itechsup_itechsisbundle_event[startTime][time][hour]'  => '8',
-            'itechsup_itechsisbundle_event[startTime][time][minute]'  => '00',
+            'itechsup_itechsisbundle_event[startTime][time][minute]'  => '0',
             'itechsup_itechsisbundle_event[endTime][date][month]'  => '4',
             'itechsup_itechsisbundle_event[endTime][date][day]'  => '4',
             'itechsup_itechsisbundle_event[endTime][date][year]'  => '2019',
             'itechsup_itechsisbundle_event[endTime][time][hour]'  => '15',
             'itechsup_itechsisbundle_event[endTime][time][minute]'  => '30',
-            'itechsup_itechsisbundle_event[title]'  => "foo",
-            'itechsup_itechsisbundle_event[session]'  => "2",
-            'itechsup_itechsisbundle_event[room]'  => "2",
-            'itechsup_itechsisbundle_event[teacher]'  => "2",
+            'itechsup_itechsisbundle_event[title]'  => "Foo",
+            'itechsup_itechsisbundle_event[session]'  => "1",
+            'itechsup_itechsisbundle_event[room]'  => "1",
+            'itechsup_itechsisbundle_event[teacher]'  => "1",
 
             // ... other fields to fill
         ));
