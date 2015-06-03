@@ -4,12 +4,13 @@
 {% block content%}
     <h1 class="block-title">Liste des étudiant de la session</h1>
 
-    <form method="POST" action="">
+    <form method="post" action="{{ path('session_enlist_update', {'id': entity.id }) }}">
+        <input type="hidden" name="_method" value="put">
         <div id="box">
             <h3>Etudiants inscrits</h3>
-            <select id="swapSelect" multiple="multiple">
+            <select name="enlisted_student" id="swapSelect" multiple="multiple">
                 {% for student in entity.students %}
-                    <option>{{ student.name }} {{ student.surname }}</option>
+                    <option value="{{ student.id }}">{{ student.name }} {{ student.surname }}</option>
                 {% endfor %}
             </select>
         </div>
@@ -23,9 +24,9 @@
 
         <div id="box">
             <h3>Etudiants non inscrits</h3>
-            <select id="swapSelect_unlist" multiple="multiple">
+            <select name="unenlisted_student" id="swapSelect_unlist" multiple="multiple">
                 {% for student in students %}
-                    <option>{{ student.name }} {{ student.surname }}</option>
+                    <option value="{{ student.id }}">{{ student.name }} {{ student.surname }}</option>
                 {% endfor %}
             </select>
         </div>

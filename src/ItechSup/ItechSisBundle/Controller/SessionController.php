@@ -2,6 +2,7 @@
 
 namespace ItechSup\ItechSisBundle\Controller;
 
+use ItechSup\ItechSisBundle\Entity\Student;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -9,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use ItechSup\ItechSisBundle\Entity\Session;
 use ItechSup\ItechSisBundle\Form\Type\SessionType;
+use ItechSup\ItechSisBundle\Form\Type\StudentType;
 
 
 /**
@@ -251,7 +253,7 @@ class SessionController extends Controller
     /**
     * Enlist students in a session.
     *
-    * @Route("/enlist/{id}", name="session_enlist")
+    * @Route("/{id}/enlist", name="session_enlist")
     * @Method("GET")
     * @Template()
     */
@@ -276,36 +278,43 @@ class SessionController extends Controller
     }
 
     /**
-     * Edits an existing students in sessions.
      *
-     * @Route("/enlist/{id}", name="session_enlist")
+     * @Route("/{id}/enlist",name="session_enlist_update")
      * @Method("PUT")
      * @Template("ItechSupItechSisBundle:Session:enlist.html.twig")
     */
-    public function enlistUpdateAction(Request $request,$id)
+    public function enlistUpdateAction(Request $request, $id)
     {
-        $em = $this->getDoctrine()->getManager();
-
+        $em= $this->getDoctrine()->getManager();
         $entity = $em->getRepository('ItechSupItechSisBundle:Session')->find($id);
+
+        $list = array();
+        foreach ($entity as $student) {
+            $list[$entity->getId()];
+        }
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Session entity.');
         }
+        dump($request);
+        $enlist = new Student();
+        //$enlist->setStudent($entity);
+        $form = $this->createForm(new StudentType(), $enlist, array(
+            'action' => $this->generateUrl('session_enlist_update', array('id' => $entity->getId())),
+            'method' => 'PUT',
+        ));
+        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->handleRequest($request);
 
-        $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isValid()) {
+        if ($form->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('session_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('session_enlist', array('id' => $id)));
         }
 
         return array(
             'entity' => $entity,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            'form' => $form->createView(),
         );
     }
 }
