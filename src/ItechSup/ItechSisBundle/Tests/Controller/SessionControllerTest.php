@@ -60,12 +60,6 @@ class SessionControllerTest extends WebTestCase
         $this->assertGreaterThan(0, $crawler->filter('td:contains("03-Mar-2017")')->count(), 'Missing element [value="03-Mar-2017"]');
         $this->assertGreaterThan(0, $crawler->filter('td:contains("SIO")')->count(), 'Missing element [value="1"]');
 
-        // Delete the entity
-        $crawler = $client->click($crawler->selectLink('Editer')->link());
-        $client->submit($crawler->selectButton('Delete')->form());
-        $crawler = $client->followRedirect();
 
-        // Check the entity has been delete on the list
-        $this->assertNotRegExp('/SIO/', $client->getResponse()->getContent());
     }
 }
