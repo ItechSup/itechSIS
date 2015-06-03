@@ -14,3 +14,15 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+doctrine:
+    dbal:
+        driver:   pdo_sqlite
+        dbname:   test
+        charset:  UTF8
+        # path:     %kernel.root_dir%/test.db3
+        memory:   true
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: true

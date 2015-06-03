@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class TeacherControllerTest extends WebTestCase
 {
-    /*
+
     public function testCompleteScenario()
     {
         // Create a new client to browse the application
@@ -15,11 +15,11 @@ class TeacherControllerTest extends WebTestCase
         // Create a new entry in the database
         $crawler = $client->request('GET', '/teacher/');
         $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /teacher/");
-        $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
+        $crawler = $client->click($crawler->selectLink('Créer une nouvelle entrée')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'itechsup_itechsisbundle_teacher[field_name]'  => 'Test',
+            'itechsup_itechsisbundle_teacher[fullName]'  => 'Test',
             // ... other fields to fill
         ));
 
@@ -30,10 +30,10 @@ class TeacherControllerTest extends WebTestCase
         $this->assertGreaterThan(0, $crawler->filter('td:contains("Test")')->count(), 'Missing element td:contains("Test")');
 
         // Edit the entity
-        $crawler = $client->click($crawler->selectLink('Edit')->link());
+        $crawler = $client->click($crawler->selectLink('Editer')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'itechsup_itechsisbundle_teacher[field_name]'  => 'Foo',
+            'itechsup_itechsisbundle_teacher[fullName]'  => 'Foo',
             // ... other fields to fill
         ));
 
@@ -51,5 +51,4 @@ class TeacherControllerTest extends WebTestCase
         $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
     }
 
-    */
 }

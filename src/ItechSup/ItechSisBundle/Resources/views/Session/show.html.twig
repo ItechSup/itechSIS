@@ -26,9 +26,17 @@
                     {{ form(delete_form) }}
                 </td>
             </tr>
+            <tr>
+                <th>Lien</th>
+                <td><a href="{{ path('session_event', { 'id': entity.id }) }}"class="button">
+                        Ajouter un event à cette session
+                    </a>
+                </td>
+            </tr>
         </tbody>
     </table>
-    <a href="{{ path('session_enlist', { 'id': entity.id }) }}"class="button">
+    <a href="{{ path('session_enlist', { 'id': entity.id }) }}"class="new-entry button">
         Voir la liste des étudiants
     </a>
+
 {% endblock %}
