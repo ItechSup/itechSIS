@@ -35,6 +35,25 @@ class EventController extends Controller
             'entities' => $entities,
         );
     }
+
+    /**
+     * Lists all Event entities.
+     *
+     * @Route("/calendar", name="event_calendar")
+     * @Method("GET")
+     * @Template()
+     */
+    public function calendarAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('ItechSupItechSisBundle:Event')->findAll();
+
+        return array(
+            'entities' => $entities,
+        );
+    }
+
     /**
      * Creates a new Event entity.
      *
