@@ -1,0 +1,14 @@
+    <script>
+        eventss = [
+            {% for event in events %}
+            {
+                title: '{{ event.title }}',
+                start: '{{ event.startTime|date('Y-m-d\TH:i:sP') }}',
+                end: '{{ event.endTime|date('Y-m-d\TH:i:sP') }}'
+            },
+            {% endfor %}
+        ]
+    </script>
+    <h1>Calendrier</h1>
+
+    <div id='calendar'></div>
