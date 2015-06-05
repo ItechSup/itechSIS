@@ -37,6 +37,13 @@ class Formation
      */
     private $sessions;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMay(targetEntity="School", mappedBy="formation")
+     */
+    private $school;
+
     public function __construct()
     {
         $this->sessions = new ArrayCollection();

@@ -37,6 +37,13 @@ class Teacher
     private $events;
 
     /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="School", mappedBy="teacher")
+     */
+    private $school;
+
+    /**
      * Constructor
      */
     public function __construct()

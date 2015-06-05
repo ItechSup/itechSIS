@@ -51,6 +51,13 @@ class Room
     private $events;
 
     /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="School", mappedBy="room")
+     */
+    private $school;
+
+    /**
      * Constructor
      */
     public function __construct()
