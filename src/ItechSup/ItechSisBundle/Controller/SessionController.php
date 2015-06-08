@@ -341,7 +341,7 @@ class SessionController extends Controller
     }
 
     /**
-     * Finds and displays a Session entity.
+     * Sign Off Sheet
      *
      * @Route("/signoffsheet/{id}", name="session_signoffsheet")
      * @Method("GET")

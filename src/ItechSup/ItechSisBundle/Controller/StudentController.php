@@ -244,4 +244,26 @@ class StudentController extends Controller
             ->getForm()
         ;
     }
+
+    /**
+     * Sign Off Sheet
+     *
+     * @Route("/signoffsheet/{id}", name="student_signoffsheet")
+     * @Method("GET")
+     * @Template()
+     */
+    public function signOffSheetAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('ItechSupItechSisBundle:Student')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Student entity.');
+        }
+
+        return array(
+            'entity'      => $entity,
+        );
+    }
 }

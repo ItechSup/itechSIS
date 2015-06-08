@@ -60,9 +60,8 @@
             <td>Séance n°4</td>
         </tr>
         {% for student in entity.students %}
-            {% for i in 1..10 %}
             <tr>
-                <td>{{ i }}</td>
+                <td>{{ loop.index }}</td>
                 <td> {{ student.name }}</td>
                 <td>{{ student.surname }}</td>
                 <td></td>
@@ -70,7 +69,6 @@
                 <td></td>
                 <td></td>
             </tr>
-            {% endfor %}
         {% endfor %}
     </table>
 
