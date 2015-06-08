@@ -31,25 +31,22 @@
 
     <br>
 
-    <table class="record_properties">
+    <table class="table">
         <tr>
-            <th>Matière</th>
-            <th>Date et heure de début du cours</th>
-            <th>Date et heure de fin du cours</th>
-            <th>Salle</th>
-            <th>Professeur</th>
+            <th>Jour</th>
+            <th>Date</th>
+            <th>Matin</th>
+            <th>Après-Midi</th>
         </tr>
         {% for event in entity.session.events %}
-        <tr>
-            <td>
-                {{ event.startTime|date('M') }}
-                {{ event.title }}
-            </td>
-            <td>{{ event.startTime|date('d-M-Y H:i') }}</td>
-            <td>{{ event.endTime|date('d-M-Y H:i')}}</td>
-            <td>{{ event.room.number }}</td>
-            <td>{{ event.teacher.fullName }}</td>
-        </tr>
+            <tr>
+                {% if event.startTime|date('F') == "now"|date('F') %}
+                    <td>{{ event.startTime|date('l') }}</td>
+                    <td>{{ event.startTime|date('d/m/Y') }}</td>
+                    <td></td>
+                    <td></td>
+                {% endif %}
+            </tr>
         {% endfor %}
     </table>
 
