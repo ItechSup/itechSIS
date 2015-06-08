@@ -3,6 +3,8 @@
 namespace ItechSup\ItechSisBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints;
+use ItechSup\ItechSisBundle\Validator\Constraints as ItechSupAssert;
 
 /**
  * Event
@@ -31,12 +33,15 @@ class Event
     /**
      * @var \DateTime
      *
+     *
      * @ORM\Column(name="endTime", type="datetime")
      */
     private $endTime;
 
     /**
      * @var string
+     *
+     *@ItechSupAssert\StartBeforeEnd
      *
      * @ORM\Column(name="title", type="string", length=255)
      */
