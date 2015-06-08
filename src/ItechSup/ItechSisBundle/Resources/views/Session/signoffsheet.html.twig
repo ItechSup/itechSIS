@@ -1,0 +1,77 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/itechsupitechsis/css/signoffsheet.css') }}" type="text/css"/>
+{% endblock %}
+
+{% block content_preview %}
+
+    <header>
+        <table>
+            <tr>
+                <td>Nom >>></td>
+                <td>{{ entity.formation.title }}</td>
+            </tr>
+            <tr>
+                <td>Date >>></td>
+                <td>{{ entity.startDate|date('d-M-Y') }}</td>
+            </tr>
+        </table>
+        <div class="header_right">
+            <img src="{{ asset('bundles/itechsupitechsis/images/logo-itechsup1.png') }}">
+        </div>
+    </header>
+
+    <table class="prof">
+        <tr>
+            <td>08h45 - 10h45</td>
+            <td>Matière :</td>
+            <td>Nom :</td>
+            <td>Signature :</td>
+        </tr>
+        <tr>
+            <td>11h00 - 12h30</td>
+            <td>Matière :</td>
+            <td>Nom :</td>
+            <td>Signature :</td>
+        </tr>
+        <tr>
+            <td>13h45 - 15h40</td>
+            <td>Matière :</td>
+            <td>Nom :</td>
+            <td>Signature :</td>
+        </tr>
+        <tr>
+            <td>16h00 - 17h30</td>
+            <td>Matière :</td>
+            <td>Nom :</td>
+            <td>Signature :</td>
+        </tr>
+    </table>
+
+    <br>
+
+    <table class="students">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Séance n°1</td>
+            <td>Séance n°2</td>
+            <td>Séance n°3</td>
+            <td>Séance n°4</td>
+        </tr>
+        {% for student in entity.students %}
+            {% for i in 1..10 %}
+            <tr>
+                <td>{{ i }}</td>
+                <td> {{ student.name }}</td>
+                <td>{{ student.surname }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        {% endfor %}
+    </table>
+
+{% endblock %}

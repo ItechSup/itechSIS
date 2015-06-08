@@ -339,4 +339,29 @@ class SessionController extends Controller
             'form' => $form->createView(),
         );
     }
+
+    /**
+     * Finds and displays a Session entity.
+     *
+     * @Route("/signoffsheet/{id}", name="session_signoffsheet")
+     * @Method("GET")
+     * @Template()
+     */
+    public function SignOffSheetAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('ItechSupItechSisBundle:Session')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Session entity.');
+        }
+
+        $students = $em->getRepository('ItechSupItechSisBundle:Student')->findUnlistedStudent();
+
+        return array(
+            'entity' => $entity,
+            'students' => $students,
+        );
+    }
 }
