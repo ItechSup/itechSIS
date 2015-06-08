@@ -2,11 +2,10 @@
 
 // src/ItechSup/ItechSisBundle/Validator/Constraints/StartBeforeEndValidator.php
 
-namespace ItechSup\ItechSis\Validator\Constraints;
+namespace ItechSup\ItechSisBundle\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
-use ItechSup\ItechSisBundle\Validator\Constraints;
 
 class StartBeforeEndValidator extends ConstraintValidator
 {
