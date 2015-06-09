@@ -34,15 +34,25 @@
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('teacher') }}">
+        <a href="{{ path('teacher') }}"class='new-entry button'>
             Retour à la liste des profs
         </a>
     </li>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
     <li>
-        <a href="{{ path('teacher_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('teacher_edit', { 'id': entity.id }) }}" class='new-entry button'>
             Editer
         </a>
     </li>
-    <li>{{ form(delete_form) }}</li>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+    <li>{{ form_widget(delete_form,{'attr': {'class': 'new-entry button'}}) }}</li>
 </ul>
 {% endblock %}

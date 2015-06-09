@@ -24,12 +24,18 @@
                     <a href="{{ path('student_edit', { 'id': entity.id }) }}"class="button">
                         Edition
                     </a>
-                    {{ form(delete_form) }}
+
                 </td>
             </tr>
         </tbody>
     </table>
-
+    {{ form_widget(delete_form, {'attr': {'class': 'new-entry button'}}) }}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <table class="record_properties">
         <caption><h2>Listes des events</h2></caption>
         <tr>
@@ -53,7 +59,7 @@
     </table>
     <ul class="record_actions">
         <li>
-            <a href="{{ path('student') }}">
+            <a href="{{ path('student') }}"class="new-entry button">
                 Retour à la liste des étudiants
             </a>
         </li>

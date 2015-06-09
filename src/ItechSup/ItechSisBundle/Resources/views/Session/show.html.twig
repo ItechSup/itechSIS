@@ -23,7 +23,7 @@
                     <a href="{{ path('session_edit', { 'id': entity.id }) }}"class="button">
                         Editer
                     </a>
-                    {{ form(delete_form) }}
+
                 </td>
             </tr>
             <tr>
@@ -35,6 +35,13 @@
             </tr>
         </tbody>
     </table>
+    {{ form_widget(delete_form, {'attr': {'class': 'new-entry button'}}) }}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
     <a href="{{ path('session_enlist', { 'id': entity.id }) }}"class="new-entry button">
         Voir la liste des étudiants
     </a>

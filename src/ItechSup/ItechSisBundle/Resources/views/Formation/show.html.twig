@@ -10,20 +10,20 @@
                 <td>{{ entity.title }}</td>
             </tr>
             <tr>
-                <th>Actions</th>
+                <th>Action</th>
                 <td>
-                    <a href="{{ path('formation_edit', { 'id': entity.id }) }}"class="new-entry button">Editer</a>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    {{form(delete_form,{'attr': {'class': 'new-entry'}}) }}
+                    <a href="{{ path('formation_edit', { 'id': entity.id }) }}"class="button">Editer</a>
+
                 </td>
             </tr>
         </tbody>
     </table>
-
+    {{form_widget(delete_form,{'attr': {'class': 'new-entry button'}}) }}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <a href="{{ path('formation') }}" class="new-entry button">
         Retour à la liste des formations
     </a>

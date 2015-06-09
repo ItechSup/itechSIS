@@ -42,15 +42,23 @@
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('room') }}">
+        <a href="{{ path('room') }}"class="new-entry button">
             Retour à la liste
         </a>
+        <br>
+        <br>
+        <br>
+        <br>
     </li>
     <li>
-        <a href="{{ path('room_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('room_edit', { 'id': entity.id }) }}"class="new-entry button">
             Editer
         </a>
+        <br>
+        <br>
+        <br>
+        <br>
     </li>
-    <li>{{ form(delete_form) }}</li>
+    <li>{{ form_widget(delete_form, {'attr': {'class': 'new-entry button'}}) }}</li>
 </ul>
 {% endblock %}
