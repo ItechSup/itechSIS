@@ -12,8 +12,8 @@
             <tr>
                 <th>Actions</th>
                 <td>
-                    <a href="{{ path('formation_edit', { 'id': entity.id }) }}"class="button">Editer</a>
-                    {{ form(delete_form) }}
+                    <a href="{{ path('formation_edit', { 'id': entity.id }) }}"class="new-entry button">Editer</a>
+                    {{ form(delete_form,{'attr': {'class': 'new-entry button'}}) }}
                 </td>
             </tr>
         </tbody>
