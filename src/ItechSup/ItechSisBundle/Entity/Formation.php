@@ -40,7 +40,7 @@ class Formation
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMay(targetEntity="School", mappedBy="formation")
+     * @ORM\OneToMany(targetEntity="School", mappedBy="formation")
      */
     private $school;
 
