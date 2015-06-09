@@ -1,10 +1,20 @@
-/*
+h1{
+    font-size: 20px;
+    color: grey;
+    background-color: white;
+    width: 100%;
+    padding: 20px 0;
+    margin-bottom: 3%;
+    text-align: center;
+}
+
+/***********
 * Table Style CSS
-*/
+**********/
 table
 {
     border-collapse: collapse;
-    width: 650px;
+    width: 100%;
 }
 thead{
     border-bottom: 2px solid grey;
@@ -14,9 +24,13 @@ td, th
     padding: 30px 50px;
     background-color: white;
     color: grey;
+    text-align: center;
     border-bottom: 2px solid #ddd;
 }
 
+/*********
+* Button Style
+**********/
 .button{
     background-color: #2980b9;
     color: white;
@@ -28,9 +42,7 @@ td, th
 .button:hover{
     background-color: #3498db;
 }
-#content{
-    margin-left: 35%;
-}
+
 /*
 * Form new student
 */
