@@ -6,7 +6,7 @@
     height: 100%;
 }
 header{
-    height: 60px;
+    height: 10%;
     border-bottom: 1px solid grey;
     line-height: 60px;
     padding-left: 2%;
@@ -44,11 +44,11 @@ header{
     color: white;
     position: fixed;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 4.1%;
 }
 #menu ul li{
-    border-bottom: 1px solid white;
-    padding: 25px 0;
+    border-bottom: 1px solid #95a5a6;
+    padding: 10% 0;
     cursor: pointer;
 }
 #menu ul li:hover{
