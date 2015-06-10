@@ -3,12 +3,14 @@
 {% block content %}
     <h1>Ajout d'un événement pour la session {{ entity.formation.title }}</h1>
 
+    {{ form_start(form)}}
     {{ form_row(form.startTime) }}
     {{ form_row(form.endTime) }}
     {{ form_row(form.title) }}
     {{ form_row(form.room) }}
     {{ form_row(form.teacher) }}
-
+    {{ form_widget(form.submit) }}
+    {{ form_end(form) }}
     <ul class="record_actions">
         <li>
         </li>
