@@ -52,7 +52,7 @@ class School
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToOne(targetEntity="Formation", inversedBy="school")
+     * @ORM\OneToMany(targetEntity="Formation", inversedBy="school")
      */
     private $formations;
 

@@ -38,9 +38,10 @@ class Formation
     private $sessions;
 
     /**
-     * @var ArrayCollection
+     * @var School
      *
-     * @ORM\OneToMany(targetEntity="School", mappedBy="formation")
+     * @ORM\ManyToOne(targetEntity="School", inversedBy="formations")
+     * @ORM\JoinColumn(name="school_id",referencedColumnName="id")
      */
     private $school;
 
