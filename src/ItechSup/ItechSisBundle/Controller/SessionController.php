@@ -341,6 +341,8 @@ class SessionController extends Controller
         return array(
             'entity' => $entity,
             'form' => $form->createView(),
+        );
+    }
 
     /**
      * @Route("/{id}/enlist",name="session_enlist_update")
