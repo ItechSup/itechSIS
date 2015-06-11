@@ -227,7 +227,7 @@ class Session
 
     /**
      *
-     *
+     * Get Formation Title
      */
     public function getTitle()
     {
