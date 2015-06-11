@@ -13,11 +13,7 @@
                 <th>Actions</th>
                 <td>
                     <a href="{{ path('formation_edit', { 'id': entity.id }) }}"class="button">Editer</a>
-                    {% for sessions in entity %}
-                        {% if entity.session.formation == "" %}
-                            {{ form(delete_form) }}
-                        {% endif %}
-                    {% endfor %}
+                    {{ form(delete_form) }}
                 </td>
             </tr>
         </tbody>

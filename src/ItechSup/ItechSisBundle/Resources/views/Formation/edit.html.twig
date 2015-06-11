@@ -16,10 +16,5 @@
     <a href="{{ path('formation') }}" class="new-entry button">
         Retour à la liste des formations
     </a>
-
-    {% for sessions in entity %}
-            {% if entity.session.formation == "" %}
-                {{ form(delete_form) }}
-            {% endif %}
-    {% endfor %}
+    {{ form(delete_form) }}
 {% endblock %}
