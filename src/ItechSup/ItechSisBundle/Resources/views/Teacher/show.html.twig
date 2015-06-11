@@ -12,27 +12,10 @@
         </tbody>
     </table>
 
-    <table class="record_properties">
-        <caption>Listes des events</caption>
-        <tr>
-            <th>Titre</th>
-            <th>Session</th>
-            <th>Salle</th>
-            <th>Date de début</th>
-            <th>Date de fin</th>
-        </tr>
-        {% for event in entity.events %}
-        <tr>
-            <td>{{ event.title }}</td>
-            <td>{{ event.session.formation.title }}</td>
-            <td>{{ event.room.number }}</td>
-            <td>{{ event.startTime|date('d-m-Y ') }}</td>
-            <td>{{ event.endTime|date('d-m-Y ') }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    {% include 'ItechSupItechSisBundle::calendar.html.twig' with {'events': entity.events } %}
 
-        <ul class="record_actions">
+
+    <ul class="record_actions">
     <li>
         <a href="{{ path('teacher') }}">
             Retour à la liste des profs
