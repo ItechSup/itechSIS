@@ -1,0 +1,75 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/itechsupitechsis/css/signoffsheetmonthly.css') }}" type="text/css"/>
+{% endblock %}
+
+{% block content_preview %}
+
+    <header>
+        <div class="header_left">
+            <img src="{{ asset('bundles/itechsupitechsis/images/logo-itechsup1.png') }}">
+        </div>
+        <table>
+            <tr>
+                <td>Nom</td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.surname }}</td>
+            </tr>
+            <tr>
+                <td>Entreprise</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Formation</td>
+                <td>{{ entity.session.formation.title }}</td>
+            </tr>
+        </table>
+    </header>
+
+    <br>
+
+    <h1>attestation de présence mensuelle <br> {{ 'now'|localizeddate('none', 'none', 'fr_FR', null, "MMMM Y")}}</h1>
+
+    <br>
+
+    <table class="table">
+        <tr>
+            <th>Jour</th>
+            <th>Date</th>
+            <th>Matin</th>
+            <th>Après-Midi</th>
+        </tr>
+        {% for event in entity.session.events %}
+            <tr>
+                {% if event.startTime|date('F') == "now"|date('F') %}
+                    <td>{{ event.startTime|date('l') }}</td>
+                    <td>{{ event.startTime|date('d/m/Y') }}</td>
+                    <td></td>
+                    <td></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+
+    <section id="bottom">
+        <div class="hours">
+
+            <table>
+                <tr><td>Nombre d'heures prévues : </td></tr>
+                <tr><td>Nombre d'heures effectuées : </td></tr>
+                <tr><td>Abscences (Motifs) : </td></tr>
+            </table>
+        </div>
+        <div class="right">
+            <p>Nous attestons sur l'honneur que l'étudiant est toujours salarié de l'entrprise.</p>
+            <br>
+            <p>A la date du : </p>
+            <br>
+            <p><strong>Signature et cachet de l'entreprise</strong></p>
+        </div>
+    </section>
+
+
+
+{% endblock %}

@@ -281,7 +281,6 @@ class SessionController extends Controller
 
     /**
      *
-<<<<<<< HEAD
      * @Route("/{id}/event",name="session_event")
      * @Method("GET")
      * @Template()
@@ -361,6 +360,31 @@ class SessionController extends Controller
 
         return array(
             'entity' => $entity,
+        );
+    }
+
+    /**
+     * Sign Off Sheet
+     *
+     * @Route("/signoffsheet/{id}", name="session_signoffsheet")
+     * @Method("GET")
+     * @Template()
+     */
+    public function SignOffSheetAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('ItechSupItechSisBundle:Session')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Session entity.');
+        }
+
+        $students = $em->getRepository('ItechSupItechSisBundle:Student')->findUnlistedStudent();
+
+        return array(
+            'entity' => $entity,
+            'students' => $students,
         );
     }
 }
