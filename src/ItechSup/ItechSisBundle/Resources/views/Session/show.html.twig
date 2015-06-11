@@ -23,16 +23,16 @@
                     <a href="{{ path('session_edit', { 'id': entity.id }) }}"class="button">
                         Editer
                     </a>
-                    {{ form(delete_form) }}
-                </td>
-            </tr>
-            <tr>
-                <th>Lien</th>
-                <td><a href="{{ path('session_event', { 'id': entity.id }) }}"class="button">
+                    &nbsp
+                    <a href="{{ path('session_event', { 'id': entity.id }) }}"class="button">
                         Ajouter un event à cette session
                     </a>
+                    {% if entity.formation == "" %}
+                        {{ form(delete_form) }}
+                    {% endif %}
                 </td>
             </tr>
+
         </tbody>
     </table>
     <a href="{{ path('session_enlist', { 'id': entity.id }) }}"class="new-entry button">

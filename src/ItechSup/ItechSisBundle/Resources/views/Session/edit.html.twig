@@ -5,12 +5,16 @@
 
     {{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('session') }}">
-            Retour à la liste
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('session') }}">
+                Retour à la liste
+            </a>
+        </li>
+
+        <li>{% if entity.formation == "" %}
+                {{ form(delete_form) }}
+            {% endif %}
+        </li>
+    </ul>
 {% endblock %}
