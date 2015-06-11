@@ -41,7 +41,7 @@ class Formation
      * @var School
      *
      * @ORM\ManyToOne(targetEntity="School", inversedBy="formations")
-     * @ORM\JoinColumn(name="formation_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="school_id", referencedColumnName="id", nullable=false)
      */
     private $school;
 
