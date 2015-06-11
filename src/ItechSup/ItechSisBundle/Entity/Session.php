@@ -148,7 +148,15 @@ class Session
     {
         return $this->formation;
     }
-
+    /**
+     * Get formation
+     *
+     * @return \ItechSup\ItechSisBundle\Entity\Formation
+     */
+    public function getTitle()
+    {
+        return $this->getFormation()->getTitle();
+    }
     /**
      * Add student
      *

@@ -3,7 +3,13 @@
 {% block content%}
     <h1 class="block-title">Création de session</h1>
 
-    {{ form(form) }}
+    {{ form_start(form)}}
+    {{ form_errors(form) }}
+    {{ form_row(form.startDate, {'attr': {'class': 'form-label'}}) }}
+    {{ form_row(form.endDate, {'attr': {'class': 'form-label'}}) }}
+    {{ form_row(form.formation, {'attr': {'class': ''}} ) }}
+    {{ form_widget(form.submit, {'attr': {'class': ''}}) }}
+    {{ form_end(form)}}
 
         <ul class="record_actions">
     <li>

@@ -3,11 +3,15 @@
 {% block content %}
     <h1>Création de prof</h1>
 
-    {{ form(form) }}
+    {{ form_start(form)}}
+    {{ form_errors(form) }}
+    {{ form_widget(form.fullName,{ 'attr': {'placeholder': 'Nom complet du professeur', 'class':'form-label' }}) }}
+    {{ form_widget(form.submit, {'attr': {'class': 'new-entry button'}}) }}
+    {{ form_end(form)}}
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('teacher') }}">
+        <a href="{{ path('teacher') }}"class ='new-entry button'>
             Retour à la liste des profs
         </a>
     </li>
