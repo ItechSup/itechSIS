@@ -52,7 +52,7 @@ class School
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Formation", inversedBy="school")
+     * @ORM\ManyToOne(targetEntity="Formation", inversedBy="school")
      */
     private $formations;
 
@@ -75,7 +75,7 @@ class School
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -98,7 +98,7 @@ class School
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -121,7 +121,7 @@ class School
     /**
      * Get openingHours
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getOpeningHours()
     {
@@ -144,7 +144,7 @@ class School
     /**
      * Get closingHours
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getClosingHours()
     {

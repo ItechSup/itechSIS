@@ -38,13 +38,11 @@ class Formation
     private $sessions;
 
     /**
-     * @var School
+     * @var ArrayCollection
      *
-     * @ORM\ManyToOne(targetEntity="School", inversedBy="formations")
-     * @ORM\JoinColumn(name="school_id",referencedColumnName="id")
+     * @ORM\OneToMay(targetEntity="School", mappedBy="formation")
      */
     private $school;
-
     public function __construct()
     {
         $this->sessions = new ArrayCollection();
