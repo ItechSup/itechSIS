@@ -39,9 +39,9 @@ class Teacher
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="School", mappedBy="teacher")
+     * @ORM\ManyToMany(targetEntity="School")
      */
-    private $school;
+    private $schools;
 
     /**
      * Constructor

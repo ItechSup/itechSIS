@@ -45,21 +45,21 @@ class School
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="Room", mappedBy="schools")
+     * @ORM\ManyToMany(targetEntity="Room")
      */
     private $rooms;
 
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToOne(targetEntity="Formation", inversedBy="school")
+     * @ORM\OneToMany(targetEntity="Formation", mappedBy="school")
      */
     private $formations;
 
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="Teacher", mappedBy="schools")
+     * @ORM\ManyToMany(targetEntity="Teacher")
      */
     private $teachers;
 

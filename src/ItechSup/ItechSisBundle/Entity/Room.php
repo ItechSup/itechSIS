@@ -53,9 +53,9 @@ class Room
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="School", mappedBy="room")
+     * @ORM\ManyToMany(targetEntity="School")
      */
-    private $school;
+    private $schools;
 
     /**
      * Constructor

@@ -32,7 +32,6 @@ class ClosingDay
      * @var \DateTime
      *
      * @ORM\Column(name="closingDate", type="date")
-     * @ORM\OneToMany(targetEntity="School", mappedBy="closingDay")
      */
     private $closingDate;
 
