@@ -126,4 +126,15 @@ class Formation
     {
         return $this->school;
     }
+    /*
+     * Set School
+     * @param string $school
+     * @return Formation
+     */
+    public function setSchool($school)
+    {
+        $this->school = $school;
+
+        return $this;
+    }
 }
