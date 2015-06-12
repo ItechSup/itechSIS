@@ -115,4 +115,15 @@ class Formation
     {
         return $this->sessions;
     }
+
+    /*
+     * Get School
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     *
+     */
+    public function getSchool()
+    {
+        return $this->school;
+    }
 }
