@@ -18,7 +18,6 @@ class EventType extends AbstractType
             ->add('startTime')
             ->add('endTime')
             ->add('title')
-            ->add('session', null, array('property' => 'id'))
             ->add('room', null, array('property' => 'number'))
             ->add('teacher', null, array('property' => 'fullName'))
         ;
