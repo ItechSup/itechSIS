@@ -16,6 +16,7 @@ class FormationType extends AbstractType
     {
         $builder
             ->add('title', 'text')
+            ->add('school', null, array('property' => 'name'))
         ;
     }
     
