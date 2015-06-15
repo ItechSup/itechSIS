@@ -45,9 +45,14 @@
     <a href="{{ path('session_enlist', { 'id': entity.id }) }}"class="new-entry button">
         Voir la liste des étudiants
     </a>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
     {% include 'ItechSupItechSisBundle::calendar.html.twig' with {'events': entity.events } %}
-    <a href="{{ path('session_signoffsheet', { 'id': entity.id }) }}"class="new-entry button">
-        Preview sign off sheet
-    </a>
+
 
 {% endblock %}

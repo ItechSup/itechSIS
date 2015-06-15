@@ -48,13 +48,28 @@ td, th
 /*
 * Form new student
 */
-
+#form{
+    width: 100%;
+    text-align: center;
+}
+.form-label{
+    margin: 0 auto;
+    height: 30px;
+    width: 30%;
+    padding-left: 0.5%;
+}
+.update{
+    width: 10%;
+    position: relative;
+}
 .record_actions{
     padding: 30px;
 }
 .form{
     padding: 15px;
 }
+
+
 
 .new-entry{
     position: absolute;

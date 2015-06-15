@@ -8,7 +8,12 @@
         {{ form_start(edit_form)}}
         {{ form_errors(edit_form) }}
         {{ form_widget(edit_form.title, {'attr': {'class': 'form-label'}}) }}
-        {{ form_widget(edit_form.submit, {'attr': {'class': 'new-entry button'}}) }}
+        <br>
+        <br>
+        {{ form_widget(edit_form.school, {'attr': {'class': 'form-label select'}}) }}
+        <br>
+        <br>
+        {{ form_widget(edit_form.submit, {'attr': {'class': 'button update'}}) }}
         {{ form_end(edit_form)}}
 
     </div>

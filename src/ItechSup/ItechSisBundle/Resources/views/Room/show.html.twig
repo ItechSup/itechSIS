@@ -20,28 +20,34 @@
         </tbody>
     </table>
 
-    {% include 'ItechSupItechSisBundle::calendar.html.twig' with {'events': entity.events } %}
-
-
     <ul class="record_actions">
-    <li>
-        <a href="{{ path('room') }}"class="new-entry button">
-            Retour à la liste
-        </a>
-        <br>
-        <br>
-        <br>
-        <br>
-    </li>
-    <li>
-        <a href="{{ path('room_edit', { 'id': entity.id }) }}"class="new-entry button">
-            Editer
-        </a>
-        <br>
-        <br>
-        <br>
-        <br>
-    </li>
-    <li>{{ form_widget(delete_form, {'attr': {'class': 'new-entry button'}}) }}</li>
-</ul>
+
+        <li>
+            <a href="{{ path('room_edit', { 'id': entity.id }) }}"class="new-entry button">
+                Editer
+            </a>
+            <br>
+            <br>
+            <br>
+            <br>
+        </li>
+        <li>
+            <a href="{{ path('room') }}"class="new-entry button">
+                Retour à la liste
+            </a>
+            <br>
+            <br>
+            <br>
+            <br>
+        </li>
+        <li>{{ form_widget(delete_form, {'attr': {'class': 'new-entry button'}}) }}</li>
+
+    </ul>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    {% include 'ItechSupItechSisBundle::calendar.html.twig' with {'events': entity.events } %}
 {% endblock %}
