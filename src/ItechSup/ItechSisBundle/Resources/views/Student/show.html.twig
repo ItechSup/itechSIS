@@ -15,7 +15,7 @@
             </tr>
             <tr>
                 <th>Session</th>
-                <td>{{entity.session.formation.title }}</td>
+                <td>{{ entity.session.formation.title }}</td>
             </tr>
 
             <tr>
@@ -29,6 +29,7 @@
             </tr>
         </tbody>
     </table>
+<<<<<<< HEAD
     {{ form_widget(delete_form, {'attr': {'class': 'new-entry button'}}) }}
     <br>
     <br>
@@ -57,11 +58,20 @@
         </tr>
         {% endfor %}
     </table>
+=======
+
+    {% include 'ItechSupItechSisBundle::calendar.html.twig' with {'events': entity.session.events } %}
+
+
+>>>>>>> origin/release
     <ul class="record_actions">
         <li>
             <a href="{{ path('student') }}"class="new-entry button">
                 Retour à la liste des étudiants
             </a>
         </li>
+        <a href="{{ path('student_signoffsheet', { 'id': entity.id }) }}">
+            Preview SignOffSheet mensuel
+        </a>
     </ul>
 {% endblock %}

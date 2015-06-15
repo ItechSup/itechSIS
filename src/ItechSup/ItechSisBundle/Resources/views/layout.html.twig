@@ -1,14 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Administration - GSI Formation{% endblock %}
+
 {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/itechsupitechsis/css/fullcalendar.css') }}" type="text/css"/>
     <link rel="stylesheet" href="{{ asset('bundles/itechsupitechsis/css/layout.css') }}" type="text/css"/>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto" type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="{{ asset('bundles/itechsupitechsis/css/style.css') }}" type="text/css"/>
     {{ parent() }}
 {% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('bundles/itechsupitechsis/js/lib/moment.min.js') }}"></script>
+    <script src="{{ asset('bundles/itechsupitechsis/js/lib/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/itechsupitechsis/js/fullcalendar.min.js') }}"></script>
+    <script>
 
+        $(document).ready(function() {
+            data = $.parseJSON($('#calendar').attr('data-itech-events'));
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,basicWeek,basicDay'
+                },
+                defaultDate: '2015-02-12',
+                editable: true,
+                eventLimit: true, // allow "more" link when too many events
+                events: data
+            });
+        });
+    </script>
+{% endblock %}
 {% block body %}
     <div id="layout">
         <header>
