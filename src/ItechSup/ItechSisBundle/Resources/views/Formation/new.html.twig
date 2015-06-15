@@ -8,7 +8,8 @@
         {{ form_start(form)}}
         {{ form_errors(form) }}
         {{ form_widget(form.title,{ 'attr': {'placeholder': 'Nom de la formation', 'class':'form-label' }}) }}
-        {{ form_widget(form.submit, {'attr': {'class': 'new-entry button'}}) }}
+        {{ form_widget(form.school, {'attr': {'class': 'form-label select'}}) }}
+        {{ form_widget(form.submit, {'attr': {'label':'Mettre à jour','class': 'button update'}}) }}
         {{ form_end(form)}}
 
     </div>

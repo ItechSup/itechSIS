@@ -3,12 +3,23 @@
 {% block content %}
     <h1>Création des étudiants</h1>
 
-    <div class="form">
-        {{ form(form) }}
-    </div>
+        <div id="form">
+            {{ form_start(form)}}
+            {{ form_errors(form) }}
+            {{ form_widget(form.name, {'attr': {'class': 'form-label','placeholder':'Nom'}}) }}
+            <br>
+            <br>
+            {{ form_widget(form.surname, {'attr': {'class': 'form-label','placeholder':'Prénom'}}) }}
+            <br>
+            <br>
+            {{ form_widget(form.session, {'attr':{'class':'form-label '}}) }}
+            <br>
+            {{ form_widget(form.submit,{'attr':{'class':'update button '}} ) }}
+            {{ form_end(form) }}
+        </div>
         <ul class="record_actions">
     <li>
-        <a href="{{ path('student') }}">
+        <a href="{{ path('student') }}"class="new-entry button">
             Retour à la liste des étudiants
         </a>
     </li>

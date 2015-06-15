@@ -4,11 +4,23 @@
 {% block content %}
     <h1>Editions des etudiants</h1>
 
-    {{ form(edit_form) }}
-
+    <div id="form">
+        {{ form_start(edit_form)}}
+        {{ form_errors(edit_form) }}
+        {{ form_widget(edit_form.name, {'attr': {'class': 'form-label','placeholder':'Nom'}}) }}
+        <br>
+        <br>
+        {{ form_widget(edit_form.surname, {'attr': {'class': 'form-label','placeholder':'Prénom'}}) }}
+        <br>
+        <br>
+        {{ form_widget(edit_form.session, {'attr':{'class':'form-label '}}) }}
+        <br>
+        {{ form_widget(edit_form.submit,{'attr':{'class':'update button '}} ) }}
+        {{ form_end(edit_form) }}
+    </div>
     <ul class="record_actions">
         <li>
-            <a href="{{ path('student') }}">
+            <a href="{{ path('student') }}"class="new-entry button">
                 Retour à la liste
             </a>
         </li>
