@@ -7,15 +7,28 @@
     <div id="form">
         {{ form_start(edit_form)}}
         {{ form_errors(edit_form) }}
-        {{ form_widget(edit_form.name, {'attr': {'class': 'form-label','placeholder':'Nom'}}) }}
-        <br>
-        <br>
-        {{ form_widget(edit_form.surname, {'attr': {'class': 'form-label','placeholder':'Prénom'}}) }}
-        <br>
-        <br>
-        {{ form_widget(edit_form.session, {'attr':{'class':'form-label '}}) }}
-        <br>
-        {{ form_widget(edit_form.submit,{'attr':{'class':'update button '}} ) }}
+        <div class="widget form-title">
+            <div class="label">
+                <label>Nom</label>
+            </div>
+            {{ form_widget(edit_form.name, {'attr': {'class': 'form-label','placeholder':'Nom'}}) }}
+        </div>
+        <div class="widget form-title">
+            <div class="label">
+                <label>Prénom</label>
+            </div>
+            {{ form_widget(edit_form.surname, {'attr': {'class': 'form-label','placeholder':'Prénom'}}) }}
+        </div>
+        <div class="widget form-title">
+            <div class="label">
+                <label>Session</label>
+            </div>
+            {{ form_widget(edit_form.session, {'attr':{'class':'form-label '}}) }}
+        </div>
+        <div class="widget form-submit">
+            {{ form_widget(edit_form.submit,{'attr':{'class':'update button '}} ) }}
+        </div>
+        <hr>
         {{ form_end(edit_form) }}
     </div>
     <ul class="record_actions">
