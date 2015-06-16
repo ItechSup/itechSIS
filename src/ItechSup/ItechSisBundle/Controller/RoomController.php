@@ -193,7 +193,7 @@ class RoomController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('room_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('room_show', array('id' => $id)));
         }
 
         return array(

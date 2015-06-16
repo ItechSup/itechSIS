@@ -1,14 +1,10 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1>Salle</h1>
+    <h1>Salle n°{{ entity.number }}</h1>
 
     <table class="record_properties">
         <tbody>
-            <tr>
-                <th>Numéro</th>
-                <td>{{ entity.number }}</td>
-            </tr>
             <tr>
                 <th>Nombre de sièges</th>
                 <td>{{ entity.seatsCount }}</td>

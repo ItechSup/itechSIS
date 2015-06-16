@@ -1,24 +1,14 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1>Prof</h1>
-
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Nom complet</th>
-                <td>{{ entity.fullName }}</td>
-            </tr>
-        </tbody>
-    </table>
-
+    <h1>{{ entity.fullName }}</h1>
     {% include 'ItechSupItechSisBundle::calendar.html.twig' with {'events': entity.events } %}
 
 
     <ul class="record_actions">
     <li>
         <a href="{{ path('teacher') }}"class='new-entry button'>
-            Retour à la liste des profs
+            Retour à la liste des professeurs
         </a>
     </li>
             <br>
