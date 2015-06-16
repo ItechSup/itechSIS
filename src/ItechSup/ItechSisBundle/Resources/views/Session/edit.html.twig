@@ -3,21 +3,33 @@
 {% block content%}
     <h1>Edition des sessions</h1>
 
-    {{ form_start(edit_form) }}
-    {{ form_errors(edit_form) }}
-    <label>Date de début</label>
-    {{ form_widget(edit_form.startDate) }}
-    <label>Date de fin</label>
-    {{ form_widget(edit_form.endDate) }}
-    <label>Formation associée</label>
-    {{ form_widget(edit_form.formation) }}
-    {{ form_end(edit_form)}}
+    <div id="form">
+        {{ form_start(edit_form) }}
+        {{ form_errors(edit_form) }}
+        <div class="widget form-title">
+            <div class="label">
+                <label>Date de début</label>
+            </div>
+            {{ form_widget(edit_form.startDate) }}
+        </div>
+        <div class="widget form-title">
+            <div class="label">
+                <label>Date de fin</label>
+            </div>
+            {{ form_widget(edit_form.endDate) }}
+        </div>
+        <div class="widget form-title">
+            <div class="label">
+                <label>Formation associée</label>
+            </div>
+            {{ form_widget(edit_form.formation) }}
+        </div>
+        {{ form_end(edit_form)}}
+        <hr>
+    </div>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('session') }}">
-            Retour à la liste
-        </a>
-    </li>
-</ul>
+    <a href="{{ path('formation') }}" class="new-entry button">
+         Retour à la liste des formations
+    </a>
+
 {% endblock %}
