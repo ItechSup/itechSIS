@@ -6,20 +6,20 @@
     <div id="form">
         {{ form_start(edit_form)}}
         {{ form_errors(edit_form) }}
-        <div class="widget form-title">
-            <div class="label">
+        <div class="widget">
+            <div>
                 <label>Nom de la formation</label>
             </div>
             {{ form_widget(edit_form.title, {'attr': {'class': 'form-label'}}) }}
         </div>
-        <div class="widget form-school">
-            <div class="label">
+        <div class="widget">
+            <div>
                 <label>Nom de l'ecole</label>
             </div>
             {{ form_widget(edit_form.school, {'attr': {'class': 'form-label select'}}) }}
         </div>
-        <div class="widget form-submit">
-            {{ form_widget(edit_form.submit, {'attr': {'label':'Mettre à jour','class': 'button update'}}) }}
+        <div class="widget">
+            {{ form_widget(edit_form.submit, {'attr': {'class': 'button btn'}}) }}
         </div>
         <hr>
         {{ form_end(edit_form)}}
@@ -28,5 +28,4 @@
     <a href="{{ path('formation') }}" class="new-entry button">
         Retour à la liste des formations
     </a>
-    {{ form(delete_form) }}
 {% endblock %}

@@ -7,30 +7,26 @@
 
         {{ form_start(form)}}
         {{ form_errors(form) }}
-        <div class="widget form-title">
-            <div class="label">
+        <div class="widget">
+            <div>
                 <label>Nom de la formation</label>
             </div>
             {{ form_widget(form.title,{ 'attr': {'class':'form-label' }}) }}
         </div>
-        <div class="widget form-school">
-            <div class="label">
+        <div class="widget">
+            <div>
                 <label>Nom de l'ecole</label>
             </div>
             {{ form_widget(form.school, {'attr': {'class': 'form-label select'}}) }}
         </div>
-        <div class="widget form-submit">
-            {{ form_widget(form.submit, {'attr': {'label':'Mettre à jour','class': 'button update'}}) }}
+        <div class="widget">
+            {{ form_widget(form.submit, {'attr': {'class': 'button btn'}}) }}
         </div>
         <hr>
         {{ form_end(form)}}
     </div>
 
-    <ul class="record_actions">
-        <li>
-            <a href="{{ path('formation') }}" class = "update button">
-                Retour à la liste des formations
-            </a>
-        </li>
-    </ul>
+    <a href="{{ path('formation') }}" class = "new-entry button">
+        Retour à la liste des formations
+    </a>
 {% endblock %}
