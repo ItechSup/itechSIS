@@ -6,30 +6,32 @@
     <div id="form">
         {{ form_start(edit_form) }}
         {{ form_errors(edit_form) }}
-        <div class="widget form-title">
-            <div class="label">
+        <div class="widget">
+            <div>
                 <label>Date de début</label>
             </div>
-            {{ form_widget(edit_form.startDate) }}
+            {{ form_widget(edit_form.startDate,{ 'attr': {'class':'form-label' }}) }}
         </div>
-        <div class="widget form-title">
-            <div class="label">
+        <div class="widget">
+            <div>
                 <label>Date de fin</label>
             </div>
-            {{ form_widget(edit_form.endDate) }}
+            {{ form_widget(edit_form.endDate,{ 'attr': {'class':'form-label' }}) }}
         </div>
-        <div class="widget form-title">
-            <div class="label">
+        <div class="widget">
+            <div>
                 <label>Formation associée</label>
             </div>
             {{ form_widget(edit_form.formation) }}
         </div>
-        {{ form_end(edit_form)}}
+        <div class="widget">
+            {{ form_widget(edit_form.submit, {'attr': {'class': 'button btn'}}) }}
+        </div>
         <hr>
+        {{ form_end(edit_form)}}
     </div>
 
     <a href="{{ path('formation') }}" class="new-entry button">
          Retour à la liste des formations
     </a>
-
 {% endblock %}

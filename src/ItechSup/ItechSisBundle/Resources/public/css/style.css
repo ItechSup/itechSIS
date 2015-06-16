@@ -56,7 +56,8 @@ td, th {
 .btn {
     border: none;
     min-width: 30%;
-    position: relative
+    position: relative;
+    cursor: pointer;
 }
 
 
@@ -73,8 +74,17 @@ td, th {
     width: 30%;
     padding-left: 0.5%
 }
+select{
+    margin: 0 auto;
+    height: 30px;
+    width: 30%;
+    padding-left: 0.5%
+}
 .widget {
     margin: 2%
+}
+.time{
+    min-height: 80px;
 }
 hr {
     border: none;
@@ -86,10 +96,14 @@ hr {
 .form{
     padding: 15px
 }
-
-
-
 .new-entry{
     position: absolute;
     margin-top: 2%;
+}
+
+/**********
+* Calendar Style
+**********/
+#block-calendar{
+    margin-top: 10%;
 }
