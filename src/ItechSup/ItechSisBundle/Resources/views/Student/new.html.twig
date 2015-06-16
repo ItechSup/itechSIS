@@ -6,35 +6,32 @@
         <div id="form">
             {{ form_start(form)}}
             {{ form_errors(form) }}
-            <div class="widget form-title">
-                <div class="label">
+            <div class="widget">
+                <div>
                     <label>Nom de la formation</label>
                 </div>
-                {{ form_widget(form.name, {'attr': {'class': 'form-label','placeholder':'Nom'}}) }}
+                {{ form_widget(form.name, {'attr': {'class': 'form-label'}}) }}
             </div>
-            <div class="widget form-title">
-                <div class="label">
+            <div class="widget">
+                <div>
                     <label>Nom de la formation</label>
                 </div>
-                {{ form_widget(form.surname, {'attr': {'class': 'form-label','placeholder':'Prénom'}}) }}
+                {{ form_widget(form.surname, {'attr': {'class': 'form-label'}}) }}
             </div>
-            <div class="widget form-title">
-                <div class="label">
+            <div class="widget">
+                <div>
                     <label>Nom de la formation</label>
                 </div>
                 {{ form_widget(form.session, {'attr':{'class':'form-label '}}) }}
             </div>
-            <div class="widget form-submit">
-                {{ form_widget(form.submit,{'attr':{'class':'update button '}} ) }}
+            <div class="widget">
+                {{ form_widget(form.submit,{'attr':{'class':'btn button '}} ) }}
             </div>
             <hr>
             {{ form_end(form) }}
         </div>
-        <ul class="record_actions">
-    <li>
+
         <a href="{{ path('student') }}"class="new-entry button">
             Retour à la liste des étudiants
         </a>
-    </li>
-</ul>
 {% endblock %}
