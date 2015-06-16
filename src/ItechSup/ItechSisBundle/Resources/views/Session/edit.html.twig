@@ -1,7 +1,7 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content%}
-    <h1>Edition des sessions</h1>
+    <h1>Edition de la session : {{ entity.formation.title }} ( {{ entity.startDate|date('Y') }}/{{ entity.endDate|date('Y') }})</h1>
 
     <div id="form">
         {{ form_start(edit_form) }}

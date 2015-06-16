@@ -1,7 +1,7 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1>Edition de la formation</h1>
+    <h1>Edition de la formation {{ entity.title }}</h1>
 
     <div id="form">
         {{ form_start(edit_form)}}

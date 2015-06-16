@@ -3,8 +3,30 @@
 {% block content %}
     <h1>Création de salles</h1>
 
-    {{ form(form) }}
-
+    <div id="form">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div class="widget form-title">
+            <div class="label">
+                <label>Numéro de la salle </label>
+            </div>
+            {{ form_widget(form.number) }}
+        </div>
+        <div class="widget form-title">
+            <div class="label">
+                <label>Nombre de siège(s)</label>
+            </div>
+            {{ form_widget(form.seatsCount) }}
+        </div>
+        <div class="widget form-title">
+            <div class="label">
+                <label>Nombre de pc </label>
+            </div>
+            {{ form_widget(form.computersCount) }}
+        </div>
+        <hr>
+        {{ form_end(form)}}
+    </div>
         <ul class="record_actions">
     <li>
         <a href="{{ path('room') }}">

@@ -1,14 +1,10 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1>Aperçu de la formation</h1>
+    <h1>Aperçu de la formation {{ entity.title }} </h1>
 
     <table class="record_properties">
         <tbody>
-            <tr>
-                <th>Titre</th>
-                <td class="td-table">{{ entity.title }}</td>
-            </tr>
             <tr>
                 <th>Action</th>
                 <td>

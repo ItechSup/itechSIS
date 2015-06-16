@@ -1,20 +1,16 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content%}
-    <h1 class="block-title">Session</h1>
+    <h1 class="block-title">{{ entity.formation.title }} ( {{ entity.startDate|date('Y') }}/{{ entity.endDate|date('Y') }})</h1>
 
     <table class="record_properties">
         <tbody>
             <tr>
-                <th>Nom</th>
-                <td class="td-table">{{ entity.formation.title }}</td>
-            </tr>
-            <tr>
-                <th>Début</th>
+                <th>Date de début</th>
                 <td class="td-table">{{ entity.startDate|date('d-M-Y') }}</td>
             </tr>
             <tr>
-                <th>Fin</th>
+                <th>Date de fin</th>
                 <td class="td-table">{{ entity.endDate|date('d-M-Y') }}</td>
             </tr>
             <tr>
