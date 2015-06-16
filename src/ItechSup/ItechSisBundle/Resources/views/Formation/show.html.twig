@@ -7,13 +7,12 @@
         <tbody>
             <tr>
                 <th>Titre</th>
-                <td>{{ entity.title }}</td>
+                <td class="td-table">{{ entity.title }}</td>
             </tr>
             <tr>
                 <th>Action</th>
                 <td>
                     <a href="{{ path('formation_edit', { 'id': entity.id }) }}"class="button">Editer</a>
-
                 </td>
             </tr>
         </tbody>

@@ -7,9 +7,22 @@
 
         {{ form_start(form)}}
         {{ form_errors(form) }}
-        {{ form_widget(form.title,{ 'attr': {'placeholder': 'Nom de la formation', 'class':'form-label' }}) }}
-        {{ form_widget(form.school, {'attr': {'class': 'form-label select'}}) }}
-        {{ form_widget(form.submit, {'attr': {'label':'Mettre à jour','class': 'button update'}}) }}
+        <div class="widget form-title">
+            <div class="label">
+                <label>Nom de la formation</label>
+            </div>
+            {{ form_widget(form.title,{ 'attr': {'class':'form-label' }}) }}
+        </div>
+        <div class="widget form-school">
+            <div class="label">
+                <label>Nom de l'ecole</label>
+            </div>
+            {{ form_widget(form.school, {'attr': {'class': 'form-label select'}}) }}
+        </div>
+        <div class="widget form-submit">
+            {{ form_widget(form.submit, {'attr': {'label':'Mettre à jour','class': 'button update'}}) }}
+        </div>
+        <hr>
         {{ form_end(form)}}
 
     </div>

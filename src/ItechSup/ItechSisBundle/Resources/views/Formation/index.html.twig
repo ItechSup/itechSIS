@@ -13,7 +13,7 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('formation_show', { 'id': entity.id }) }}">{{ entity.title  }}</a></td>
+                <td><a href="{{ path('formation_show', { 'id': entity.id }) }}" class="td-table">{{ entity.title  }}</a></td>
                 <td>
                     <a href="{{ path('formation_show', { 'id': entity.id }) }}" class="button">Afficher</a>
                     <a href="{{ path('formation_edit', { 'id': entity.id }) }}" class="button">Editer</a>
