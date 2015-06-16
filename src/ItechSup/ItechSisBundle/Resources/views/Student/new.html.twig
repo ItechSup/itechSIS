@@ -6,15 +6,28 @@
         <div id="form">
             {{ form_start(form)}}
             {{ form_errors(form) }}
-            {{ form_widget(form.name, {'attr': {'class': 'form-label','placeholder':'Nom'}}) }}
-            <br>
-            <br>
-            {{ form_widget(form.surname, {'attr': {'class': 'form-label','placeholder':'Prénom'}}) }}
-            <br>
-            <br>
-            {{ form_widget(form.session, {'attr':{'class':'form-label '}}) }}
-            <br>
-            {{ form_widget(form.submit,{'attr':{'class':'update button '}} ) }}
+            <div class="widget form-title">
+                <div class="label">
+                    <label>Nom de la formation</label>
+                </div>
+                {{ form_widget(form.name, {'attr': {'class': 'form-label','placeholder':'Nom'}}) }}
+            </div>
+            <div class="widget form-title">
+                <div class="label">
+                    <label>Nom de la formation</label>
+                </div>
+                {{ form_widget(form.surname, {'attr': {'class': 'form-label','placeholder':'Prénom'}}) }}
+            </div>
+            <div class="widget form-title">
+                <div class="label">
+                    <label>Nom de la formation</label>
+                </div>
+                {{ form_widget(form.session, {'attr':{'class':'form-label '}}) }}
+            </div>
+            <div class="widget form-submit">
+                {{ form_widget(form.submit,{'attr':{'class':'update button '}} ) }}
+            </div>
+            <hr>
             {{ form_end(form) }}
         </div>
         <ul class="record_actions">

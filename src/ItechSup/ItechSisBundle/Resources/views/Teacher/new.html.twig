@@ -3,12 +3,20 @@
 {% block content %}
     <h1>Création de prof</h1>
 
-    {{ form_start(form)}}
-    {{ form_errors(form) }}
-    {{ form_widget(form.fullName,{ 'attr': {'placeholder': 'Nom complet du professeur', 'class':'form-label' }}) }}
-    {{ form_widget(form.submit, {'attr': {'class': 'new-entry button'}}) }}
-    {{ form_end(form)}}
-
+    <div id="form">
+        {{ form_start(form)}}
+        {{ form_errors(form) }}
+        <div class="widget form-title">
+            <div class="label">
+                <label>Nom complet du professeur</label>
+            </div>
+            {{ form_widget(form.fullName,{ 'attr': {'class':'form-label' }}) }}
+        </div>
+        <div class="widget form-school">
+            {{ form_widget(form.submit, {'attr': {'class': 'new-entry button'}}) }}
+        </div>
+        {{ form_end(form)}}
+    </div>
         <ul class="record_actions">
     <li>
         <a href="{{ path('teacher') }}"class ='new-entry button'>

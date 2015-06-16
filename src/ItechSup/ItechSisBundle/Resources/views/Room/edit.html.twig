@@ -3,22 +3,36 @@
 {% block content %}
     <h1>Edition des salles</h1>
 
-    {{ form_start(edit_form) }}
-    {{ form_errors(edit_form) }}
-    <label>Numéro de la salle </label>
-    {{ form_widget(edit_form.number) }}
-    <label>Nombre de siège(s)</label>
-    {{ form_widget(edit_form.seatsCount) }}
-    <label>Nombre de pc </label>
-    {{ form_widget(edit_form.computersCount) }}
-
-    {{ form_end(edit_form)}}
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('room') }}">
-            Retour à la liste
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <div id="form">
+        {{ form_start(edit_form) }}
+        {{ form_errors(edit_form) }}
+        <div class="widget form-title">
+            <div class="label">
+                <label>Numéro de la salle </label>
+            </div>
+            {{ form_widget(edit_form.number) }}
+        </div>
+        <div class="widget form-title">
+            <div class="label">
+                <label>Nombre de siège(s)</label>
+            </div>
+            {{ form_widget(edit_form.seatsCount) }}
+        </div>
+        <div class="widget form-title">
+            <div class="label">
+                <label>Nombre de pc </label>
+            </div>
+            {{ form_widget(edit_form.computersCount) }}
+        </div>
+        <hr>
+        {{ form_end(edit_form)}}
+    </div>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('student') }}"class="new-entry button">
+                Retour à la liste
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
 {% endblock %}
