@@ -1,4 +1,7 @@
-h1{
+/**********
+* Default Style
+**********/
+h1 {
     font-size: 30px;
     color: #34495e;
     border: 2px solid #34495e  ;
@@ -6,28 +9,34 @@ h1{
     width: 100%;
     padding: 20px 0;
     margin-bottom: 3%;
-    text-align: center;
+    text-align: center
 }
 
 /***********
-* Table Style CSS
+* Table Style
 **********/
-table
-{
+table {
     border-collapse: collapse;
-    width: 100%;
+    width: 100%
 }
 thead{
-    border-bottom: 2px solid grey;
+    border-bottom: 2px solid grey
 }
-td, th
-{
+td, th {
     padding: 30px 50px;
     background-color: white;
     color: #34495e;
     text-align: center;
     font-size: 15px;
-    border-bottom: 2px solid #34495e;
+    border-bottom: 2px solid #34495e
+}
+.td-table {
+    text-decoration: none;
+    font-weight: 700;
+    color: #000000
+}
+.td-table:hover {
+    text-decoration: underline
 }
 
 /*********
@@ -39,34 +48,44 @@ td, th
     padding: 20px;
     text-align: center;
     display: inline;
-    text-decoration: none;
+    text-decoration: none
 }
 .button:hover{
-    background-color: #34495e;
+    background-color: #34495e
 }
 
-/*
-* Form new student
-*/
+
+
+/**********
+* Form Style
+**********/
 #form{
     width: 100%;
-    text-align: center;
+    text-align: center
 }
 .form-label{
     margin: 0 auto;
     height: 30px;
     width: 30%;
-    padding-left: 0.5%;
+    padding-left: 0.5%
+}
+.widget {
+    margin: 2%
+}
+hr {
+    border: none;
+    border-bottom: 2px solid #34495e
 }
 .update{
+    border: none;
     width: 10%;
-    position: relative;
+    position: relative
 }
 .record_actions{
-    padding: 30px;
+    padding: 50px 0
 }
 .form{
-    padding: 15px;
+    padding: 15px
 }
 
 
