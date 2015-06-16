@@ -6,33 +6,32 @@
     <div id="form">
         {{ form_start(edit_form) }}
         {{ form_errors(edit_form) }}
-        <div class="widget form-title">
-            <div class="label">
+        <div class="widget">
+            <div>
                 <label>Numéro de la salle </label>
             </div>
-            {{ form_widget(edit_form.number) }}
+            {{ form_widget(edit_form.number, {'attr': {'class': 'form-label'}}) }}
         </div>
-        <div class="widget form-title">
-            <div class="label">
+        <div class="widget">
+            <div>
                 <label>Nombre de siège(s)</label>
             </div>
-            {{ form_widget(edit_form.seatsCount) }}
+            {{ form_widget(edit_form.seatsCount, {'attr': {'class': 'form-label'}}) }}
         </div>
-        <div class="widget form-title">
-            <div class="label">
+        <div class="widget">
+            <div>
                 <label>Nombre de pc </label>
             </div>
-            {{ form_widget(edit_form.computersCount) }}
+            {{ form_widget(edit_form.computersCount, {'attr': {'class': 'form-label'}}) }}
+        </div>
+        <div class="widget">
+            {{ form_widget(edit_form.submit, {'attr': {'class': 'button btn'}}) }}
         </div>
         <hr>
         {{ form_end(edit_form)}}
     </div>
-    <ul class="record_actions">
-        <li>
-            <a href="{{ path('student') }}"class="new-entry button">
-                Retour à la liste
-            </a>
-        </li>
-        <li>{{ form(delete_form) }}</li>
-    </ul>
+
+    <a href="{{ path('student') }}"class="new-entry button">
+        Retour à la liste
+    </a>
 {% endblock %}
