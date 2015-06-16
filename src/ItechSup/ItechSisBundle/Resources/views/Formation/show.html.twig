@@ -4,14 +4,12 @@
     <h1>Aperçu de la formation {{ entity.title }} </h1>
 
     <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Action</th>
-                <td>
-                    <a href="{{ path('formation_edit', { 'id': entity.id }) }}"class="button">Editer</a>
-                </td>
-            </tr>
-        </tbody>
+        <tr>
+            <th>Action</th>
+            <td>
+                <a href="{{ path('formation_edit', { 'id': entity.id }) }}"class="button">Editer</a>
+            </td>
+        </tr>
     </table>
 
     <a href="{{ path('formation') }}" class="new-entry button">

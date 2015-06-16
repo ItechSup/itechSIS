@@ -6,22 +6,20 @@
     <div id="form">
         {{ form_start(form)}}
         {{ form_errors(form) }}
-        <div class="widget form-title">
-            <div class="label">
+        <div class="widget">
+            <div>
                 <label>Nom complet du professeur</label>
             </div>
             {{ form_widget(form.fullName,{ 'attr': {'class':'form-label' }}) }}
         </div>
-        <div class="widget form-school">
-            {{ form_widget(form.submit, {'attr': {'class': 'new-entry button'}}) }}
+        <div class="widget">
+            {{ form_widget(form.submit, {'attr': {'class': 'btn button'}}) }}
         </div>
+        <hr>
         {{ form_end(form)}}
     </div>
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('teacher') }}"class ='new-entry button'>
-            Retour à la liste des professeurs
-        </a>
-    </li>
-</ul>
+
+    <a href="{{ path('teacher') }}"class ='new-entry button'>
+        Retour à la liste des professeurs
+    </a>
 {% endblock %}
