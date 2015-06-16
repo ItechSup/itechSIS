@@ -80,7 +80,7 @@ class SessionController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Créer'));
 
         return $form;
     }
@@ -169,7 +169,7 @@ class SessionController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Mettre à jour'));
 
         return $form;
     }
@@ -298,7 +298,7 @@ class SessionController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Mettre à jour'));
 
         return array(
             'entity' => $entity,
@@ -325,7 +325,7 @@ class SessionController extends Controller
             'action' => $this->generateUrl('session_event_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Mettre à jour'));
         $form->handleRequest($request);
 
         if ($form->isValid()) {
