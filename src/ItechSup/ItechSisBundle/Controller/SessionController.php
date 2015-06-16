@@ -298,7 +298,7 @@ class SessionController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Mettre à jour'));
+        $form->add('submit', 'submit', array('label' => 'Créer'));
 
         return array(
             'entity' => $entity,
