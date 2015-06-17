@@ -4,8 +4,7 @@ namespace ItechSup\ItechSisBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use ItechSup\ItechSisBundle\Validator\Constraints as ItechSupAssert;
-
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 /**
  * Event
  *
@@ -27,7 +26,6 @@ class Event
      * @var \DateTime
      *
      * @ORM\Column(name="startTime", type="datetime")
-     * @ItechSupAssert\StartBeforeEnd
      */
     private $startTime;
 
@@ -216,5 +214,37 @@ class Event
     public function getTeacher()
     {
         return $this->teacher;
+    }
+
+    /*
+     *
+     *@Assert\Callback
+     */
+    public function validateStartDate(ExecutionContextInterface $context)
+    {
+        $start = $this->getStartTime();
+        $end = $this->getEndTime();
+
+        if ($start > $end) {
+            $context->addViolationAt(
+                'startTime',
+                'Erreur! La date de début doit être inferieur à la date de fin',
+                array(),
+                null
+            );
+        }
+    }public function validateEventSameDay(ExecutionContextInterface $context)
+    {
+        $start = $this->getStartTime()->format('d');
+        $end = $this->getEndTime()->format('d');
+
+        if ($start != $end) {
+            $context->addViolationAt(
+                'startTime',
+                'Erreur! Un cour doit être sur le même jour ! ',
+                array(),
+                null
+            );
+        }
     }
 }

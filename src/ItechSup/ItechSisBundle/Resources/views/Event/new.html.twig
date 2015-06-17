@@ -4,8 +4,9 @@
     <h1>Event creation</h1>
 
     {{ form(form) }}
+    {{ form_errors(form) }}
 
-        <ul class="record_actions">
+    <ul class="record_actions">
     <li>
         <a href="{{ path('event') }}">
             Back to the list
