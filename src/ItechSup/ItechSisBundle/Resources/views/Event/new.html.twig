@@ -3,8 +3,9 @@
 {% block content %}
     <h1>Event creation</h1>
 
-    {{ form(form) }}
-    {{ form_errors(form) }}
+    {{ form_start(form) }}
+    {{ form_errors(form.startTime) }}
+    {{ form_end(form) }}
 
     <ul class="record_actions">
     <li>

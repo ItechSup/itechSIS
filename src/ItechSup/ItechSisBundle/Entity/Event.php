@@ -227,7 +227,7 @@ class Event
 
         if ($start > $end) {
             $context->addViolationAt(
-                'startTime',
+                '[startTime]',
                 'Erreur! La date de début doit être inferieur à la date de fin',
                 array(),
                 null
