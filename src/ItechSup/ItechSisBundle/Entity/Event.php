@@ -226,14 +226,18 @@ class Event
         $end = $this->getEndTime();
 
         if ($start > $end) {
-            $context->addViolationAt(
-                '[startTime]',
-                'Erreur! La date de début doit être inferieur à la date de fin',
-                array(),
-                null
-            );
+            $context->buildViolation('La date de fin doit être supérieure à la date de début ')
+                ->atPath('startTime')
+                ->addViolation();
         }
-    }public function validateEventSameDay(ExecutionContextInterface $context)
+    }
+
+    /*
+     *
+     *
+     * @Assert\Callback
+     */
+    public function validateEventSameDay(ExecutionContextInterface $context)
     {
         $start = $this->getStartTime()->format('d');
         $end = $this->getEndTime()->format('d');
