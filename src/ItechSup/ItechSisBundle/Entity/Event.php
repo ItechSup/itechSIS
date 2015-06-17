@@ -239,8 +239,8 @@ class Event
      */
     public function validateEventSameDay(ExecutionContextInterface $context)
     {
-        $start = $this->getStartTime()->format('d');
-        $end = $this->getEndTime()->format('d');
+        $start = $this->getStartTime()->format('dd-mm-yyyy');
+        $end = $this->getEndTime()->format('dd-mm-yyyy');
 
         if ($start != $end) {
             $context->addViolationAt(
