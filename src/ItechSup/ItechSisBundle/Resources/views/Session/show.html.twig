@@ -38,5 +38,13 @@
 
     <div id="block-calendar">
         {% include 'ItechSupItechSisBundle::calendar.html.twig' with {'events': entity.events } %}
-</div>
+    </div>
+
+    <h1>Liste des étudiants</h1>
+
+    <ul>
+        {% for student in entity.students %}
+            <li class="li-session"><a href="{{ path('student_show', { 'id': entity.id }) }}">{{ student.name }} {{ student.surname }}</a></li>
+        {% endfor %}
+    </ul>
 {% endblock %}

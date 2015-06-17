@@ -102,8 +102,23 @@ hr {
 }
 
 /**********
+* Liste Style
+**********/
+.li-session{
+    border-bottom: 2px solid #34495e;
+    height: 60px;
+    line-height: 70px;
+    padding-left: 5%;
+}
+.li-session a{
+    text-decoration: none;
+    color: black;
+}
+
+/**********
 * Calendar Style
 **********/
 #block-calendar{
     margin-top: 10%;
+    margin-bottom: 5%;
 }
