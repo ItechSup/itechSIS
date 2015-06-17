@@ -3,8 +3,8 @@
 namespace ItechSup\ItechSisBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints;
-use ItechSup\ItechSisBundle\Validator\Constraints as ItechSupAssert;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\ExecutionContextInterface;
 
 /**
  * Event
@@ -40,8 +40,6 @@ class Event
 
     /**
      * @var string
-     *
-     *@ItechSupAssert\StartBeforeEnd
      *
      * @ORM\Column(name="title", type="string", length=255)
      */
@@ -217,5 +215,25 @@ class Event
     public function getTeacher()
     {
         return $this->teacher;
+    }
+
+    /*
+     *
+     *@Assert\Callback
+     */
+    public function startBeforeEnd(ExecutionContextInterface $context)
+    {
+
+        $start = $this->getStartTime();
+        $end = $this->getEndTime();
+
+        if ($start->format("dd/mm/yy H:i ") > $end->format("dd/mm/yy H:i")) {
+            $context->addViolationAt(
+                'startTime',
+                'Erreur! la date de début est supérieure à la date de fin',
+                array(),
+                null
+            );
+        }
     }
 }
