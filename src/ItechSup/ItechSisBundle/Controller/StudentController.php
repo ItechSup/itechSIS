@@ -76,7 +76,7 @@ class StudentController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Créer'));
 
         return $form;
     }
@@ -165,7 +165,7 @@ class StudentController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Mettre à jour'));
 
         return $form;
     }
@@ -193,7 +193,7 @@ class StudentController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('student_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('student_show', array('id' => $id)));
         }
 
         return array(
@@ -243,27 +243,5 @@ class StudentController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
-    }
-
-    /**
-     * Sign Off Sheet
-     *
-     * @Route("/signoffsheet/{id}", name="student_signoffsheet")
-     * @Method("GET")
-     * @Template()
-     */
-    public function signOffSheetAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('ItechSupItechSisBundle:Student')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Student entity.');
-        }
-
-        return array(
-            'entity'      => $entity,
-        );
     }
 }

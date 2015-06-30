@@ -1,16 +1,37 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1>Création des étudiants</h1>
+    <h1>Création d'un étudiant</h1>
 
-    <div class="form">
-        {{ form(form) }}
-    </div>
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('student') }}">
+        <div id="form">
+            {{ form_start(form)}}
+            {{ form_errors(form) }}
+            <div class="widget">
+                <div>
+                    <label>Nom de l'édudiant</label>
+                </div>
+                {{ form_widget(form.name, {'attr': {'class': 'form-label'}}) }}
+            </div>
+            <div class="widget">
+                <div>
+                    <label>Prénom de l'étudiant</label>
+                </div>
+                {{ form_widget(form.surname, {'attr': {'class': 'form-label'}}) }}
+            </div>
+            <div class="widget">
+                <div>
+                    <label>Session</label>
+                </div>
+                {{ form_widget(form.session, {'attr':{'class':'form-label '}}) }}
+            </div>
+            <div class="widget">
+                {{ form_widget(form.submit,{'attr':{'class':'btn button '}} ) }}
+            </div>
+            <hr>
+            {{ form_end(form) }}
+        </div>
+
+        <a href="{{ path('student') }}"class="new-entry button">
             Retour à la liste des étudiants
         </a>
-    </li>
-</ul>
 {% endblock %}

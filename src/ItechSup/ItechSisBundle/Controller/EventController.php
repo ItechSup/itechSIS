@@ -35,25 +35,6 @@ class EventController extends Controller
             'entities' => $entities,
         );
     }
-
-    /**
-     * Lists all Event entities.
-     *
-     * @Route("/calendar", name="event_calendar")
-     * @Method("GET")
-     * @Template()
-     */
-    public function calendarAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('ItechSupItechSisBundle:Event')->findAll();
-
-        return array(
-            'entities' => $entities,
-        );
-    }
-
     /**
      * Creates a new Event entity.
      *
@@ -95,7 +76,7 @@ class EventController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Créer'));
 
         return $form;
     }
@@ -184,7 +165,7 @@ class EventController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Mettre à jour'));
 
         return $form;
     }
@@ -259,7 +240,7 @@ class EventController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('event_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array('label' => 'Supprimer'))
             ->getForm()
         ;
     }

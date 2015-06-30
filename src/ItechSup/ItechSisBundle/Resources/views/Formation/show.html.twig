@@ -1,22 +1,15 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1>Aperçu de la formation</h1>
+    <h1>Aperçu de la formation {{ entity.title }} </h1>
 
     <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Titre</th>
-                <td>{{ entity.title }}</td>
-            </tr>
-            <tr>
-                <th>Actions</th>
-                <td>
-                    <a href="{{ path('formation_edit', { 'id': entity.id }) }}"class="button">Editer</a>
-                    {{ form(delete_form) }}
-                </td>
-            </tr>
-        </tbody>
+        <tr>
+            <th>Action</th>
+            <td>
+                <a href="{{ path('formation_edit', { 'id': entity.id }) }}"class="button">Editer</a>
+            </td>
+        </tr>
     </table>
 
     <a href="{{ path('formation') }}" class="new-entry button">

@@ -31,10 +31,9 @@
 
     {% include 'ItechSupItechSisBundle::calendar.html.twig' with {'events': entity.session.events } %}
 
-
     <ul class="record_actions">
         <li>
-            <a href="{{ path('student') }}">
+            <a href="{{ path('student') }}"class="new-entry button">
                 Retour à la liste des étudiants
             </a>
         </li>

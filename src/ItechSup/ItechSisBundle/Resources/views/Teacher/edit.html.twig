@@ -1,19 +1,25 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1>Profs</h1>
+    <h1>Modification des informations de {{ entity.fullName }}</h1>
 
-    {{ form_start(edit_form)}}
-    {{ form_errors(edit_form) }}
-    {{ form_widget(edit_form.fullName, {'attr': {'class':'form-label'}}) }}
-    {{ form_widget(edit_form.submit, {'attr': {'class': 'new-entry button'}}) }}
-    {{ form_end(edit_form)}}
+    <div id="form">
+        {{ form_start(edit_form)}}
+        {{ form_errors(edit_form) }}
+        <div class="widget">
+            <div>
+                <label>Nom complet du professeur</label>
+            </div>
+            {{ form_widget(edit_form.fullName, {'attr': {'class':'form-label'}}) }}
+        </div>
+        <div class="widget">
+            {{ form_widget(edit_form.submit, {'attr': {'class': 'button btn'}}) }}
+        </div>
+        <hr>
+        {{ form_end(edit_form)}}
+    </div>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('teacher') }}"class="new-entry button">
-            Retour à la liste des profs
-        </a>
-    </li>
-</ul>
+    <a href="{{ path('teacher') }}"class="new-entry button">
+        Retour à la liste des profs
+    </a>
 {% endblock %}

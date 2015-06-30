@@ -1,14 +1,10 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1>Salle</h1>
+    <h1>Salle n°{{ entity.number }}</h1>
 
     <table class="record_properties">
         <tbody>
-            <tr>
-                <th>Numéro</th>
-                <td>{{ entity.number }}</td>
-            </tr>
             <tr>
                 <th>Nombre de sièges</th>
                 <td>{{ entity.seatsCount }}</td>
@@ -20,9 +16,29 @@
         </tbody>
     </table>
 
-    {% include 'ItechSupItechSisBundle::calendar.html.twig' with {'events': entity.events } %}
+    <ul class="record_actions">
 
+        <li>
+            <a href="{{ path('room_edit', { 'id': entity.id }) }}"class="new-entry button">
+                Editer
+            </a>
+            <br>
+            <br>
+            <br>
+            <br>
+        </li>
+        <li>
+            <a href="{{ path('room') }}"class="new-entry button">
+                Retour à la liste
+            </a>
+            <br>
+            <br>
+            <br>
+            <br>
+        </li>
+        <li>{{ form_widget(delete_form, {'attr': {'class': 'new-entry button'}}) }}</li>
 
+<<<<<<< HEAD
     <ul class="record_actions">
     <li>
         <a href="{{ path('room') }}">
@@ -35,4 +51,14 @@
         </a>
     </li>
 </ul>
+=======
+    </ul>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    {% include 'ItechSupItechSisBundle::calendar.html.twig' with {'events': entity.events } %}
+>>>>>>> release
 {% endblock %}

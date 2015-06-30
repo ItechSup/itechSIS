@@ -1,89 +1,124 @@
-#box{
-    float: left;
-}
-select{
-    height: 20px;
-    width: 217px;
-}
-option{
-    padding: 5px 5px;
-    font-size: 15px;
-}
-button{
-    margin: 80px 2px;
-    border: none;
-}
-/*
-* Table Style CSS
-*/
-table
-{
-    border-collapse: collapse;
-    width: 650px;
-}
-thead{
-    border-bottom: 2px solid grey;
-}
-td, th
-{
-    padding: 30px 50px;
+/**********
+* Default Style
+**********/
+h1 {
+    font-size: 30px;
+    color: #34495e;
+    border: 2px solid #34495e  ;
     background-color: white;
-    color: grey;
-    border-bottom: 2px solid #ddd;
+    width: 100%;
+    padding: 20px 0;
+    margin-bottom: 3%;
+    text-align: center
 }
 
-.button{
-    background-color: #2980b9;
+/***********
+* Table Style
+**********/
+table {
+    border-collapse: collapse;
+    width: 100%
+}
+thead{
+    border-bottom: 2px solid grey
+}
+td, th {
+    padding: 30px 50px;
+    background-color: white;
+    color: #34495e;
+    text-align: center;
+    font-size: 15px;
+    border-bottom: 2px solid #34495e
+}
+.td-table {
+    text-decoration: none;
+    font-weight: 700;
+    color: #000000
+}
+.td-table:hover {
+    text-decoration: underline
+}
+
+/*********
+* Button Style
+**********/
+.button {
+    background-color: #2c3e50;
     color: white;
     padding: 20px;
     text-align: center;
     display: inline;
-    text-decoration: none;
+    text-decoration: none
 }
-.button:hover{
-    background-color: #3498db;
+.button:hover {
+    background-color: #34495e
 }
-#content{
-    margin-left: 35%;
+.btn {
+    border: none;
+    min-width: 30%;
+    position: relative;
+    cursor: pointer;
 }
-/*
-* Form new student
-*/
 
+
+/**********
+* Form Style
+**********/
+#form{
+    width: 100%;
+    text-align: center
+}
+.form-label{
+    margin: 0 auto;
+    height: 30px;
+    width: 30%;
+    padding-left: 0.5%
+}
+select{
+    margin: 0 auto;
+    height: 30px;
+    width: 30%;
+    padding-left: 0.5%
+}
+.widget {
+    margin: 2%
+}
+.time{
+    min-height: 80px;
+}
+hr {
+    border: none;
+    border-bottom: 2px solid #34495e
+}
 .record_actions{
-    padding: 30px;
+    padding: 50px 0
 }
-
-/*
-* DRAG N DROP
-*/
-.dropper {
-    float: left;
-    width: 300px;
-    background-color: #2980b9;
-    margin-left: 2%;
-}
-
-.draggable {
-    margin: 20px 10px 10px 20px;
-    padding-top: 20px;
-    width: 80px;
-    height: 60px;
-    color: white;
-    cursor: move;
-}
-
 .form{
-    padding: 15px;
+    padding: 15px
 }
-
 .new-entry{
-    float: none;
-    margin-top: 20%;
+    position: absolute;
+    margin-top: 2%;
 }
 
-.rendered{
-    width: 200px;
-    height: 200px;
-    border: 2px solid grey;
+/**********
+* Liste Style
+**********/
+.li-session{
+    border-bottom: 2px solid #34495e;
+    height: 60px;
+    line-height: 70px;
+    padding-left: 5%;
+}
+.li-session a{
+    text-decoration: none;
+    color: black;
+}
+
+/**********
+* Calendar Style
+**********/
+#block-calendar{
+    margin-top: 10%;
+    margin-bottom: 5%;
 }

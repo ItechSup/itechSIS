@@ -3,7 +3,6 @@
 namespace ItechSup\ItechSisBundle\Controller;
 
 use ItechSup\ItechSisBundle\Form\Type\EventType;
-use ItechSup\ItechSisBundle\Entity\Student;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -12,7 +11,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use ItechSup\ItechSisBundle\Entity\Session;
 use ItechSup\ItechSisBundle\Entity\Event;
 use ItechSup\ItechSisBundle\Form\Type\SessionType;
-use ItechSup\ItechSisBundle\Form\Type\StudentType;
 
 
 /**
@@ -82,7 +80,7 @@ class SessionController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Créer'));
 
         return $form;
     }
@@ -171,7 +169,7 @@ class SessionController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Mettre à jour'));
 
         return $form;
     }
@@ -200,7 +198,7 @@ class SessionController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('session'));
+            return $this->redirect($this->generateUrl('session_show', array('id' => $entity->getId())));
         }
 
         return array(
@@ -255,7 +253,7 @@ class SessionController extends Controller
     /**
     * Enlist students in a session.
     *
-    * @Route("/{id}/enlist", name="session_enlist")
+    * @Route("/enlist/{id}", name="session_enlist")
     * @Method("GET")
     * @Template()
     */
@@ -300,14 +298,13 @@ class SessionController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Créer'));
 
         return array(
             'entity' => $entity,
             'form' => $form->createView(),
         );
     }
-    
     /**
      *
      * @Route("/{id}/event",name="session_event_update")
@@ -328,7 +325,7 @@ class SessionController extends Controller
             'action' => $this->generateUrl('session_event_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Mettre à jour'));
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -340,51 +337,6 @@ class SessionController extends Controller
         return array(
             'entity' => $entity,
             'form' => $form->createView(),
-        );
-    }
-
-    /**
-     * @Route("/{id}/enlist",name="session_enlist_update")
-     * @Method("PUT")
-     * @Template("ItechSupItechSisBundle:Session:enlist.html.twig")
-     */
-    public function enlistUpdateAction(Request $request, $id)
-    {
-        $em= $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('ItechSupItechSisBundle:Session')->find($id);
-        
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Session entity.');
-        }
-        dump($request);
-
-        return array(
-            'entity' => $entity,
-        );
-    }
-
-    /**
-     * Sign Off Sheet
-     *
-     * @Route("/signoffsheet/{id}", name="session_signoffsheet")
-     * @Method("GET")
-     * @Template()
-     */
-    public function SignOffSheetAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('ItechSupItechSisBundle:Session')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Session entity.');
-        }
-
-        $students = $em->getRepository('ItechSupItechSisBundle:Student')->findUnlistedStudent();
-
-        return array(
-            'entity' => $entity,
-            'students' => $students,
         );
     }
 }
