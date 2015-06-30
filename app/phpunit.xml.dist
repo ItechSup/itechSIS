@@ -5,7 +5,7 @@
          xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.1/phpunit.xsd"
          backupGlobals="false"
          colors="true"
-         bootstrap="bootstrap.php.cache"
+         bootstrap="tests.bootstrap.php"
 >
     <testsuites>
         <testsuite name="Project Test Suite">
@@ -20,6 +20,9 @@
         <server name="KERNEL_DIR" value="/path/to/your/app/" />
     </php>
     -->
+    <php>
+        <env name="BOOTSTRAP_CLEAR_CACHE_ENV" value="test"/>
+    </php>
 
     <filter>
         <whitelist>

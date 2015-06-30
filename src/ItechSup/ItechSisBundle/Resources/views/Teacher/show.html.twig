@@ -1,48 +1,22 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1>Prof</h1>
+    <h1>{{ entity.fullName }}</h1>
 
     <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Nom complet</th>
-                <td>{{ entity.fullName }}</td>
-            </tr>
-        </tbody>
+        <tr>
+            <th>Action</th>
+            <td>
+                <a href="{{ path('teacher_edit', { 'id': entity.id }) }}" class='button'>Editer</a>
+            </td>
+        </tr>
     </table>
 
-    <table class="record_properties">
-        <caption>Listes des events</caption>
-        <tr>
-            <th>Titre</th>
-            <th>Session</th>
-            <th>Salle</th>
-            <th>Date de début</th>
-            <th>Date de fin</th>
-        </tr>
-        {% for event in entity.events %}
-        <tr>
-            <td>{{ event.title }}</td>
-            <td>{{ event.session.formation.title }}</td>
-            <td>{{ event.room.number }}</td>
-            <td>{{ event.startTime|date('d-m-Y ') }}</td>
-            <td>{{ event.endTime|date('d-m-Y ') }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    <a href="{{ path('teacher') }}"class='new-entry button'>
+        Retour à la liste des professeurs
+    </a>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('teacher') }}">
-            Retour à la liste des profs
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('teacher_edit', { 'id': entity.id }) }}">
-            Editer
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <div id="block-calendar">
+        {% include 'ItechSupItechSisBundle::calendar.html.twig' with {'events': entity.events } %}
+    </div>
 {% endblock %}

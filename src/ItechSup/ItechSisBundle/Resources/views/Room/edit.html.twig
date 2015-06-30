@@ -1,16 +1,39 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1>Edition des salles</h1>
+    <h1>Modification des informations de la salle n° {{ entity.number }}</h1>
 
-    {{ form(edit_form) }}
+    <div id="form">
+        {{ form_start(edit_form) }}
+        {{ form_errors(edit_form) }}
+        <div class="widget">
+            <div>
+                <label>Numéro de la salle </label>
+            </div>
+            {{ form_widget(edit_form.number, {'attr': {'class': 'form-label'}}) }}
+        </div>
+        <div class="widget">
+            <div>
+                <label>Nombre de siège(s)</label>
+            </div>
+            {{ form_widget(edit_form.seatsCount, {'attr': {'class': 'form-label'}}) }}
+        </div>
+        <div class="widget">
+            <div>
+                <label>Nombre de pc </label>
+            </div>
+            {{ form_widget(edit_form.computersCount, {'attr': {'class': 'form-label'}}) }}
+        </div>
+        <div class="widget">
+            {{ form_widget(edit_form.submit, {'attr': {'class': 'button btn'}}) }}
+        </div>
+        <hr>
+        {{ form_end(edit_form)}}
+    </div>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('room') }}">
-            Retour à la liste
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('room') }}">Retour à la liste</a>
+        </li>
+    </ul>
 {% endblock %}

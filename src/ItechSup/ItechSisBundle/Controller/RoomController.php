@@ -76,7 +76,7 @@ class RoomController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Créer'));
 
         return $form;
     }
@@ -165,7 +165,7 @@ class RoomController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Mettre à jour'));
 
         return $form;
     }
@@ -193,7 +193,7 @@ class RoomController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('room_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('room_show', array('id' => $id)));
         }
 
         return array(

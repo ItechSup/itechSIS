@@ -3,35 +3,13 @@
 {% block content %}
     <h1>Event list</h1>
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Starttime</th>
-                <th>Endtime</th>
-                <th>Title</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('event_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{% if entity.startTime %}{{ entity.startTime|date('d-M-Y H:i') }}{% endif %}</td>
-                <td>{% if entity.endTime %}{{ entity.endTime|date('d-M-Y H:i') }}{% endif %}</td>
-                <td>{{ entity.title }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('event_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('event_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    {% endblock %}
+        {% include 'ItechSupItechSisBundle::calendar.html.twig' with {'events': entities } %}
+
+        <ul>
+        <li>
+            <a href="{{ path('event_new') }}">
+                Créer une nouvelle entrée
+            </a>
+        </li>
+    </ul>
+{% endblock %}

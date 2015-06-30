@@ -1,20 +1,37 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content%}
-    <h1 class="block-title">Edition des sessions</h1>
+    <h1>Edition de la session : {{ entity.formation.title }} ( {{ entity.startDate|date('Y') }}/{{ entity.endDate|date('Y') }})</h1>
 
-    {{ form(edit_form) }}
+    <div id="form">
+        {{ form_start(edit_form) }}
+        {{ form_errors(edit_form) }}
+        <div class="widget">
+            <div>
+                <label>Date de début</label>
+            </div>
+            {{ form_widget(edit_form.startDate,{ 'attr': {'class':'form-label' }}) }}
+        </div>
+        <div class="widget">
+            <div>
+                <label>Date de fin</label>
+            </div>
+            {{ form_widget(edit_form.endDate,{ 'attr': {'class':'form-label' }}) }}
+        </div>
+        <div class="widget">
+            <div>
+                <label>Formation associée</label>
+            </div>
+            {{ form_widget(edit_form.formation) }}
+        </div>
+        <div class="widget">
+            {{ form_widget(edit_form.submit, {'attr': {'class': 'button btn'}}) }}
+        </div>
+        <hr>
+        {{ form_end(edit_form)}}
+    </div>
 
-    <ul class="record_actions">
-        <li>
-            <a href="{{ path('session') }}">
-                Retour à la liste
-            </a>
-        </li>
-
-        <li>{% if entity.formation == "" %}
-                {{ form(delete_form) }}
-            {% endif %}
-        </li>
-    </ul>
+    <a href="{{ path('formation') }}" class="new-entry button">
+         Retour à la liste des formations
+    </a>
 {% endblock %}
