@@ -1,14 +1,10 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1>Salle</h1>
+    <h1>Salle n°{{ entity.number }}</h1>
 
     <table class="record_properties">
         <tbody>
-            <tr>
-                <th>Numéro</th>
-                <td>{{ entity.number }}</td>
-            </tr>
             <tr>
                 <th>Nombre de sièges</th>
                 <td>{{ entity.seatsCount }}</td>
@@ -20,37 +16,34 @@
         </tbody>
     </table>
 
-    <table class="record_properties">
-        <caption>Listes des events</caption>
-        <tr>
-            <th>Titre</th>
-            <th>Session</th>
-            <th>Prof</th>
-            <th>Date de début</th>
-            <th>Date de fin</th>
-        </tr>
-        {% for event in entity.events %}
-            <tr>
-                <td>{{ event.title }}</td>
-                <td>{{ event.session.formation.title }}</td>
-                <td>{{ event.teacher.fullName }}</td>
-                <td>{{ event.startTime|date('d-m-Y ') }}</td>
-                <td>{{ event.endTime|date('d-m-Y ') }}</td>
-            </tr>
-        {% endfor %}
-    </table>
+    <ul class="record_actions">
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('room') }}">
-            Retour à la liste
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('room_edit', { 'id': entity.id }) }}">
-            Editer
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+        <li>
+            <a href="{{ path('room_edit', { 'id': entity.id }) }}"class="new-entry button">
+                Editer
+            </a>
+            <br>
+            <br>
+            <br>
+            <br>
+        </li>
+        <li>
+            <a href="{{ path('room') }}"class="new-entry button">
+                Retour à la liste
+            </a>
+            <br>
+            <br>
+            <br>
+            <br>
+        </li>
+        <li>{{ form_widget(delete_form, {'attr': {'class': 'new-entry button'}}) }}</li>
+
+    </ul>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    {% include 'ItechSupItechSisBundle::calendar.html.twig' with {'events': entity.events } %}
 {% endblock %}

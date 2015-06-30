@@ -1,21 +1,17 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content%}
-    <h1 class="block-title">Session</h1>
+    <h1 class="block-title">{{ entity.formation.title }} ( {{ entity.startDate|date('Y') }}/{{ entity.endDate|date('Y') }})</h1>
 
     <table class="record_properties">
         <tbody>
             <tr>
-                <th>Nom</th>
-                <td>{{ entity.formation.title }}</td>
+                <th>Date de début</th>
+                <td class="td-table">{{ entity.startDate|date('d-M-Y') }}</td>
             </tr>
             <tr>
-                <th>Début</th>
-                <td>{{ entity.startDate|date('d-M-Y') }}</td>
-            </tr>
-            <tr>
-                <th>Fin</th>
-                <td>{{ entity.endDate|date('d-M-Y') }}</td>
+                <th>Date de fin</th>
+                <td class="td-table">{{ entity.endDate|date('d-M-Y') }}</td>
             </tr>
             <tr>
                 <th>Actions</th>
@@ -23,7 +19,7 @@
                     <a href="{{ path('session_edit', { 'id': entity.id }) }}"class="button">
                         Editer
                     </a>
-                    {{ form(delete_form) }}
+
                 </td>
             </tr>
             <tr>
@@ -35,8 +31,20 @@
             </tr>
         </tbody>
     </table>
+
     <a href="{{ path('session_enlist', { 'id': entity.id }) }}"class="new-entry button">
         Voir la liste des étudiants
     </a>
 
+    <div id="block-calendar">
+        {% include 'ItechSupItechSisBundle::calendar.html.twig' with {'events': entity.events } %}
+    </div>
+
+    <h1>Liste des étudiants</h1>
+
+    <ul>
+        {% for student in entity.students %}
+            <li class="li-session"><a href="{{ path('student_show', { 'id': entity.id }) }}">{{ student.name }} {{ student.surname }}</a></li>
+        {% endfor %}
+    </ul>
 {% endblock %}

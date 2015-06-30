@@ -37,6 +37,14 @@ class Formation
      */
     private $sessions;
 
+    /**
+     * @var School
+     *
+     * @ORM\ManyToOne(targetEntity="School", inversedBy="formations")
+     * @ORM\JoinColumn(name="school_id", referencedColumnName="id", nullable=false)
+     */
+    private $school;
+
     public function __construct()
     {
         $this->sessions = new ArrayCollection();
@@ -106,5 +114,27 @@ class Formation
     public function getSessions()
     {
         return $this->sessions;
+    }
+
+    /*
+     * Get School
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     *
+     */
+    public function getSchool()
+    {
+        return $this->school;
+    }
+    /*
+     * Set School
+     * @param string $school
+     * @return Formation
+     */
+    public function setSchool($school)
+    {
+        $this->school = $school;
+
+        return $this;
     }
 }

@@ -1,23 +1,23 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
 {% block content%}
-    <h1 class="block-title">Liste de session</h1>
+    <h1 class="block-title">Liste de session(s)</h1>
 
     <table class="records_list">
         <thead>
             <tr>
                 <th>Nom</th>
-                <th>Début</th>
-                <th>Fin</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td>{{ entity.formation.title }}</td>
-                <td>{% if entity.startDate %}{{ entity.startDate|date('d-M-Y ') }}{% endif %}</td>
-                <td>{% if entity.endDate %}{{ entity.endDate|date('d-M-Y') }}{% endif %}</td>
+                <td class="td-table">{{ entity.formation.title }}</td>
+                <td class="td-table">{% if entity.startDate %}{{ entity.startDate|date('d-M-Y ') }}{% endif %}</td>
+                <td class="td-table">{% if entity.endDate %}{{ entity.endDate|date('d-M-Y') }}{% endif %}</td>
                 <td>
                     <a href="{{ path('session_show', { 'id': entity.id }) }}"class="button">Afficher</a>
                     <a href="{{ path('session_edit', { 'id': entity.id }) }}"class="button">Editer</a>
@@ -30,4 +30,4 @@
     <a href="{{ path('session_new') }}" class="new-entry button">
         Créer une nouvelle entrée
     </a>
-    {% endblock %}
+{% endblock %}

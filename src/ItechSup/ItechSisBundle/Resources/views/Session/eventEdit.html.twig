@@ -2,16 +2,53 @@
 
 {% block content %}
     <h1>Ajout d'un événement pour la session {{ entity.formation.title }}</h1>
+    <div id="form">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div class="widget time">
+            <div>
+                <label>Début du cours</label>
+            </div>
+            {{ form_widget(form.startTime,{ 'attr': {'class':'form-label' }}) }}
+        </div>
+        <div class="widget time">
+            <div>
+                <label>Fin du cours</label>
+            </div>
+            {{ form_widget(form.endTime,{ 'attr': {'class':'form-label' }}) }}
+        </div>
+        <div class="widget">
+            <div>
+                <label>Nom du cours</label>
+            </div>
+            {{ form_widget(form.title,{ 'attr': {'class':'form-label' }}) }}
+        </div>
+        <div class="widget">
+            <div>
+                <label>N° de salle </label>
+            </div>
+            {{ form_widget(form.room,{ 'attr': {'class':'form-label' }}) }}
+        </div>
+        <div class="widget">
+            <div>
+                <label>Session</label>
+            </div>
+            {{ form_widget(form.session,{ 'attr': {'class':'form-label' }}) }}
+        </div>
+        <div class="widget">
+            <div>
+                <label>Professeur</label>
+            </div>
+            {{ form_widget(form.teacher,{ 'attr': {'class':'form-label' }}) }}
+        </div>
+        <div class="widget">
+            {{ form_widget(form.submit, {'attr': {'class': 'button btn'}}) }}
+        </div>
+        <hr>
+        {{ form_end(form)}}
+    </div>
 
-    {{ form_row(form.startTime) }}
-    {{ form_errors(form.startTime) }}
-    {{ form_row(form.endTime) }}
-    {{ form_row(form.title) }}
-    {{ form_row(form.room) }}
-    {{ form_row(form.teacher) }}
-
-    <ul class="record_actions">
-        <li>
-        </li>
-    </ul>
+    <a href="{{ path('session') }}" class="new-entry button">
+        Retour à la liste des sessions
+    </a>
 {% endblock %}
