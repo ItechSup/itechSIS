@@ -38,17 +38,16 @@ class Student
 
 
     /**
-     * @var Session
+     * @var Formation
      *
-     * @ORM\ManyToOne(targetEntity="Session", inversedBy="students")
-     * @ORM\JoinColumn(name="session_id",referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Formation", inversedBy="students")
      */
-    private $session;
+    private $formation;
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -81,7 +80,7 @@ class Student
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -104,7 +103,7 @@ class Student
     /**
      * Get surname
      *
-     * @return string 
+     * @return string
      */
     public function getSurname()
     {
@@ -127,7 +126,7 @@ class Student
     /**
      * Get session
      *
-     * @return \ItechSup\ItechSisBundle\Entity\Session 
+     * @return \ItechSup\ItechSisBundle\Entity\Session
      */
     public function getSession()
     {

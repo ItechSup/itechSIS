@@ -33,9 +33,9 @@ class Formation
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Session", mappedBy="formation")
+     * @ORM\OneToMany(targetEntity="TimeSlot", mappedBy="formation")
      */
-    private $sessions;
+    private $timeSlots;
 
     /**
      * @var School
@@ -45,9 +45,16 @@ class Formation
      */
     private $school;
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="Student", mappedBy="formation")
+     */
+    protected $students;
+
     public function __construct()
     {
         $this->sessions = new ArrayCollection();
+        $this->students = new ArrayCollection();
     }
 
     /**
@@ -136,5 +143,38 @@ class Formation
         $this->school = $school;
 
         return $this;
+    }
+
+    /**
+     * Add timeSlots
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\TimeSlot $timeSlots
+     * @return Formation
+     */
+    public function addTimeSlot(\ItechSup\ItechSisBundle\Entity\TimeSlot $timeSlots)
+    {
+        $this->timeSlots[] = $timeSlots;
+
+        return $this;
+    }
+
+    /**
+     * Remove timeSlots
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\TimeSlot $timeSlots
+     */
+    public function removeTimeSlot(\ItechSup\ItechSisBundle\Entity\TimeSlot $timeSlots)
+    {
+        $this->timeSlots->removeElement($timeSlots);
+    }
+
+    /**
+     * Get timeSlots
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTimeSlots()
+    {
+        return $this->timeSlots;
     }
 }

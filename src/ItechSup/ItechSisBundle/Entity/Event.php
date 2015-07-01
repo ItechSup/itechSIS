@@ -47,10 +47,9 @@ class Event
     /**
      * @var Session
      *
-     * @ORM\ManyToOne(targetEntity="Session", inversedBy="events")
-     * @ORM\JoinColumn(name="session_id", referencedColumnName="id", nullable=false)
+     * @ORM\ManyToOne(targetEntity="TimeSlot", inversedBy="events")
      */
-    private $session;
+    private $timeSlot;
 
     /**
      * @var Room

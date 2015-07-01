@@ -177,4 +177,37 @@ class Room
     {
         return $this->events;
     }
+
+    /**
+     * Add schools
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\School $schools
+     * @return Room
+     */
+    public function addSchool(\ItechSup\ItechSisBundle\Entity\School $schools)
+    {
+        $this->schools[] = $schools;
+
+        return $this;
+    }
+
+    /**
+     * Remove schools
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\School $schools
+     */
+    public function removeSchool(\ItechSup\ItechSisBundle\Entity\School $schools)
+    {
+        $this->schools->removeElement($schools);
+    }
+
+    /**
+     * Get schools
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSchools()
+    {
+        return $this->schools;
+    }
 }

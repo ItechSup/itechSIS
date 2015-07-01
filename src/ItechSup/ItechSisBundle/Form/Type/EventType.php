@@ -4,7 +4,7 @@ namespace ItechSup\ItechSisBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EventType extends AbstractType
 {
@@ -18,15 +18,15 @@ class EventType extends AbstractType
             ->add('startTime')
             ->add('endTime')
             ->add('title')
-            ->add('room', null, array('property' => 'number'))
-            ->add('teacher', null, array('property' => 'fullName'))
+            ->add('room', null, array('choice_label' => 'number'))
+            ->add('teacher', null, array('choice_label' => 'fullName'))
         ;
     }
 
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'ItechSup\ItechSisBundle\Entity\Event'

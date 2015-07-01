@@ -150,4 +150,158 @@ class School
     {
         return $this->closingHours;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->rooms = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->formations = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->teachers = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set openingHour
+     *
+     * @param \DateTime $openingHour
+     * @return School
+     */
+    public function setOpeningHour($openingHour)
+    {
+        $this->openingHour = $openingHour;
+
+        return $this;
+    }
+
+    /**
+     * Get openingHour
+     *
+     * @return \DateTime 
+     */
+    public function getOpeningHour()
+    {
+        return $this->openingHour;
+    }
+
+    /**
+     * Set closingHour
+     *
+     * @param \DateTime $closingHour
+     * @return School
+     */
+    public function setClosingHour($closingHour)
+    {
+        $this->closingHour = $closingHour;
+
+        return $this;
+    }
+
+    /**
+     * Get closingHour
+     *
+     * @return \DateTime 
+     */
+    public function getClosingHour()
+    {
+        return $this->closingHour;
+    }
+
+    /**
+     * Add rooms
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\Room $rooms
+     * @return School
+     */
+    public function addRoom(\ItechSup\ItechSisBundle\Entity\Room $rooms)
+    {
+        $this->rooms[] = $rooms;
+
+        return $this;
+    }
+
+    /**
+     * Remove rooms
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\Room $rooms
+     */
+    public function removeRoom(\ItechSup\ItechSisBundle\Entity\Room $rooms)
+    {
+        $this->rooms->removeElement($rooms);
+    }
+
+    /**
+     * Get rooms
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRooms()
+    {
+        return $this->rooms;
+    }
+
+    /**
+     * Add formations
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\Formation $formations
+     * @return School
+     */
+    public function addFormation(\ItechSup\ItechSisBundle\Entity\Formation $formations)
+    {
+        $this->formations[] = $formations;
+
+        return $this;
+    }
+
+    /**
+     * Remove formations
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\Formation $formations
+     */
+    public function removeFormation(\ItechSup\ItechSisBundle\Entity\Formation $formations)
+    {
+        $this->formations->removeElement($formations);
+    }
+
+    /**
+     * Get formations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFormations()
+    {
+        return $this->formations;
+    }
+
+    /**
+     * Add teachers
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\Teacher $teachers
+     * @return School
+     */
+    public function addTeacher(\ItechSup\ItechSisBundle\Entity\Teacher $teachers)
+    {
+        $this->teachers[] = $teachers;
+
+        return $this;
+    }
+
+    /**
+     * Remove teachers
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\Teacher $teachers
+     */
+    public function removeTeacher(\ItechSup\ItechSisBundle\Entity\Teacher $teachers)
+    {
+        $this->teachers->removeElement($teachers);
+    }
+
+    /**
+     * Get teachers
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTeachers()
+    {
+        return $this->teachers;
+    }
 }
