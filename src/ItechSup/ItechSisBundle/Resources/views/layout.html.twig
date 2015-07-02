@@ -48,21 +48,43 @@
             {% block menu %}
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="{{ path('student') }}">
                             <p><i class="fa fa-cogs fa-2x"></i></p>
-                            <p>Paramètres</p>
+                            <p>Eleves</p>
                         </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('teacher') }}">
+                            <p><i class="fa fa-cogs fa-2x"></i></p>
+                            <p>Enseignants</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('formation') }}">
+                            <p><i class="fa fa-cogs fa-2x"></i></p>
+                            <p>Classes</p>
+                        </a>
+                    </li>
+                    <li>
+                        <p><i class="fa fa-cogs fa-2x"></i></p>
+                        <p>Paramètres</p>
                         <ul>
                             <li>
                                 <a href="{{ path('room') }}">
                                     <p><i class="fa fa-university fa-2x"></i></p>
-                                    <p>Gérer les salles</p>
+                                    <p>Salles</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ path('formation') }}">
                                     <p><i class="fa fa-graduation-cap fa-2x"></i></p>
-                                    <p>Gérer les formations</p>
+                                    <p>Cursus</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('school') }}">
+                                    <p><i class="fa fa-building fa-2x"></i></p>
+                                    <p>Ecoles</p>
                                 </a>
                             </li>
                         </ul>

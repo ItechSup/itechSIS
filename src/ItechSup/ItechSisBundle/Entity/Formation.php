@@ -53,7 +53,7 @@ class Formation
 
     public function __construct()
     {
-        $this->sessions = new ArrayCollection();
+        $this->timeSlots = new ArrayCollection();
         $this->students = new ArrayCollection();
     }
 
@@ -90,39 +90,7 @@ class Formation
         return $this->title;
     }
 
-    /**
-     * Add sessions
-     *
-     * @param \ItechSup\ItechSisBundle\Entity\Session $sessions
-     * @return Formation
-     */
-    public function addSession(\ItechSup\ItechSisBundle\Entity\Session $sessions)
-    {
-        $this->sessions[] = $sessions;
-
-        return $this;
-    }
-
-    /**
-     * Remove sessions
-     *
-     * @param \ItechSup\ItechSisBundle\Entity\Session $sessions
-     */
-    public function removeSession(\ItechSup\ItechSisBundle\Entity\Session $sessions)
-    {
-        $this->sessions->removeElement($sessions);
-    }
-
-    /**
-     * Get sessions
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getSessions()
-    {
-        return $this->sessions;
-    }
-
+   
     /*
      * Get School
      *
