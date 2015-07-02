@@ -132,4 +132,27 @@ class Student
     {
         return $this->session;
     }
+
+    /**
+     * Set formation
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\Formation $formation
+     * @return Student
+     */
+    public function setFormation(\ItechSup\ItechSisBundle\Entity\Formation $formation = null)
+    {
+        $this->formation = $formation;
+
+        return $this;
+    }
+
+    /**
+     * Get formation
+     *
+     * @return \ItechSup\ItechSisBundle\Entity\Formation 
+     */
+    public function getFormation()
+    {
+        return $this->formation;
+    }
 }

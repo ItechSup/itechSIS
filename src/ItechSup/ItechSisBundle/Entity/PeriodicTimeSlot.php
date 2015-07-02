@@ -30,4 +30,15 @@ class PeriodicTimeSlot extends TimeSlot
 
         return $this;
     }
+
+
+    /**
+     * Get dayOfWeek
+     *
+     * @return \DateTime 
+     */
+    public function getDayOfWeek()
+    {
+        return $this->dayOfWeek;
+    }
 }

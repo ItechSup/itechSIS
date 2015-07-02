@@ -13,7 +13,7 @@ use ItechSup\ItechSisBundle\Form\Type\RoomType;
 /**
  * Room controller.
  *
- * @Route("/room")
+ * @Route("/param/room")
  */
 class RoomController extends Controller
 {

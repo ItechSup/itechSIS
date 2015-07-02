@@ -48,6 +48,13 @@ abstract class TimeSlot
     protected $endTime;
 
     /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Event", mappedBy="timeSlot")
+     */
+    private $events;
+
+    /**
      * Get id
      *
      * @return integer
@@ -101,5 +108,68 @@ abstract class TimeSlot
     public function getEndTime()
     {
         return $this->endTime;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->events = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set formation
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\Formation $formation
+     * @return TimeSlot
+     */
+    public function setFormation(\ItechSup\ItechSisBundle\Entity\Formation $formation)
+    {
+        $this->formation = $formation;
+
+        return $this;
+    }
+
+    /**
+     * Get formation
+     *
+     * @return \ItechSup\ItechSisBundle\Entity\Formation 
+     */
+    public function getFormation()
+    {
+        return $this->formation;
+    }
+
+    /**
+     * Add events
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\Event $events
+     * @return TimeSlot
+     */
+    public function addEvent(\ItechSup\ItechSisBundle\Entity\Event $events)
+    {
+        $this->events[] = $events;
+
+        return $this;
+    }
+
+    /**
+     * Remove events
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\Event $events
+     */
+    public function removeEvent(\ItechSup\ItechSisBundle\Entity\Event $events)
+    {
+        $this->events->removeElement($events);
+    }
+
+    /**
+     * Get events
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEvents()
+    {
+        return $this->events;
     }
 }

@@ -177,4 +177,37 @@ class Formation
     {
         return $this->timeSlots;
     }
+
+    /**
+     * Add students
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\Student $students
+     * @return Formation
+     */
+    public function addStudent(\ItechSup\ItechSisBundle\Entity\Student $students)
+    {
+        $this->students[] = $students;
+
+        return $this;
+    }
+
+    /**
+     * Remove students
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\Student $students
+     */
+    public function removeStudent(\ItechSup\ItechSisBundle\Entity\Student $students)
+    {
+        $this->students->removeElement($students);
+    }
+
+    /**
+     * Get students
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStudents()
+    {
+        return $this->students;
+    }
 }

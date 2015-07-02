@@ -250,4 +250,27 @@ class Event
             );
         }
     }
+
+    /**
+     * Set timeSlot
+     *
+     * @param \ItechSup\ItechSisBundle\Entity\TimeSlot $timeSlot
+     * @return Event
+     */
+    public function setTimeSlot(\ItechSup\ItechSisBundle\Entity\TimeSlot $timeSlot = null)
+    {
+        $this->timeSlot = $timeSlot;
+
+        return $this;
+    }
+
+    /**
+     * Get timeSlot
+     *
+     * @return \ItechSup\ItechSisBundle\Entity\TimeSlot 
+     */
+    public function getTimeSlot()
+    {
+        return $this->timeSlot;
+    }
 }

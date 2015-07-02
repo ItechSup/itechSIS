@@ -41,4 +41,4 @@ class PunctualTimeSlot extends TimeSlot
     {
         return $this->day;
     }
-}
+ }
