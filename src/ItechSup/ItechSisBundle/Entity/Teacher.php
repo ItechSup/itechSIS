@@ -144,7 +144,7 @@ class Teacher
     /**
      * Get schools
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getSchools()
     {

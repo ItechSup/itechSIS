@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * ClosingDay
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="ItechSup\ItechSisBundle\Entity\ClosingDayRepository")
+ * @ORM\Entity()
  */
 class ClosingDay
 {
@@ -39,7 +39,7 @@ class ClosingDay
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -62,7 +62,7 @@ class ClosingDay
     /**
      * Get reason
      *
-     * @return string 
+     * @return string
      */
     public function getReason()
     {
@@ -85,7 +85,7 @@ class ClosingDay
     /**
      * Get closingDate
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getClosingDate()
     {

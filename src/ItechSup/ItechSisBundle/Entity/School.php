@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * School
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="ItechSup\ItechSisBundle\Entity\SchoolRepository")
+ * @ORM\Entity()
  */
 class School
 {
@@ -176,7 +176,7 @@ class School
     /**
      * Get openingHour
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getOpeningHour()
     {
@@ -199,7 +199,7 @@ class School
     /**
      * Get closingHour
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getClosingHour()
     {
@@ -232,7 +232,7 @@ class School
     /**
      * Get rooms
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getRooms()
     {
@@ -265,7 +265,7 @@ class School
     /**
      * Get formations
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getFormations()
     {
@@ -298,7 +298,7 @@ class School
     /**
      * Get teachers
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getTeachers()
     {

@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use ItechSup\ItechSisBundle\Entity\School;
-use ItechSup\ItechSisBundle\Form\SchoolType;
+use ItechSup\ItechSisBundle\Form\Type\SchoolType;
 
 /**
  * School controller.
