@@ -39,15 +39,23 @@ nav {
     padding-top: 62px;
 }
 nav ul li {
+    position: relative;
     border: 1px solid #95a5a6;
-    height: 80px;
+    height: 60px;
     padding: 10px 0;
     cursor: pointer;
     text-shadow: 0 -1px 0 #000;
     transition: all 0.2s;
 }
+
 nav ul li:hover {
     background-color: #465460
+}
+
+nav ul li:hover ul {
+      display: block;
+      opacity: 1;
+      visibility: visible;
 }
 nav ul li a {
     color: white;
@@ -60,8 +68,8 @@ nav ul li i {
 nav ul li ul {
     padding: 0;
     position: absolute;
-    top: 62px;
     left: 140px;
+    top: -1px;
     width: 140px;
     box-shadow: none;
     display: none;
@@ -77,11 +85,6 @@ nav ul li ul li {
     text-shadow: 0 -1px 0 #000;
 }
 
-ul li:hover ul {
-      display: block;
-      opacity: 1;
-      visibility: visible;
-}
 
 /**********
 * Content Style

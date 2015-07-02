@@ -17,7 +17,7 @@ class StudentType extends AbstractType
         $builder
             ->add('name')
             ->add('surname')
-            ->add('session', null, array('choice_label' => 'title'));
+            ->add('formation', null, array('choice_label' => 'title'));
     }
 
     /**

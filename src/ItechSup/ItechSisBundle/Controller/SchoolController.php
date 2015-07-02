@@ -21,7 +21,7 @@ class SchoolController extends Controller
     /**
      * Lists all School entities.
      *
-     * @Route("/", name="param_school")
+     * @Route("/", name="school")
      * @Method("GET")
      * @Template()
      */
@@ -38,7 +38,7 @@ class SchoolController extends Controller
     /**
      * Creates a new School entity.
      *
-     * @Route("/", name="param_school_create")
+     * @Route("/", name="school_create")
      * @Method("POST")
      * @Template("ItechSupItechSisBundle:School:new.html.twig")
      */
@@ -53,7 +53,7 @@ class SchoolController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('param_school_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('school_show', array('id' => $entity->getId())));
         }
 
         return array(
@@ -72,7 +72,7 @@ class SchoolController extends Controller
     private function createCreateForm(School $entity)
     {
         $form = $this->createForm(new SchoolType(), $entity, array(
-            'action' => $this->generateUrl('param_school_create'),
+            'action' => $this->generateUrl('school_create'),
             'method' => 'POST',
         ));
 
@@ -84,7 +84,7 @@ class SchoolController extends Controller
     /**
      * Displays a form to create a new School entity.
      *
-     * @Route("/new", name="param_school_new")
+     * @Route("/new", name="school_new")
      * @Method("GET")
      * @Template()
      */
@@ -102,7 +102,7 @@ class SchoolController extends Controller
     /**
      * Finds and displays a School entity.
      *
-     * @Route("/{id}", name="param_school_show")
+     * @Route("/{id}", name="school_show")
      * @Method("GET")
      * @Template()
      */
@@ -127,7 +127,7 @@ class SchoolController extends Controller
     /**
      * Displays a form to edit an existing School entity.
      *
-     * @Route("/{id}/edit", name="param_school_edit")
+     * @Route("/{id}/edit", name="school_edit")
      * @Method("GET")
      * @Template()
      */
@@ -161,7 +161,7 @@ class SchoolController extends Controller
     private function createEditForm(School $entity)
     {
         $form = $this->createForm(new SchoolType(), $entity, array(
-            'action' => $this->generateUrl('param_school_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('school_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -172,7 +172,7 @@ class SchoolController extends Controller
     /**
      * Edits an existing School entity.
      *
-     * @Route("/{id}", name="param_school_update")
+     * @Route("/{id}", name="school_update")
      * @Method("PUT")
      * @Template("ItechSupItechSisBundle:School:edit.html.twig")
      */
@@ -193,7 +193,7 @@ class SchoolController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('param_school_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('school_edit', array('id' => $id)));
         }
 
         return array(
@@ -205,7 +205,7 @@ class SchoolController extends Controller
     /**
      * Deletes a School entity.
      *
-     * @Route("/{id}", name="param_school_delete")
+     * @Route("/{id}", name="school_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -225,7 +225,7 @@ class SchoolController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('param_school'));
+        return $this->redirect($this->generateUrl('school'));
     }
 
     /**
@@ -238,7 +238,7 @@ class SchoolController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('param_school_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('school_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()

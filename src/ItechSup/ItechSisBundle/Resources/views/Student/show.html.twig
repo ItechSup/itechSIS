@@ -14,8 +14,8 @@
                 <td>{{ entity.surname }}</td>
             </tr>
             <tr>
-                <th>Session</th>
-                <td>{{ entity.session.formation.title }}</td>
+                <th>Formation</th>
+                <td>{{ entity.formation.title }}</td>
             </tr>
 
             <tr>
@@ -28,8 +28,6 @@
             </tr>
         </tbody>
     </table>
-
-    {% include 'ItechSupItechSisBundle::calendar.html.twig' with {'events': entity.session.events } %}
 
     <ul class="record_actions">
         <li>
