@@ -1,37 +1,31 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
+{% block title %}Liste des salles{% endblock %}
+
 {% block content %}
-    <h1>Liste de salle(s)</h1>
-
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Numéro</th>
-                <th>Nombre de sièges</th>
-                <th>Nombre d'ordinateurs</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td class="td-table">{{ entity.number }}</td>
-                <td class="td-table">{{ entity.seatsCount }}</td>
-                <td class="td-table">{{ entity.computersCount }}</td>
-                <td>
-                    <a href="{{ path('room_show', { 'id': entity.id }) }}" class="button">Afficher</a>
-                    <a href="{{ path('room_edit', { 'id': entity.id }) }}" class="button">Editer</a>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('room_new') }}"class="new-entry button">
-                Créer une nouvelle entrée
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Nombre de sièges</th>
+            <th>Nombre d'ordinateurs</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td>
+                <a href="{{ path('room_show', { 'id': entity.id }) }}">{{ entity.number }}</a>
+            </td>
+            <td>{{ entity.seatsCount }}</td>
+            <td>{{ entity.computersCount }}</td>
+        </tr>
+    {% endfor %}
+        <tr>
+            <td>
+                <a href="{{ path('room_new') }}">Créer une nouvelle entrée</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
