@@ -3,36 +3,15 @@
 {% block title %}Création de salles{% endblock %}
 
 {% block content %}
+<div id="form">
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_row(form.number) }}
+    {{ form_row(form.seatsCount) }}
+    {{ form_row(form.computersCount) }}
 
-    <div id="form">
-        {{ form_start(form) }}
-        {{ form_errors(form) }}
-        <div class="widget">
-            <div>
-                <label>Numéro de la salle </label>
-            </div>
-            {{ form_widget(form.number, {'attr': {'class': 'form-label'}}) }}
-        </div>
-        <div class="widget">
-            <div>
-                <label>Nombre de siège(s)</label>
-            </div>
-            {{ form_widget(form.seatsCount, {'attr': {'class': 'form-label'}}) }}
-        </div>
-        <div class="widget">
-            <div>
-                <label>Nombre de pc </label>
-            </div>
-            {{ form_widget(form.computersCount, {'attr': {'class': 'form-label'}}) }}
-        </div>
-        <div class="widget">
-            {{ form_widget(form.submit, {'attr': {'class': 'button btn'}}) }}
-        </div>
-        <hr>
-        {{ form_end(form)}}
-    </div>
-
-    <a href="{{ path('room') }}" class="new-entry button">
-        Retour à la liste
-    </a>
+    {{ form_widget(form.submit, {'attr': {'class': 'button btn'}}) }}
+    <hr>
+    {{ form_end(form)}}
+</div>
 {% endblock %}

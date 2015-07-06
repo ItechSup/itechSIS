@@ -130,6 +130,9 @@ td, th {
 /**********
 * Form Style
 **********/
+label.required:after {
+    content: " * ";
+}
 /*#form{
     width: 100%;
     text-align: center

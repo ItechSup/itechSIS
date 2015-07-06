@@ -15,9 +15,10 @@ class RoomType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('number')
-            ->add('seatsCount')
-            ->add('computersCount')
+            ->add('number', null, ['label' => '
+                Nom'])
+            ->add('seatsCount', null, ['label' => 'Nombre de sièges'])
+            ->add('computersCount', null, ['label' => 'Nombre d\'ordinateurs'])
         ;
     }
 
