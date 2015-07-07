@@ -1,32 +1,13 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
+{% block title %}Nouveau cursus{% endblock %}
+
 {% block content %}
-    <h1>Création de formation</h1>
-
     <div id="form">
-
-        {{ form_start(form)}}
+        {{ form_start(form) }}
         {{ form_errors(form) }}
-        <div class="widget">
-            <div>
-                <label>Nom de la formation</label>
-            </div>
-            {{ form_widget(form.title,{ 'attr': {'class':'form-label' }}) }}
-        </div>
-        <div class="widget">
-            <div>
-                <label>Nom de l'ecole</label>
-            </div>
-            {{ form_widget(form.school) }}
-        </div>
-        <div class="widget">
-            {{ form_widget(form.submit, {'attr': {'class': 'button btn'}}) }}
-        </div>
-        <hr>
+        {{ form_row(form.title) }}
+        <button type="submit" class="btn btn-default">Créer</button>
         {{ form_end(form)}}
     </div>
-
-    <a href="{{ path('formation') }}" class = "new-entry button">
-        Retour à la liste des formations
-    </a>
 {% endblock %}
