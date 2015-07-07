@@ -4,6 +4,7 @@ namespace ItechSup\ItechSisBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Room
@@ -65,6 +66,13 @@ class Room
         $this->events = new ArrayCollection();
     }
 
+    /**
+     * @Assert\IsTrue(message = "Le nombre d'ordinateurs ne peut être supérieur au nombre de sièges")
+     */
+    public function isCountLegal()
+    {
+        return $this->seatsCount >= $this->computersCount;
+    }
 
     /**
      * Get id

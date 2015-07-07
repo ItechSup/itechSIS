@@ -3,74 +3,41 @@
 {% block title %}Administration - GSI Formation{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('bundles/itechsupitechsis/css/fullcalendar.css') }}" type="text/css"/>
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto" type="text/css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="{{ asset('bundles/itechsupitechsis/css/style.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     {{ parent() }}
 {% endblock %}
 {% block body %}
     <main>
         <header>
-            <a class="logo" href="{{ path('default') }}">
-                <img id="logo" src="{{ asset('bundles/itechsupitechsis/images/logo-itechsup1.png') }}">
-            </a>
-            <h1 id="title">{{ block('title') }}</h1>
-            <a class="logo" href="{{ path('default') }}">
-                <img id="logo" src="{{ asset('bundles/itechsupitechsis/images/logo-itechsup1.png') }}">
-            </a>
-        </header>
-
-        <nav>
-            {% block menu %}
-                <ul>
-                    <li>
-                        <a href="{{ path('student') }}">
-                            <p><i class="fa fa-cogs fa-2x"></i></p>
-                            <p>Eleves</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ path('teacher') }}">
-                            <p><i class="fa fa-cogs fa-2x"></i></p>
-                            <p>Enseignants</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ path('formation') }}">
-                            <p><i class="fa fa-cogs fa-2x"></i></p>
-                            <p>Classes</p>
-                        </a>
-                    </li>
-                    <li>
-                        <p><i class="fa fa-cogs fa-2x"></i></p>
-                        <p>Paramètres</p>
-                        <ul>
-                            <li>
-                                <a href="{{ path('room') }}">
-                                    <p><i class="fa fa-university fa-2x"></i></p>
-                                    <p>Salles</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ path('formation') }}">
-                                    <p><i class="fa fa-graduation-cap fa-2x"></i></p>
-                                    <p>Cursus</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ path('school') }}">
-                                    <p><i class="fa fa-building fa-2x"></i></p>
-                                    <p>Ecoles</p>
-                                </a>
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="{{ path('default') }}">ItechSup</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="{{ path('student') }}">Elèves</a></li>
+                            <li><a href="{{ path('teacher') }}">Enseignants</a></li>
+                            <li><a href="{{ path('formation') }}">Classes</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Paramètres<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('room') }}">Salles</a></li>
+                                    <li><a href="{{ path('formation') }}">Cursus</a></li>
+                                    <li><a href="{{ path('school') }}">Ecoles</a></li>
+                                </ul>
                             </li>
                         </ul>
-                    </li>
-                </ul>
-            {% endblock %}
-        </nav>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
 
         <section id="content">
+            <div class="page-header">
+                <h1 id="title">{{ block('title') }}</h1>
+            </div>
             {% block content %}
             {% endblock %}
         </section>
@@ -79,9 +46,8 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="{{ asset('bundles/itechsupitechsis/js/lib/moment.min.js') }}"></script>
-    <script src="{{ asset('bundles/itechsupitechsis/js/lib/jquery.min.js') }}"></script>
-    <script src="{{ asset('bundles/itechsupitechsis/js/fullcalendar.min.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
     <!-- TODO: Externalize dis shit -->
         $(document).ready(function() {
