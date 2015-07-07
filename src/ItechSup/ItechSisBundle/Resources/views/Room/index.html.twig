@@ -3,7 +3,7 @@
 {% block title %}Liste des salles{% endblock %}
 
 {% block content %}
-<table>
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Nom</th>
@@ -14,18 +14,16 @@
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td>
-                <a href="{{ path('room_show', { 'id': entity.id }) }}">{{ entity.number }}</a>
-            </td>
+            <td><a href="{{ path('room_show', { 'id': entity.id }) }}">{{ entity.number }}</a></td>
             <td>{{ entity.seatsCount }}</td>
             <td>{{ entity.computersCount }}</td>
         </tr>
     {% endfor %}
-        <tr>
-            <td>
-                <a href="{{ path('room_new') }}" class="button">Créer une nouvelle entrée</a>
-            </td>
-        </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3"><a href="{{ path('room_new') }}" class="button">Créer une nouvelle entrée</a></td>
+        </tr>
+    </tfoot>
 </table>
 {% endblock %}

@@ -3,13 +3,13 @@
 {% block title %}Création de salles{% endblock %}
 
 {% block content %}
-<div id="form">
-    {{ form_start(form) }}
-    {{ form_errors(form) }}
-    {{ form_row(form.number) }}
-    {{ form_row(form.seatsCount) }}
-    {{ form_row(form.computersCount) }}
-    {{ form_widget(form.submit, {'attr': {'class': 'button btn'}}) }}
-    {{ form_end(form)}}
-</div>
+    <div id="form">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        {{ form_row(form.number) }}
+        {{ form_row(form.seatsCount) }}
+        {{ form_row(form.computersCount) }}
+        {{ form_widget(form.submit, {'attr': {'class': 'button btn'}}) }}
+        {{ form_end(form)}}
+    </div>
 {% endblock %}

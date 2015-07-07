@@ -1,9 +1,10 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
-{% block content %}
-    <h1>Salle n°{{ entity.number }}</h1>
+{% block title %}Salle {{ entity.number }}{% endblock %}
 
-    <table class="record_properties">
+{% block content %}
+
+    <table class="table">
         <tbody>
             <tr>
                 <th>Nombre de sièges</th>
@@ -16,49 +17,11 @@
         </tbody>
     </table>
 
-    <ul class="record_actions">
-
-        <li>
-            <a href="{{ path('room_edit', { 'id': entity.id }) }}"class="new-entry button">
-                Editer
-            </a>
-            <br>
-            <br>
-            <br>
-            <br>
-        </li>
-        <li>
-            <a href="{{ path('room') }}"class="new-entry button">
-                Retour à la liste
-            </a>
-            <br>
-            <br>
-            <br>
-            <br>
-        </li>
-        <li>{{ form_widget(delete_form, {'attr': {'class': 'new-entry button'}}) }}</li>
-
-    <ul class="record_actions">
-    <li>
-        <a href="{{ path('room') }}">
-            Retour à la liste
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('room_edit', { 'id': entity.id }) }}">
-            Editer
-        </a>
-    </li>
-    <li>
-        {{ form(delete_form) }}
-    </li>
-</ul>
-    </ul>
-
-    <br>
-    <br>
-    <br>
-    <br>
+    {{ form_start(delete_form) }}
+    <a href="{{ path('room_edit', { 'id': entity.id }) }}" class="btn btn-default">Editer</a>
+    {{ form_widget(delete_form.submit) }}
+    <a href="{{ path('room') }}" class="btn btn-default">Retour</a>
+    {{ form_end(delete_form) }}
 
     {% include 'ItechSupItechSisBundle::calendar.html.twig' with {'events': entity.events } %}
 {% endblock %}

@@ -4,7 +4,8 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('bundles/itechsupitechsisbundle/css/style.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('bundles/itechsupitechsis/css/style.css') }}">
     {{ parent() }}
 {% endblock %}
 {% block body %}
@@ -12,23 +13,20 @@
         <header>
             <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container">
+                {# Brand and toggle get grouped for better mobile display #}
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="{{ path('default') }}">ItechSup</a>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#admin-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    <a class="navbar-brand" href="{{ path('default') }}">ItechSup</a>
                     </div>
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav">
-                            <li><a href="{{ path('student') }}">Elèves</a></li>
-                            <li><a href="{{ path('teacher') }}">Enseignants</a></li>
-                            <li><a href="{{ path('formation') }}">Classes</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Paramètres<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ path('room') }}">Salles</a></li>
-                                    <li><a href="{{ path('formation') }}">Cursus</a></li>
-                                    <li><a href="{{ path('school') }}">Ecoles</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+
+                    {# Collect the nav links, forms, and other content for toggling #}
+                    <div class="collapse navbar-collapse" id="admin-navbar-collapse-1">
+                        {{ knp_menu_render('ItechSupItechSisBundle:Builder:mainMenu', {'currentClass': 'active', 'template': 'ItechSupItechSisBundle:Menu:knp_menu.html.twig'}) }}
                     </div>
                 </div>
             </nav>
