@@ -1,29 +1,21 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
-{% block content %}
-    <h1>Liste de formations</h1>
+{% block title %}Liste des formations{% endblock %}
 
-    <table class="records_list">
+{% block content %}
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Nom</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td class="td-table">{{ entity.title  }}</td>
-                <td>
-                    <a href="{{ path('formation_show', { 'id': entity.id }) }}" class="button">Afficher</a>
-                    <a href="{{ path('formation_edit', { 'id': entity.id }) }}" class="button">Editer</a>
-                </td>
-            </tr>
-        {% endfor %}
+            {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('formation_show', { 'id': entity.id }) }}">{{ entity.title }}</a></td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('formation_new') }}" class="new-entry button">
-        Créer une nouvelle formation
-    </a>
+    <a href="{{ path('formation_new') }}" class="btn btn-default">Créer une nouvelle entrée</a>
 {% endblock %}

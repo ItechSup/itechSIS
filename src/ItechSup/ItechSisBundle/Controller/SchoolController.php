@@ -76,8 +76,6 @@ class SchoolController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
         return $form;
     }
 
@@ -240,7 +238,6 @@ class SchoolController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('school_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
     }

@@ -1,40 +1,30 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
-{% block content %}
-    <h1>School</h1>
+{% block title %}Ecole {{ entity.name }}{% endblock %}
 
-    <table class="record_properties">
+{% block content %}
+
+    <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
+                <th>Nom</th>
                 <td>{{ entity.name }}</td>
             </tr>
             <tr>
-                <th>Openinghour</th>
-                <td>{{ entity.openingHour }}</td>
+                <th>Heure d'ouverture</th>
+                <td>{{ entity.openingHour|date('H:i') }}</td>
             </tr>
             <tr>
-                <th>Closinghour</th>
-                <td>{{ entity.closingHour }}</td>
+                <th>Heure de fermeture</th>
+                <td>{{ entity.closingHour|date('H:i') }}</td>
             </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('school') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('school_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    {{ form_start(delete_form) }}
+    <a href="{{ path('school_edit', { 'id': entity.id }) }}" class="btn btn-default">Editer</a>
+    <button type="submit" class="btn btn-default">Supprimer</button>
+    <a href="{{ path('school') }}" class="btn btn-default">Retour</a>
+    {{ form_end(delete_form) }}
+
 {% endblock %}

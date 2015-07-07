@@ -9,7 +9,7 @@
         {{ form_row(edit_form.number) }}
         {{ form_row(edit_form.seatsCount) }}
         {{ form_row(edit_form.computersCount) }}
-        {{ form_widget(edit_form.submit) }}
+        <button type="submit" class="btn btn-default">Mettre à jour</button>
         <a class="btn btn-default" href="{{ path('room') }}">Retour à la liste</a>
         {{ form_end(edit_form) }}
     </div>

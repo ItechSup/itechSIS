@@ -76,8 +76,6 @@ class RoomController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Créer'));
-
         return $form;
     }
 
@@ -165,8 +163,6 @@ class RoomController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Mettre à jour'));
-
         return $form;
     }
     /**
@@ -240,7 +236,6 @@ class RoomController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('room_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Supprimer'))
             ->getForm()
         ;
     }

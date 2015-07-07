@@ -15,9 +15,9 @@ class SchoolType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('openingHour')
-            ->add('closingHour')
+            ->add('name', null, ['label' => 'Nom'])
+            ->add('openingHour', null, ['label' => 'Heure d\'ouverture'])
+            ->add('closingHour', null, ['label' => 'Heure de fermeture'])
         ;
     }
 
