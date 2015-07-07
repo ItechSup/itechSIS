@@ -23,12 +23,6 @@ class LoadData implements FixtureInterface
         $cgo->setTitle('CGO');
         $manager->persist($cgo);
 
-        $sessionSio = new Session();
-        $sessionSio->setFormation($sio);
-        $sessionSio->setStartDate(new \DateTime('2010-01-01'));
-        $sessionSio->setEndDate(new \DateTime('2016-01-01'));
-        $manager->persist($sessionSio);
-
         $room1 = new Room();
         $room1->setNumber('1');
         $room1->setSeatsCount(6);
