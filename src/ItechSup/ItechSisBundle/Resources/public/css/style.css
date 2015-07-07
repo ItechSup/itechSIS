@@ -1,0 +1,193 @@
+/**********
+* Reset CSS
+**********/
+* { padding: 0;  margin: 0;  list-style: none; }
+body, html{ background-color: #eff3f8;  height: 100%; width: 100%; }
+
+/**********
+* Layout Style
+**********/
+main {
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+}
+
+/**********
+* Header Style
+**********/
+header {
+    height: 60px;
+    background-color: #ffffff;
+    border-bottom: 1px solid grey;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#logo {
+    height: 60px;
+    width: 140px;
+}
+#title {
+    height: 60px;
+    font-size: 30px;
+    color: #34495e;
+    padding-top: 15px;
+}
+
+/**********
+* Menu Style
+**********/
+nav {
+    position: fixed;
+    top: 61px;
+    left: 0px;
+    width: 140px;
+    color: white;
+    text-align: center;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+}
+nav li {
+    position: relative;
+    background-color: #2c3e50;
+    border: 0px solid #95a5a6;
+    border-bottom-width: 1px;
+    height: 50px;
+    padding: 10px 0;
+    cursor: pointer;
+    text-shadow: 0 -1px 0 #000;
+    transition: all 0.2s;
+}
+nav li:hover {
+    background-color: #465460
+}
+nav li:hover ul {
+    opacity: 1;
+    visibility: visible;
+}
+nav ul ul {
+    padding: 0;
+    position: absolute;
+    left: 140px;
+    top: 0px;
+    width: 140px;
+    box-shadow: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+/**********
+* Content Style
+**********/
+#content {
+    margin-top: 75px;
+    margin-left: 140px;
+    margin-right: 140px;
+}
+
+/***********
+* Table Style
+**********/
+table {
+    border-collapse: collapse;
+    margin: 15px auto 0 auto;
+}
+tr {
+    border-bottom: 2px solid #C4C9CF;
+}
+thead tr {
+    border-bottom: 2px solid #34495e;
+}
+td, th {
+    padding: 15px 15px;
+    background-color: white;
+    color: #34495e;
+    text-align: center;
+    font-size: 15px;
+}
+
+/*********
+* Button Style
+**********/
+.button {
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    display: inline;
+    text-decoration: none
+}
+.button:hover {
+    background-color: #34495e
+}
+
+/**********
+* Form Style
+**********/
+label.required:after {
+    content: " * ";
+}
+/*#form{
+    width: 100%;
+    text-align: center
+}
+.form-label{
+    margin: 0 auto;
+    height: 30px;
+    width: 30%;
+    padding-left: 0.5%
+}
+select{
+    margin: 0 auto;
+    height: 30px;
+    width: 30%;
+    padding-left: 0.5%
+}
+.widget {
+    margin: 2%
+}
+.time{
+    min-height: 80px;
+}
+hr {
+    border: none;
+    border-bottom: 2px solid #34495e
+}
+.record_actions{
+    padding: 50px 0
+}
+.form{
+    padding: 15px
+}
+.new-entry{
+    position: absolute;
+    margin-top: 2%;
+}
+
+/**********
+* Liste Style
+**********/
+/*.li-session{
+    border-bottom: 2px solid #34495e;
+    height: 60px;
+    line-height: 70px;
+    padding-left: 5%;
+}
+.li-session a{
+    text-decoration: none;
+    color: black;
+}*/
+
+/**********
+* Calendar Style
+**********/
+/*#block-calendar{
+    margin-top: 10%;
+    margin-bottom: 5%;
+}*/
