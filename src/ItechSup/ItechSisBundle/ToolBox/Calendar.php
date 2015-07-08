@@ -22,7 +22,7 @@ class Calendar
             $year->modify("11/1")->format("m/d"),
             $year->modify("11/11")->format("m/d"),
             $year->modify("12/25")->format("m/d"),
-     
+
             // Those dates are computed from $easter. So easy to handle with PHP.
             $easter->format("m/d"),
             $easter->modify('+1 day')->format("m/d"),
@@ -30,7 +30,7 @@ class Calendar
             $easter->modify('+11 days')->format("m/d"),
         ];
 
-        return in_array($date->format("m/d"), $holidays);   
+        return in_array($date->format("m/d"), $holidays);
     }
 
     /**

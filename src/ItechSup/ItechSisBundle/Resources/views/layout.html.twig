@@ -49,24 +49,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment-with-locales.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.2/fullcalendar.min.js"></script>
-    <script>
-    <!-- TODO: Externalize dis shit -->
-        $(document).ready(function() {
-            var data = $('#calendar').attr('data-itech-events');
-            if (data) {
-                data = $.parseJSON(data);
-                $('#calendar').fullCalendar({
-                    header: {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'month,basicWeek,basicDay'
-                    },
-                    defaultDate: '2015-02-12',
-                    editable: true,
-                    eventLimit: true, // allow "more" link when too many events
-                    events: data
-                });
-            }
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.2/lang/fr.js"></script>
+    <script src="{{ asset('bundles/itechsupitechsis/js/script.js') }}"></script>
 {% endblock %}
