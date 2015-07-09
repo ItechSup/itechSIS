@@ -7,7 +7,7 @@ class Calendar
     /**
      * If I want to work if there work today...
      */
-    public function isHolyday(\DateTime $date)
+    public function isHolyday(\DateTimeInterface $date)
     {
         $year = new \DateTime($date->format("Y"));
 

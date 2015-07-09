@@ -6,7 +6,7 @@ $(document).ready(function() {
             header: {
                 left: 'prev,next today',
                 center: 'title',
-                right: 'month,basicWeek,basicDay'
+                right: 'month,agendaWeek,agendaDay'
             },
             lang: "fr",
             weekends: false,
@@ -15,9 +15,12 @@ $(document).ready(function() {
                 'end': '18:00',
                 dow: [1, 2, 3, 4, 5]
             },
+            defaultView: 'agendaWeek',
+            minTime: '08:00:00',
+            maxTime: '18:30:00',
             eventSources: [
                 data,
-                '/api/calendar'
+                '/api/calendar',
             ]
         });
     }

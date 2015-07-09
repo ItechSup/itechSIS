@@ -3,6 +3,7 @@
 namespace ItechSup\ItechSisBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -29,27 +30,30 @@ class CalendarController extends Controller
         $data = [];
         $calendar = $this->get('calendar');
 
-        $now = new \DateTime();
-        $start = $now->modify('-1 mounth')->modify('first day of mounth');
-        $end = $start->modify('+2 mounth');
-        $interval = new DateInterval('P1D');
+        $now = new \DateTimeImmutable ();
+        $start = $now->modify('midnight first day of previous month');
+        $stop = $now->modify('midnight first day of next month');
+        $interval = new \DateInterval('P1D');
 
-        $daterange = new DatePeriod($begin, $interval, $end);
+        $daterange = new \DatePeriod($start, $interval, $stop);
         foreach ($daterange as $date) {
             if ($calendar->isHolyday($date)) {
                 $data[] = array(
-                    'title'  => 'Férié',
-                    'start'  => $event->getStartTime()->format(\DateTime::RFC3339),
-                    'allDay' => True,
+                    'title'           => 'Férié',
+                    'start'           => $date->format(\DateTime::RFC3339),
+                    'end'             => $date->modify('+1 day')->format(\DateTime::RFC3339),
+                    'backgroundColor' => 'red',
+                    'backgroundColor' =>'red',
+                    'rendering'       => 'background'
                 );
 
             }
         }
 dump($now);
 dump($start);
-dump($end);
+dump($stop);
 
-        return json_encode($data);
+        return new Response(json_encode($data));
     }
     // /**
     //  * Creates a new Event entity.
