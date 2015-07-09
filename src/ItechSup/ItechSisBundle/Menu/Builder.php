@@ -41,8 +41,11 @@ class Builder extends ContainerAware
         
         $menu['Configuration']->addChild('Cursus', array('route' => 'formation'))
             ->setAttribute('icon', 'fa fa-list');
-        
+
         $menu['Configuration']->addChild('Ecoles', array('route' => 'school'))
+            ->setAttribute('icon', 'fa fa-list');
+
+        $menu['Configuration']->addChild('Fermeture', array('route' => 'closingday'))
             ->setAttribute('icon', 'fa fa-list');
 
         return $menu;

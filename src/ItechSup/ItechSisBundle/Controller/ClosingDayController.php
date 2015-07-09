@@ -7,21 +7,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use ItechSup\ItechSisBundle\Entity\School;
-use ItechSup\ItechSisBundle\Form\Type\SchoolType;
+use ItechSup\ItechSisBundle\Entity\ClosingDay;
+use ItechSup\ItechSisBundle\Form\Type\ClosingDayType;
 
 /**
- * School controller.
+ * ClosingDay controller.
  *
- * @Route("/param/school")
+ * @Route("/closingday")
  */
-class SchoolController extends Controller
+class ClosingDayController extends Controller
 {
 
     /**
-     * Lists all School entities.
+     * Lists all ClosingDay entities.
      *
-     * @Route("/", name="school")
+     * @Route("/", name="closingday")
      * @Method("GET")
      * @Template()
      */
@@ -29,22 +29,22 @@ class SchoolController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('ItechSupItechSisBundle:School')->findAll();
+        $entities = $em->getRepository('ItechSupItechSisBundle:ClosingDay')->findAll();
 
         return array(
             'entities' => $entities,
         );
     }
     /**
-     * Creates a new School entity.
+     * Creates a new ClosingDay entity.
      *
-     * @Route("/", name="school_create")
+     * @Route("/", name="closingday_create")
      * @Method("POST")
-     * @Template("ItechSupItechSisBundle:School:new.html.twig")
+     * @Template("ItechSupItechSisBundle:ClosingDay:new.html.twig")
      */
     public function createAction(Request $request)
     {
-        $entity = new School();
+        $entity = new ClosingDay();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -53,7 +53,7 @@ class SchoolController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('school_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('closingday_show', array('id' => $entity->getId())));
         }
 
         return array(
@@ -63,16 +63,16 @@ class SchoolController extends Controller
     }
 
     /**
-     * Creates a form to create a School entity.
+     * Creates a form to create a ClosingDay entity.
      *
-     * @param School $entity The entity
+     * @param ClosingDay $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(School $entity)
+    private function createCreateForm(ClosingDay $entity)
     {
-        $form = $this->createForm(new SchoolType(), $entity, array(
-            'action' => $this->generateUrl('school_create'),
+        $form = $this->createForm(new ClosingDayType(), $entity, array(
+            'action' => $this->generateUrl('closingday_create'),
             'method' => 'POST',
         ));
 
@@ -80,15 +80,15 @@ class SchoolController extends Controller
     }
 
     /**
-     * Displays a form to create a new School entity.
+     * Displays a form to create a new ClosingDay entity.
      *
-     * @Route("/new", name="school_new")
+     * @Route("/new", name="closingday_new")
      * @Method("GET")
      * @Template()
      */
     public function newAction()
     {
-        $entity = new School();
+        $entity = new ClosingDay();
         $form   = $this->createCreateForm($entity);
 
         return array(
@@ -98,9 +98,9 @@ class SchoolController extends Controller
     }
 
     /**
-     * Finds and displays a School entity.
+     * Finds and displays a ClosingDay entity.
      *
-     * @Route("/{id}", name="school_show")
+     * @Route("/{id}", name="closingday_show")
      * @Method("GET")
      * @Template()
      */
@@ -108,10 +108,10 @@ class SchoolController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ItechSupItechSisBundle:School')->find($id);
+        $entity = $em->getRepository('ItechSupItechSisBundle:ClosingDay')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find School entity.');
+            throw $this->createNotFoundException('Unable to find ClosingDay entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -123,9 +123,9 @@ class SchoolController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing School entity.
+     * Displays a form to edit an existing ClosingDay entity.
      *
-     * @Route("/{id}/edit", name="school_edit")
+     * @Route("/{id}/edit", name="closingday_edit")
      * @Method("GET")
      * @Template()
      */
@@ -133,10 +133,10 @@ class SchoolController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ItechSupItechSisBundle:School')->find($id);
+        $entity = $em->getRepository('ItechSupItechSisBundle:ClosingDay')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find School entity.');
+            throw $this->createNotFoundException('Unable to find ClosingDay entity.');
         }
 
         $editForm = $this->createEditForm($entity);
@@ -150,36 +150,36 @@ class SchoolController extends Controller
     }
 
     /**
-    * Creates a form to edit a School entity.
+    * Creates a form to edit a ClosingDay entity.
     *
-    * @param School $entity The entity
+    * @param ClosingDay $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(School $entity)
+    private function createEditForm(ClosingDay $entity)
     {
-        $form = $this->createForm(new SchoolType(), $entity, array(
-            'action' => $this->generateUrl('school_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new ClosingDayType(), $entity, array(
+            'action' => $this->generateUrl('closingday_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
         return $form;
     }
     /**
-     * Edits an existing School entity.
+     * Edits an existing ClosingDay entity.
      *
-     * @Route("/{id}", name="school_update")
+     * @Route("/{id}", name="closingday_update")
      * @Method("PUT")
-     * @Template("ItechSupItechSisBundle:School:edit.html.twig")
+     * @Template("ItechSupItechSisBundle:ClosingDay:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ItechSupItechSisBundle:School')->find($id);
+        $entity = $em->getRepository('ItechSupItechSisBundle:ClosingDay')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find School entity.');
+            throw $this->createNotFoundException('Unable to find ClosingDay entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -189,7 +189,7 @@ class SchoolController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('school_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('closingday_edit', array('id' => $id)));
         }
 
         return array(
@@ -199,9 +199,9 @@ class SchoolController extends Controller
         );
     }
     /**
-     * Deletes a School entity.
+     * Deletes a ClosingDay entity.
      *
-     * @Route("/{id}", name="school_delete")
+     * @Route("/{id}", name="closingday_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -211,21 +211,21 @@ class SchoolController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('ItechSupItechSisBundle:School')->find($id);
+            $entity = $em->getRepository('ItechSupItechSisBundle:ClosingDay')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find School entity.');
+                throw $this->createNotFoundException('Unable to find ClosingDay entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('school'));
+        return $this->redirect($this->generateUrl('closingday'));
     }
 
     /**
-     * Creates a form to delete a School entity by id.
+     * Creates a form to delete a ClosingDay entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -234,21 +234,9 @@ class SchoolController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('school_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('closingday_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->getForm()
         ;
-    }
-
-    /**
-     * Adds a new ClosingDay to a School entityh.
-     *
-     * @Route("/{id}/closing-day/add", name="school_closing_day_add")
-     * @Method("GET")
-     * @Template("ItechSupItechSisBundle:School:addClosingDay.html.twig")
-     */
-    public function functionAddClosingDay()
-    {
-        return [];
     }
 }

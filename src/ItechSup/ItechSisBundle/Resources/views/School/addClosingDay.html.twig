@@ -1,13 +1,14 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
-{% block title %}Création de salles{% endblock %}
+{% block title %}Création d'école{% endblock %}
 
 {% block content %}
     <div id="form">
         {{ form_start(form) }}
         {{ form_errors(form) }}
-        {{ form_row(form.reason) }}
-        {{ form_row(form.closingDay) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.openingHour) }}
+        {{ form_row(form.closingHour) }}
         <button type="submit" class="btn btn-default">Créer</button>
         {{ form_end(form)}}
     </div>

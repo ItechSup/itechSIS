@@ -3,6 +3,7 @@
 namespace ItechSup\ItechSisBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use \Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * School
@@ -65,9 +66,10 @@ class School
 
     /**
      * @var ArrayCollection
-     *
+     * 
+     * @ORM\ManyToMany(targetEntity="ClosingDay", mappedBy="schools")
      */
-    private $closingDay;
+    private $closingDays;
 
 
 
@@ -155,9 +157,10 @@ class School
      */
     public function __construct()
     {
-        $this->rooms = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->formations = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->teachers = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->rooms = new ArrayCollection();
+        $this->formations = new ArrayCollection();
+        $this->teachers = new ArrayCollection();
+        $this->closingDays = new ArrayCollection();
     }
 
     /**
