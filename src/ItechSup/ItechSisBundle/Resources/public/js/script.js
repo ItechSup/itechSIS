@@ -8,10 +8,17 @@ $(document).ready(function() {
                 center: 'title',
                 right: 'month,basicWeek,basicDay'
             },
-            defaultDate: '2015-02-12',
-            editable: true,
-            eventLimit: true, // allow "more" link when too many events
-            events: data
+            lang: "fr",
+            weekends: false,
+            businessHours: {
+                'start': '8:30',
+                'end': '18:00',
+                dow: [1, 2, 3, 4, 5]
+            },
+            eventSources: [
+                data,
+                '/api/calendar'
+            ]
         });
     }
 });
