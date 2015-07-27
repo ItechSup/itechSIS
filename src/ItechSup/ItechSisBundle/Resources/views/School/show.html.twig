@@ -27,4 +27,6 @@
     <a href="{{ path('school') }}" class="btn btn-default">Retour</a>
     {{ form_end(delete_form) }}
 
+
+    <div id="calendar" data-itech-events="/api/calendar/school/{{ entity.id }}"></div>
 {% endblock %}

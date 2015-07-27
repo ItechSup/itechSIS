@@ -1,7 +1,7 @@
-$(document).ready(function() {
+$(document).ready(function() {    
     var data = $('#calendar').attr('data-itech-events');
+    console.log(data);
     if (data) {
-        data = $.parseJSON(data);
         $('#calendar').fullCalendar({
             header: {
                 left: 'prev,next today',
@@ -19,8 +19,7 @@ $(document).ready(function() {
             minTime: '08:00:00',
             maxTime: '18:30:00',
             eventSources: [
-                data,
-                '/api/calendar',
+                data
             ]
         });
     }

@@ -25,7 +25,7 @@ class CalendarController extends Controller
      * @Route("/", name="api_calendar")
      * @Method("GET")
      */
-    public function holydayAction()
+    public function holidayAction()
     {
         $data = [];
         $calendar = $this->get('calendar');
@@ -38,23 +38,90 @@ class CalendarController extends Controller
         $daterange = new \DatePeriod($start, $interval, $stop);
         foreach ($daterange as $date) {
             if ($calendar->isHolyday($date)) {
-                $data[] = array(
+                $data[] = [
                     'title'           => 'Férié',
                     'start'           => $date->format(\DateTime::RFC3339),
                     'end'             => $date->modify('+1 day')->format(\DateTime::RFC3339),
                     'backgroundColor' => 'red',
-                    'backgroundColor' =>'red',
+                    'backgroundColor' => 'red',
                     'rendering'       => 'background'
-                );
+                ];
 
             }
         }
-dump($now);
-dump($start);
-dump($stop);
+
+        $em = $this->getDoctrine()->getManager();
+        $closingDays = $em->getRepository('ItechSupItechSisBundle:ClosingDay')->findAll();
+        foreach ($closingDays as $closingDay) {
+            $data[] = [
+                'title'           => $closingDay->getReason(),
+                'start'           => $closingDay->getClosingDate()->format(\DateTime::RFC3339),
+                'end'             => $closingDay->getClosingDate()->modify('+1 day')->format(\DateTime::RFC3339),
+                'backgroundColor' => 'yellow',
+                'rendering'       => 'background'
+            ];
+        }
+
+        return new Response(json_encode($data));
 
         return new Response(json_encode($data));
     }
+
+    /**
+     * Get work day in a nice json output
+     *
+     * @Route("/school/{id}", name="api_calendar_school")
+     * @Method("GET")
+     */
+    public function schoolAction($id)
+    {
+        $data = [];
+        $calendar = $this->get('calendar');
+
+        $now = new \DateTimeImmutable ();
+        $start = $now->modify('midnight first day of previous month');
+        $stop = $now->modify('midnight first day of next month');
+        $interval = new \DateInterval('P1D');
+
+        $daterange = new \DatePeriod($start, $interval, $stop);
+        foreach ($daterange as $date) {
+            if ($calendar->isHolyday($date)) {
+                $data[] = [
+                    'title'           => 'Férié',
+                    'start'           => $date->format(\DateTime::RFC3339),
+                    'end'             => $date->modify('+1 day')->format(\DateTime::RFC3339),
+                    'backgroundColor' => 'red',
+                    'rendering'       => 'background'
+                ];
+
+            }
+
+        }
+
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('ItechSupItechSisBundle:School')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find School entity.');
+        }
+
+        //Just kidding. Closing days are the same in every school
+
+        $closingDays = $em->getRepository('ItechSupItechSisBundle:ClosingDay')->findAll();
+        foreach ($closingDays as $closingDay) {
+            $data[] = [
+                'title'           => $closingDay->getReason(),
+                'start'           => $closingDay->getClosingDate()->format(\DateTime::RFC3339),
+                'end'             => $closingDay->getClosingDate()->modify('+1 day')->format(\DateTime::RFC3339),
+                'backgroundColor' => 'yellow',
+                'rendering'       => 'background'
+            ];
+        }
+
+         return new Response(json_encode($data));
+    }
+
     // /**
     //  * Creates a new Event entity.
     //  *
