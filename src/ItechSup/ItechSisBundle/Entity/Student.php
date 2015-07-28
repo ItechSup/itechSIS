@@ -45,6 +45,7 @@ class Student
      * @var Formation
      *
      * @ORM\ManyToOne(targetEntity="Formation", inversedBy="students")
+     * @ORM\JoinColumn(name="formation_id", referencedColumnName="id", nullable=false)
      */
     private $formation;
 

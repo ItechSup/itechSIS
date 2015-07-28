@@ -1,32 +1,23 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
+{% block title %}Liste des étudiants{% endblock %}
 
 {% block content %}
-    <h1>Liste d'étudiant(s)</h1>
-
-    <table class="records_list">
+    <table class="table table-striped">
         <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Nom</th>
+            <th>Entreprise</th>
+        </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td class="td-table">{{ entity.name }}</td>
-                <td class="td-table">{{ entity.surname }}
-                <td>
-                    <a href="{{ path('student_show', { 'id': entity.id }) }}" class="button">Afficher</a>
-                    <a href="{{ path('student_edit', { 'id': entity.id }) }}" class="button">Editer</a>
-                </td>
+                <td><a href="{{ path('student_show', { 'id': entity.id }) }}">{{ entity.surname ~ ' ' ~ entity.name }}</a></td>
+                <td>{{ entity.workplace }}</a></td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('student_new') }}" class="new-entry button">
-        Créer une nouvelle entrée
-    </a>
+    <a href="{{ path('student_new') }}" class="btn btn-default">Créer une nouvelle entrée</a>
 {% endblock %}

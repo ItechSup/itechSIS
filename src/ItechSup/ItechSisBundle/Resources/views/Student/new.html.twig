@@ -1,37 +1,16 @@
 {% extends 'ItechSupItechSisBundle::layout.html.twig' %}
 
+{% block title %}Nouvel étudiant{% endblock %}
+
 {% block content %}
-    <h1>Création d'un étudiant</h1>
-
-        <div id="form">
-            {{ form_start(form)}}
-            {{ form_errors(form) }}
-            <div class="widget">
-                <div>
-                    <label>Nom de l'édudiant</label>
-                </div>
-                {{ form_widget(form.name, {'attr': {'class': 'form-label'}}) }}
-            </div>
-            <div class="widget">
-                <div>
-                    <label>Prénom de l'étudiant</label>
-                </div>
-                {{ form_widget(form.surname, {'attr': {'class': 'form-label'}}) }}
-            </div>
-            <div class="widget">
-                <div>
-                    <label>Formation</label>
-                </div>
-                {{ form_widget(form.formation, {'attr':{'class':'form-label '}}) }}
-            </div>
-            <div class="widget">
-                {{ form_widget(form.submit,{'attr':{'class':'btn button '}} ) }}
-            </div>
-            <hr>
-            {{ form_end(form) }}
-        </div>
-
-        <a href="{{ path('student') }}"class="new-entry button">
-            Retour à la liste des étudiants
-        </a>
+    <div id="form">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.surname) }}
+        {{ form_row(form.workplace) }}
+        {{ form_row(form.formation) }}
+        <button type="submit" class="btn btn-default">Créer</button>
+        {{ form_end(form)}}
+    </div>
 {% endblock %}

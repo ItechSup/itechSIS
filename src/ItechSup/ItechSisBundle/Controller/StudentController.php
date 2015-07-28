@@ -2,13 +2,13 @@
 
 namespace ItechSup\ItechSisBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use ItechSup\ItechSisBundle\Entity\Student;
+use ItechSup\ItechSisBundle\Form\Type\StudentType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use ItechSup\ItechSisBundle\Entity\Student;
-use ItechSup\ItechSisBundle\Form\Type\StudentType;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Student controller.
@@ -35,6 +35,7 @@ class StudentController extends Controller
             'entities' => $entities,
         );
     }
+
     /**
      * Creates a new Student entity.
      *
@@ -58,7 +59,7 @@ class StudentController extends Controller
 
         return array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         );
     }
 
@@ -76,8 +77,6 @@ class StudentController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Créer'));
-
         return $form;
     }
 
@@ -91,11 +90,11 @@ class StudentController extends Controller
     public function newAction()
     {
         $entity = new Student();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         );
     }
 
@@ -119,9 +118,24 @@ class StudentController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         );
+    }
+
+    /**
+     * Creates a form to delete a Student entity by id.
+     *
+     * @param mixed $id The entity id
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm($id)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('student_delete', array('id' => $id)))
+            ->setMethod('DELETE')
+            ->getForm();
     }
 
     /**
@@ -145,19 +159,19 @@ class StudentController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
 
     /**
-    * Creates a form to edit a Student entity.
-    *
-    * @param Student $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a Student entity.
+     *
+     * @param Student $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(Student $entity)
     {
         $form = $this->createForm(new StudentType(), $entity, array(
@@ -167,6 +181,7 @@ class StudentController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing Student entity.
      *
@@ -195,11 +210,12 @@ class StudentController extends Controller
         }
 
         return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
+
     /**
      * Deletes a Student entity.
      *
@@ -224,22 +240,5 @@ class StudentController extends Controller
         }
 
         return $this->redirect($this->generateUrl('student'));
-    }
-
-    /**
-     * Creates a form to delete a Student entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('student_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
     }
 }
