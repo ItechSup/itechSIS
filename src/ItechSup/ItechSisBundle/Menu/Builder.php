@@ -22,13 +22,7 @@ class Builder extends ContainerAware
          */
         $menu->addChild('Enseignants', array('route' => 'teacher'))
             ->setAttribute('icon', 'fa fa-list');
-        
-        /**
-         * Classes
-         */
-        $menu->addChild('Classes', array('route' => 'formation'))
-            ->setAttribute('icon', 'fa fa-list');
-        
+                
         /**
          * Configuration
          */
