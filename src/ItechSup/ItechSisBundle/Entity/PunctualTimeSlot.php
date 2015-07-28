@@ -15,9 +15,29 @@ class PunctualTimeSlot extends TimeSlot
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dayOfWeek", type="datetime")
+     * @ORM\Column(name="day", type="datetime")
      */
     private $day;
+
+    /**
+     * Convenience method to get exact start DateTime. Or perhaps I should store 'em directly. Nevermind.
+     *
+     * @return \DateTime
+     */
+    public function getStartDateTime()
+    {
+        return new \DateTime($this->getDay()->format('Y-m-d') . ' ' . $this->getStartTime()->format('H:i:s'));
+    }
+
+    /**
+     * Get day
+     *
+     * @return \DateTime
+     */
+    public function getDay()
+    {
+        return $this->day;
+    }
 
     /**
      * Set day
@@ -33,12 +53,17 @@ class PunctualTimeSlot extends TimeSlot
     }
 
     /**
-     * Get day
+     * Convenience method to get exact end DateTime. Or perhaps I should store 'em directly. Nevermind.
      *
      * @return \DateTime
      */
-    public function getDay()
+    public function getEndDateTime()
     {
-        return $this->day;
+        return new \DateTime($this->getDay()->format('Y-m-d') . ' ' . $this->getEndTime()->format('H:i:s'));
+    }
+
+    public function isPunctual()
+    {
+        return true;
     }
  }

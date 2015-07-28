@@ -2,7 +2,6 @@
 
 namespace ItechSup\ItechSisBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,13 +35,38 @@ class Student
      */
     private $surname;
 
-
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="workplace", type="string", length=255)
+     */
+    private $workplace;
     /**
      * @var Formation
      *
      * @ORM\ManyToOne(targetEntity="Formation", inversedBy="students")
      */
     private $formation;
+
+    /**
+     * @return string
+     */
+    public function getWorkplace()
+    {
+        return $this->workplace;
+    }
+
+    /**
+     * @param string $workplace
+     *
+     * @return Student
+     */
+    public function setWorkplace($workplace)
+    {
+        $this->workplace = $workplace;
+
+        return $this;
+    }
 
     /**
      * Get id
@@ -52,6 +76,16 @@ class Student
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
@@ -67,24 +101,14 @@ class Student
         return $this;
     }
 
-    /*
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->session;
-    }
-
     /**
-     * Get name
+     * Get surname
      *
      * @return string
      */
-    public function getName()
+    public function getSurname()
     {
-        return $this->name;
+        return $this->surname;
     }
 
     /**
@@ -101,36 +125,13 @@ class Student
     }
 
     /**
-     * Get surname
+     * Get formation
      *
-     * @return string
+     * @return \ItechSup\ItechSisBundle\Entity\Formation
      */
-    public function getSurname()
+    public function getFormation()
     {
-        return $this->surname;
-    }
-
-    /**
-     * Set session
-     *
-     * @param \ItechSup\ItechSisBundle\Entity\Session $session
-     * @return Student
-     */
-    public function setSession(\ItechSup\ItechSisBundle\Entity\Session $session = null)
-    {
-        $this->session = $session;
-
-        return $this;
-    }
-
-    /**
-     * Get session
-     *
-     * @return \ItechSup\ItechSisBundle\Entity\Session
-     */
-    public function getSession()
-    {
-        return $this->session;
+        return $this->formation;
     }
 
     /**
@@ -144,15 +145,5 @@ class Student
         $this->formation = $formation;
 
         return $this;
-    }
-
-    /**
-     * Get formation
-     *
-     * @return \ItechSup\ItechSisBundle\Entity\Formation 
-     */
-    public function getFormation()
-    {
-        return $this->formation;
     }
 }

@@ -2,8 +2,8 @@
 
 namespace ItechSup\ItechSisBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use \Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * School
@@ -65,14 +65,14 @@ class School
     private $teachers;
 
     /**
-     * @var ArrayCollection
-     * 
-     * @ORM\ManyToMany(targetEntity="ClosingDay", mappedBy="schools")
+     * Constructor
      */
-    private $closingDays;
-
-
-
+    public function __construct()
+    {
+        $this->rooms = new ArrayCollection();
+        $this->formations = new ArrayCollection();
+        $this->teachers = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -82,6 +82,16 @@ class School
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
@@ -98,69 +108,13 @@ class School
     }
 
     /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set openingHours
-     *
-     * @param \DateTime $openingHours
-     * @return School
-     */
-    public function setOpeningHours($openingHours)
-    {
-        $this->openingHours = $openingHours;
-
-        return $this;
-    }
-
-    /**
-     * Get openingHours
+     * Get openingHour
      *
      * @return \DateTime
      */
-    public function getOpeningHours()
+    public function getOpeningHour()
     {
-        return $this->openingHours;
-    }
-
-    /**
-     * Set closingHours
-     *
-     * @param \DateTime $closingHours
-     * @return School
-     */
-    public function setClosingHours($closingHours)
-    {
-        $this->closingHours = $closingHours;
-
-        return $this;
-    }
-
-    /**
-     * Get closingHours
-     *
-     * @return \DateTime
-     */
-    public function getClosingHours()
-    {
-        return $this->closingHours;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->rooms = new ArrayCollection();
-        $this->formations = new ArrayCollection();
-        $this->teachers = new ArrayCollection();
-        $this->closingDays = new ArrayCollection();
+        return $this->openingHour;
     }
 
     /**
@@ -177,13 +131,13 @@ class School
     }
 
     /**
-     * Get openingHour
+     * Get closingHour
      *
      * @return \DateTime
      */
-    public function getOpeningHour()
+    public function getClosingHour()
     {
-        return $this->openingHour;
+        return $this->closingHour;
     }
 
     /**
@@ -197,16 +151,6 @@ class School
         $this->closingHour = $closingHour;
 
         return $this;
-    }
-
-    /**
-     * Get closingHour
-     *
-     * @return \DateTime
-     */
-    public function getClosingHour()
-    {
-        return $this->closingHour;
     }
 
     /**

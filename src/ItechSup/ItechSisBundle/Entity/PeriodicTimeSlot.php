@@ -12,11 +12,21 @@ use Doctrine\ORM\Mapping as ORM;
 class PeriodicTimeSlot extends TimeSlot
 {
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="dayOfWeek", type="datetime")
+     * @ORM\Column(name="dayOfWeek", type="integer")
      */
     private $dayOfWeek;
+
+    /**
+     * Get dayOfWeek
+     *
+     * @return \DateTime
+     */
+    public function getDayOfWeek()
+    {
+        return $this->dayOfWeek;
+    }
 
     /**
      * Set dayOfWeek
@@ -31,14 +41,27 @@ class PeriodicTimeSlot extends TimeSlot
         return $this;
     }
 
+    /**
+     * Convenience method to get exact start DateTime. Or perhaps I should store 'em directly. Nevermind.
+     *
+     * @return \DateTime
+     */
+    public function getStartDateTime(\DateTimeInterface $date)
+    {
+        return new \DateTime($date->format('Y-m-d').' '.$this->getStartTime()->format('H:i:s'));
+    }
 
     /**
-     * Get dayOfWeek
+     * Convenience method to get exact end DateTime. Or perhaps I should store 'em directly. Nevermind.
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
-    public function getDayOfWeek()
+    public function getEndDateTime(\DateTimeInterface $date)
     {
-        return $this->dayOfWeek;
+        return new \DateTime($date->format('Y-m-d').' '.$this->getEndTime()->format('H:i:s'));
+    }
+
+    public function isPunctual() {
+        return false;
     }
 }

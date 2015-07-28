@@ -2,14 +2,10 @@
 
 namespace ItechSup\ItechSisBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use ItechSup\ItechSisBundle\Entity\Event;
-use ItechSup\ItechSisBundle\Form\Type\EventType;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Event controller.
@@ -30,8 +26,8 @@ class CalendarController extends Controller
         $data = [];
         $calendar = $this->get('calendar');
 
-        $now = new \DateTimeImmutable ();
-        $start = $now->modify('midnight first day of previous month');
+        $now = new \DateTimeImmutable();
+        $start = $now->modify('midnight first day of this month');
         $stop = $now->modify('midnight first day of next month');
         $interval = new \DateInterval('P1D');
 
@@ -42,7 +38,6 @@ class CalendarController extends Controller
                     'title'           => 'Férié',
                     'start'           => $date->format(\DateTime::RFC3339),
                     'end'             => $date->modify('+1 day')->format(\DateTime::RFC3339),
-                    'backgroundColor' => 'red',
                     'backgroundColor' => 'red',
                     'rendering'       => 'background'
                 ];
@@ -63,8 +58,6 @@ class CalendarController extends Controller
         }
 
         return new Response(json_encode($data));
-
-        return new Response(json_encode($data));
     }
 
     /**
@@ -78,7 +71,7 @@ class CalendarController extends Controller
         $data = [];
         $calendar = $this->get('calendar');
 
-        $now = new \DateTimeImmutable ();
+        $now = new \DateTimeImmutable();
         $start = $now->modify('midnight first day of previous month');
         $stop = $now->modify('midnight first day of next month');
         $interval = new \DateInterval('P1D');
@@ -119,7 +112,88 @@ class CalendarController extends Controller
             ];
         }
 
-         return new Response(json_encode($data));
+        return new Response(json_encode($data));
+    }
+
+    /**
+     * Get work day in a nice json output
+     *
+     * @Route("/formation/{id}", name="api_calendar_formation")
+     * @Method("GET")
+     */
+    public function formationAction($id)
+    {
+        $data = [];
+        $calendar = $this->get('calendar');
+
+        $now = new \DateTimeImmutable();
+        $start = $now->modify('midnight first day of previous month');
+        $stop = $now->modify('midnight last day of next month');
+        $interval = new \DateInterval('P1D');
+
+        $daterange = new \DatePeriod($start, $interval, $stop);
+        foreach ($daterange as $date) {
+            if ($calendar->isHolyday($date)) {
+                $data[] = [
+                    'title' => 'Férié',
+                    'start' => $date->format(\DateTime::RFC3339),
+                    'end' => $date->modify('+1 day')->format(\DateTime::RFC3339),
+                    'backgroundColor' => 'red',
+                    'rendering' => 'background'
+                ];
+            }
+        }
+
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('ItechSupItechSisBundle:Formation')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Formation entity.');
+        }
+
+        //Just kidding. Closing days are the same in every school
+        $closingDays = $em->getRepository('ItechSupItechSisBundle:ClosingDay')->findAll();
+        foreach ($closingDays as $closingDay) {
+            $data[] = [
+                'title' => $closingDay->getReason(),
+                'start' => $closingDay->getClosingDate()->format(\DateTime::RFC3339),
+                'end' => $closingDay->getClosingDate()->modify('+1 day')->format(\DateTime::RFC3339),
+                'backgroundColor' => 'yellow',
+                'rendering' => 'background'
+            ];
+        }
+
+
+        // Now we try and get actual courses
+        $courses = $entity->getTimeSlots();
+        foreach ($courses as $course) {
+            //punctual or periodic ?
+            if ($course->isPunctual()) {
+                $data[] = [
+                    'title' => 'Cours',
+                    'start' => $course->getStartDateTime()->format(\DateTime::RFC3339),
+                    'end' => $course->getEndDateTime()->format(\DateTime::RFC3339),
+                    'backgroundColor' => 'teal',
+                ];
+            } else {
+                foreach ($daterange as $date) {
+//                    die($date->format('N').' === '.$course->getDayOfWeek());
+                    if ($date->format('N') == $course->getDayOfWeek()) {
+                        $data[] = [
+                            'title' => 'Cours',
+                            'start' => $course->getStartDateTime($date)->format(\DateTime::RFC3339),
+                            'end' => $course->getEndDateTime($date)->format(\DateTime::RFC3339),
+                            'backgroundColor' => 'blue',
+                        ];
+                    }
+                }
+            }
+        }
+
+        return new Response(json_encode($data));
+
+
     }
 
     // /**

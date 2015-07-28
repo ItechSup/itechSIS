@@ -10,6 +10,10 @@
         {{ form_row(edit_form.school) }}
         <button type="submit" class="btn btn-default">Mettre à jour</button>
         <a class="btn btn-default" href="{{ path('formation') }}">Retour à la liste</a>
+        <a class="btn btn-default" href="{{ path('punctualtimeslot_new', {'id': entity.id }) }}">Ajouter un cours
+            ponctuel</a>
+        <a class="btn btn-default" href="{{ path('periodictimeslot_new', {'id': entity.id }) }}">Ajouter un cours
+            périodique</a>
         {{ form_end(edit_form) }}
     </div>
 {% endblock %}
